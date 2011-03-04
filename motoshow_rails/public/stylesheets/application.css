@@ -1,44 +1,31 @@
-div#main {
-    background: url(img/main_bg.png)
-}
+#main {
+  background: url(/images/main_bg.png); }
 
-div#event {
-  background: url(img/event_bg.png) 
-}
-
-div#buttons {
+#buttons {
   width: 100%;
-  height: 69px;  
-  margin-top: 328px;
-  border: 0px solid red;
-  
-}
-
-div#buttons ul {
-  margin: 0px;
-  border: 1px solid white;
-}
-
-div#buttons li {
-  float: left;
-  padding-left: 10px;
-  width: 69px;
   height: 69px;
+  margin-top: 328px;
+  border: 0px solid red; }
+
+#event {
+  background: url(/images/event_bg.png); }
+
+#buttons ul {
   margin: 0px;
-}
-
-div#buttons li.main_btn1 {
-  background: url(img/main_btn1.png) no-repeat
-}
-
-div#buttons li.main_btn2 {
-  background: url(img/main_btn2.png) no-repeat
-}
-
-div#buttons li.main_btn3 {
-  background: url(img/main_btn3.png) no-repeat
-}
-div#buttons li a {
-  display: block; 
-  height: 69px; 
-}
+  border: 1px solid white; }
+  #buttons ul li {
+    display: inline;
+    float: left;
+    padding-left: 10px;
+    width: 69px;
+    height: 69px;
+    margin: 0px; }
+  #buttons ul li.main_btn1 {
+    background: url(/images/main_btn1.png) no-repeat; }
+  #buttons ul li.main_btn2 {
+    background: url(/images/main_btn3.png) no-repeat; }
+  #buttons ul li.main_btn3 {
+    background: url(/images/main_btn3.png) no-repeat; }
+    #buttons ul li.main_btn3 a {
+      display: block;
+      height: 69px; }
