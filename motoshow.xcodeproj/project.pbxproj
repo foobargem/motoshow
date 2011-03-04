@@ -387,7 +387,7 @@
 					"-Obj-C",
 				);
 				PREBINDING = NO;
-				SDKROOT = iphonesimulator4.1;
+				SDKROOT = iphoneos4.1;
 				USER_HEADER_SEARCH_PATHS = "$(PHONEGAPLIB)/Classes/JSON $(PHONEGAPLIB)/Classes";
 			};
 			name = Debug;
@@ -407,7 +407,7 @@
 					"-Obj-C",
 				);
 				PREBINDING = NO;
-				SDKROOT = iphonesimulator4.1;
+				SDKROOT = iphoneos4.1;
 				USER_HEADER_SEARCH_PATHS = "$(PHONEGAPLIB)/Classes/JSON $(PHONEGAPLIB)/Classes";
 			};
 			name = Release;

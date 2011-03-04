@@ -1,0 +1,50 @@
+#dday:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden; }
+* + html #dday {
+  display: inline-block; }
+#dday ul {
+  display: inline;
+  float: left; }
+  #dday ul li.dday_d {
+    display: inline;
+    float: left;
+    margin-top: 149px;
+    margin-left: 53px; }
+  #dday ul li.dday_count {
+    display: inline;
+    float: left;
+    margin-top: 149px;
+    margin-left: 48px; }
+
+#buttons {
+  width: 100%;
+  height: 69px;
+  margin-top: 95px;
+  border: 0px solid red; }
+  #buttons:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden; }
+  * + html #buttons {
+    display: inline-block; }
+  #buttons ul {
+    display: inline;
+    float: left;
+    margin-left: 40px; }
+    #buttons ul li {
+      display: inline;
+      float: left;
+      width: 69px;
+      height: 69px;
+      margin-left: 10px; }
+  #buttons a {
+    display: block;
+    height: 69px; }
