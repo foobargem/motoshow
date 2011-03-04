@@ -78,4 +78,13 @@
 	[ super dealloc ];
 }
 
++ (NSString *)wwwFolderName {
+  return @"www/before";
+}
+
++ (NSString *)startPage {
+  return @"index.html";
+}
+
+
 @end
