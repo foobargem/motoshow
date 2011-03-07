@@ -2,65 +2,91 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        
-        <title>2011서울모토쇼</title>
-        <style type="text/css" media="screen">@import "../../../jqtouch/jqtouch.css";</style>
-        <style type="text/css" media="screen">@import "../../../themes/jqt/theme.css";</style>
-        <style type="text/css" media="screen">@import "../../../extensions/jqt.photo.css";</style>
-        <style type="text/css" media="screen">@import "../../../stylesheets/ing_application.css";</style>
-
-        <script src="../../../jqtouch/jquery.1.4.2.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
-        <script src="../../../extensions/jqt.photo.js" type="application/x-javascript" charset="utf-8"></script>
+        <title>Wonderwall</title>
+<style type="text/css" media="screen">@import "../../../jqtouch_gallery/jqtouch.min.css";</style>
+<style type="text/css" media="screen">@import "../../../themes/jqt/theme.css";</style>
+<style type="text/css" media="screen">@import "../../../themes/jqt/gallery.css";</style>
         <script src="../../../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
 
+		<script type="text/javascript" src="../../../jqtouch_gallery/jquery.min.js"></script>
+        <script src="../../../jqtouch_gallery/jqtouch.min.js" type="application/x-javascript" charset="utf-8"></script>
         <script type="text/javascript" charset="utf-8">
-            //change dynamic css
-            var jQT = new $.jQTouch({
-                slideSelector: '#jqt li a, .slide',
-				        icon: '../../../images/jqtouch.png',
-                addGlossToIcon: false,
-                startupScreen: '../../../images/jqt_startup.png',
-                statusBar: 'black',
-                preloadImages: [
-                    '../../../themes/jqt/img/back_button.png',
-                    '../../../themes/jqt/img/back_button_clicked.png',
-                    '../../../themes/jqt/img/button_clicked.png',
-                    '../../../themes/jqt/img/grayButton.png',
-                    '../../../themes/jqt/img/whiteButton.png',
-                    '../../../themes/jqt/img/loading.gif' ]
-            });
-
-
-			$(document).ready(function(){
-
-				$('a[target="_blank"]').click(function() {
-					if (confirm('This link opens in a new window.')) {
-						return true;
-					} else {
-						return false;
-					}
-				});
-
-			});
-
+			var jQT = new $.jQTouch({
+				icon			: '../../../themes_gallery/img/codropsIcon.png',
+				cacheGetRequests: true,
+				addGlossToIcon	: false,
+				startupScreen	: '../../../themes_gallery/img/codropsSplash.png',
+				statusBar		: 'black',
+				preloadImages	: [
+					'../../../themes_gallery/img/back_button.png',
+					'../../../themes_gallery/img/back_button_clicked.png',
+					'../../../themes_gallery/img/button_clicked.png',
+					'../../../themes_gallery/img/grayButton.png',
+					'../../../themes_gallery/img/whiteButton.png',
+					'../../../themes_gallery/img/loading.gif'
+					]
+			}); 
         </script>
+		<script src="../../../extensions/jquery.gallery.js" type="application/x-javascript" charset="utf-8"></script>
+
     </head>
     <body>
-		<div id="jqt">
 
-			<div id="companies">
-				<div class="toolbar">
-					<h1>전시차보기</h1>
-					<a href="../index.html" class="back btn">이전</a>
-				</div>
-				<div class="vertical-scroll use-bottom-toolbar">
-				</div>
-				<div class="toolbar">
-					Banner
-				</div>
-			</div>
+		<div id="thumbs_container" class="current">
+      <div class="toolbar">
+        <h1>전시차보기</h1>
+					<a href="../index.html" rel="external" >이전</a>
+        </div>
+			<div class="loader" style="display:none;"></div>
+			<ul id="thumbs" class="thumbView" style="display:none;">
 
-		</div>
+				<li class="pic"><a href="#photo_container"><img src="../../../images/thumbs/1_sq.jpg" alt="../../../images/cars/1.jpg" title="this is a description"/></a></li>
+				<li class="pic"><a href="#photo_container"><img src="../../../images/thumbs/2_sq.jpg" alt="../../../images/cars/2.jpg" title="great!"/></a></li>
+				<li class="pic"><a href="#photo_container"><img src="../../../images/thumbs/3_sq.jpg" alt="../../../images/cars/3.jpg" title="... and another"/></a></li>
+			</ul>
+      
+
+     
+        </div>
+		  
+      
+      <div id="photo_container">
+            <div class="toolbar">
+              <h1>도요타 Supra</h1>
+              <a class="back" href="#thumbs_container">Photos</a>
+            </div>
+      <div class="vertical-scroll use-bottom-toolbar">
+
+			<div class="loader" style="display:none;"></div>
+			<div id="theimage" class="singleimage">
+
+     
+      </div>
+            				
+        <div id="prev" style="display:none;"></div>
+				<div id="next" style="display:none;"></div>
+			<div class="descriptionWrapper">
+				<p id="description">
+        </p>
+        <div>
+						<a href="http://www.youtube.com/watch?v=oIrfonApHR0" rel="external"><img src="../../../images/view_btn2.png" /></a>
+						<img src="../../../images/view_btn3.png" />
+						<img src="../../../images/view_btn4.png" />
+						<img src="../../../images/view_btn5.png" />
+        </div>
+  
+        <ul class="metal">
+          <li>이름 : K5</li>
+          <li>가격 : 880~1235만원</li>
+          <li>제조사 : 기아</li>
+          <li>차종 : 국산 경형</li>
+          <li>엔진형식 : 카파 1.0 3기통</li>
+          <li>배기량 : 998cc</li>
+          <li>연료 : 가솔린 </li>
+        </ul>
+        </div>
+
+			</div>	
+        </div>
     </body>
 </html>

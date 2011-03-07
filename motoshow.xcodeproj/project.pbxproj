@@ -11,6 +11,9 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		233FAA1E1325055700B6E6D6 /* ChildBrowserCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 233FAA1A1325055700B6E6D6 /* ChildBrowserCommand.m */; };
+		233FAA1F1325055700B6E6D6 /* ChildBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 233FAA1C1325055700B6E6D6 /* ChildBrowserViewController.m */; };
+		233FAA201325055700B6E6D6 /* ChildBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 233FAA1D1325055700B6E6D6 /* ChildBrowserViewController.xib */; };
 		23759E3B131E441000FBC15E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 23759E3A131E441000FBC15E /* Default.png */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		3009C2AC127B894C007F4BC6 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 3009C2AA127B894C007F4BC6 /* icon-72.png */; };
@@ -56,6 +59,11 @@
 		1D3623250D0F684500981E51 /* motoshowAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = motoshowAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* motoshow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = motoshow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		233FAA191325055700B6E6D6 /* ChildBrowserCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBrowserCommand.h; sourceTree = "<group>"; };
+		233FAA1A1325055700B6E6D6 /* ChildBrowserCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserCommand.m; sourceTree = "<group>"; };
+		233FAA1B1325055700B6E6D6 /* ChildBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBrowserViewController.h; sourceTree = "<group>"; };
+		233FAA1C1325055700B6E6D6 /* ChildBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserViewController.m; sourceTree = "<group>"; };
+		233FAA1D1325055700B6E6D6 /* ChildBrowserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChildBrowserViewController.xib; sourceTree = "<group>"; };
 		23759E3A131E441000FBC15E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -209,6 +217,11 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				233FAA191325055700B6E6D6 /* ChildBrowserCommand.h */,
+				233FAA1A1325055700B6E6D6 /* ChildBrowserCommand.m */,
+				233FAA1B1325055700B6E6D6 /* ChildBrowserViewController.h */,
+				233FAA1C1325055700B6E6D6 /* ChildBrowserViewController.m */,
+				233FAA1D1325055700B6E6D6 /* ChildBrowserViewController.xib */,
 			);
 			path = Plugins;
 			sourceTree = SOURCE_ROOT;
@@ -289,6 +302,7 @@
 				3009C2AC127B894C007F4BC6 /* icon-72.png in Resources */,
 				3009C2AD127B894C007F4BC6 /* icon@2x.png in Resources */,
 				23759E3B131E441000FBC15E /* Default.png in Resources */,
+				233FAA201325055700B6E6D6 /* ChildBrowserViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +346,8 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* motoshowAppDelegate.m in Sources */,
+				233FAA1E1325055700B6E6D6 /* ChildBrowserCommand.m in Sources */,
+				233FAA1F1325055700B6E6D6 /* ChildBrowserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
