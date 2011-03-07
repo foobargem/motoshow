@@ -12,8 +12,8 @@
 @interface motoshowAppDelegate : PhoneGapDelegate {
 }
 
-+ (NSString *) wwwFolderName;
-+ (NSString *) startPage;
++ (NSString*)wwwFolderName;
++ (NSString*)startPage;
 
 @end
 

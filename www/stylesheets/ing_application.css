@@ -1,0 +1,29 @@
+div#main {
+  background: url("../images/main_bg2.png") no-repeat; }
+  div#main .buttons_container {
+    margin-top: 247px;
+    text-align: center; }
+    div#main .buttons_container img {
+      margin-right: 4px; }
+      div#main .buttons_container img.last {
+        margin-right: 0; }
+
+div#guide .content-container {
+  min-height: 720px;
+  background: url("../images/itd_contents.png") no-repeat;
+  background-size: 100%; }
+
+div#companies .content-wrapper {
+  min-height: 368px;
+  background: url("../../images/com_bg1.png") no-repeat;
+  background-size: 100%; }
+  div#companies .content-wrapper .content-container {
+    min-height: 42px; }
+  div#companies .content-wrapper .buttons-container .button-wrapper {
+    text-align: center;
+    margin-bottom: 16px; }
+
+div#companies_cars_index ul {
+  margin: 0; }
+  div#companies_cars_index ul li {
+    height: 30px; }

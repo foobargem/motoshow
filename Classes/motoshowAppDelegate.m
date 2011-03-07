@@ -78,12 +78,17 @@
 	[ super dealloc ];
 }
 
-+ (NSString *)wwwFolderName {
-  return @"www/before";
+
++ (NSString*)wwwFolderName {
+	// ToDo: before or ing or late
+	//return @"www/before";
+	
+	return @"www/ing";
 }
 
-+ (NSString *)startPage {
-  return @"index.html";
+
++ (NSString*)startPage {
+	return @"index.html";
 }
 
 

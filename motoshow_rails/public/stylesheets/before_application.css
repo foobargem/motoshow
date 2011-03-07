@@ -1,0 +1,79 @@
+div#main {
+  background: url("../images/main_bg.png") no-repeat; }
+  div#main .counter_container {
+    margin-top: 149px;
+    text-align: center; }
+    div#main .counter_container img {
+      width: 56px;
+      height: 80px; }
+      div#main .counter_container img.dday-d {
+        margin-right: 42px; }
+  div#main .buttons_container {
+    margin-top: 99px;
+    text-align: center; }
+    div#main .buttons_container img {
+      margin-right: 14px; }
+      div#main .buttons_container img.last {
+        margin-right: 0; }
+
+div#event_main form {
+  min-height: 416px;
+  background: url("../images/event/bg1.png") no-repeat;
+  background-size: 100%; }
+  div#event_main form .content-container {
+    min-height: 294px; }
+  div#event_main form .radios-container {
+    text-align: center; }
+    div#event_main form .radios-container input.first {
+      margin-right: 56px; }
+    div#event_main form .radios-container input.second {
+      margin-right: 56px; }
+    div#event_main form .radios-container input.last {
+      margin-right: 34px; }
+  div#event_main form .buttons-container {
+    padding-top: 60px;
+    text-align: center; }
+    div#event_main form .buttons-container input#quiz_request_btn {
+      background: url("../images/event/btn1.png") no-repeat;
+      background-size: 100%;
+      width: 61px;
+      height: 33px;
+      border: 0;
+      padding: 0; }
+
+div#event_correct_answer form {
+  min-height: 416px;
+  background: url("../images/event/bg2.png") no-repeat;
+  background-size: 100%; }
+  div#event_correct_answer form .content-container {
+    min-height: 210px; }
+  div#event_correct_answer form .inputs-container {
+    min-height: 100px;
+    padding-top: 20px;
+    padding-left: 120px; }
+    div#event_correct_answer form .inputs-container input {
+      border: 0;
+      margin: 0;
+      height: 20px;
+      width: 150px; }
+    div#event_correct_answer form .inputs-container .input {
+      padding: 1px; }
+  div#event_correct_answer form .buttons-container {
+    padding-top: 30px;
+    text-align: center; }
+    div#event_correct_answer form .buttons-container input#register_btn {
+      background: url("../images/event/btn1.png") no-repeat;
+      background-size: 100%;
+      width: 61px;
+      height: 33px;
+      border: 0;
+      padding: 0; }
+
+div#event_wrong_answer form {
+  min-height: 416px;
+  background: url("../images/event/bg3.png") no-repeat;
+  background-size: 100%; }
+  div#event_wrong_answer form .content-container {
+    min-height: 214px; }
+  div#event_wrong_answer form .buttons-container {
+    text-align: center; }
