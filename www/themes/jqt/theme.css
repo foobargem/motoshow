@@ -423,6 +423,26 @@ div#jqt.landscape .toolbar > h1 {
     font-weight: bold;
 }
 /* @end */
+/* @group ashton to ashton */
+#jqt ul.ashtontoashton {
+    border-width: 1px 0;
+    margin: 0;
+    padding: 0;
+}
+#jqt ul.ashtontoashton li {
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1e1f21), to(#272729));
+    border-bottom: 0px solid #000;
+    border-top: 0px solid #4a4b4d;
+    font-size: 12px;
+    margin-bottom: 0px;
+}
+
+#jqt ul.ashtontoashton li em {
+    font-weight: normal;
+    font-style: normal;
+}
+/* end */
+
 /* @group Edge to edge */
 #jqt ul.edgetoedge {
     border-width: 1px 0;
