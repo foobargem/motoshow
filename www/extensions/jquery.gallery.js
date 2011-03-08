@@ -242,7 +242,7 @@ $(function(){
 				}
 			}
 		}
-		$image.css({'width':theImage.width+'px','height':theImage.height+'px'});
+		//$image.css({'width':theImage.width+'px','height':theImage.height+'px'});
 	}				
 	
 	/* 

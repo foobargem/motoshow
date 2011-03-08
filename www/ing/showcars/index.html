@@ -7,16 +7,20 @@
         <style type="text/css" media="screen">@import "../../../jqtouch/jqtouch.css";</style>
         <style type="text/css" media="screen">@import "../../../themes/jqt/theme.css";</style>
         <style type="text/css" media="screen">@import "../../../themes/jqt/gallery.css";</style>
-        <style type="text/css" media="screen">@import "../../extensions/scrolling.css";</style>
+        <style type="text/css" media="screen">@import "../../../extensions/scrolling.css";</style>
+        <style type="text/css" media="screen">@import "../../../stylesheets/ing_application.css";</style>
 
         <script src="../../../jqtouch/jquery.1.4.2.js" type="text/javascript" charset="utf-8"></script>
         <script src="../../../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
         <script src="../../../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
      		<script src="../../../extensions/jquery.gallery.js" type="application/x-javascript" charset="utf-8"></script>
-
+	      <script type="text/javascript" charset="utf-8" src="../../../phonegap.0.9.4.js"></script>
+	      <script type="text/javascript" charset="utf-8" src="../../../jqtouch/ChildBrowser.js"></script>
+  
         <script type="text/javascript" charset="utf-8">
             //change dynamic css
             var jQT = new $.jQTouch({
+	              slideSelector: '#jqt li a, .slide',  
 				        icon: '../../../images/jqtouch.png',
                 cacheGetRequests: true,
                 addGlossToIcon: false,
@@ -41,13 +45,18 @@
 						return false;
 					}
 				});
-
+				
+				ChildBrowser.install();
+				
+				window.plugins.childBrowser.showWebPage("http://twitter.com");
+				
 			});
 
         </script>
 
     </head>
-    <body>
+
+<body>
 		
 		<div id="jqt">
 			
@@ -61,57 +70,57 @@
 			  <div class="loader" style="display:none;"></div>
 			
 					<ul id="thumbs" class="thumbView" style="display:none;">
-						<li class="pic"><a href="#photo_container"><img src="../../../images/thumbs/1_sq.jpg" alt="../../../images/cars/1.jpg" /></a></li>
-						<li class="pic"><a href="#photo_container"><img src="../../../images/thumbs/2_sq.jpg" alt="../../../images/cars/2.jpg" /></a></li>
-						<li class="pic"><a href="#photo_container"><img src="../../../images/thumbs/3_sq.jpg" alt="../../../images/cars/3.jpg" /></a></li>
+						<li class="pic"><a href="#photo_container"><img src="../../../images/cars/k5_sq.jpg" alt="../../../images/cars/k5.jpg" /></a></li>
+						<li class="pic"><a href="#photo_container"><img src="../../../images/cars/k7_sq.jpg" alt="../../../images/cars/k7.jpg" /></a></li>
+						<li class="pic"><a href="#photo_container"><img src="../../../images/cars/morning_sq.jpg" alt="../../../images/cars/morning.jpg" /></a></li>
+						<li class="pic"><a href="#photo_container"><img src="../../../images/cars/porte_sq.jpg" alt="../../../images/cars/porte.jpg" /></a></li>
 					</ul>
 
       </div>
 		  
+      
       <div id="photo_container">
+  
         <div class="toolbar">
           <h1>기아자동차</h1>
-          <a class="back" href="#thumbs_container">전시차보기</a>
+          <a class="back" href="#thumbs_container">이전</a>
         </div>
-
+			 
 			  <div class="loader" style="display:none;"></div>
 			  <div id="theimage" class="singleimage"></div>
             				
         <div id="prev" style="display:none;"></div>
 				<div id="next" style="display:none;"></div>
-			  
-			  <div class="descriptionWrapper">
-				<p id="description"></p>
-        
-        <div>
+
+        <div class="buttons_container">
 					<img src="../../../images/view_btn2.png" />
 					<img src="../../../images/view_btn3.png" />
 					<img src="../../../images/view_btn4.png" />
-					<img src="../../../images/view_btn5.png" />
         </div>
 
-        <div class="vertical-scroll use-bottom-toolbar">
         	<div>
-                <ul class="ashtontoashton">
-                    <li><a href="#"><img src="../../../images/view_list5.png">K5</a></li>
-                    <li><a href="#"><img src="../../../images/view_list6.png">880~1,235만원</a></li>
-                    <li><a href="#"><img src="../../../images/view_list7.png">기아</a></li>
-                    <li><a href="#"><img src="../../../images/view_list8.png">국산 경형</a></li>
-                    <li><a href="#"><img src="../../../images/view_list9.png">카파 1.0 3기통</a></li>
-                    <li><a href="#"><img src="../../../images/view_list10.png">998cc</a></li>
-                    <li><a href="#"><img src="../../../images/view_list11.png">가솔린</a></li>
-                    <li><a href="#"><img src="../../../images/view_list12.png">자동 19.0km/l(경형)<p>수동 22.0km/l(경형)</p></a></li>
-                    <li><a href="#"><img src="../../../images/view_list13.png">82hp</a></li>
-                    <li><a href="#"><img src="../../../images/view_list14.png">5인승</a></li>
-                    <li><a href="#"><img src="../../../images/view_list15.png">전륜구동(FF)</a></li>
-                    <li><a href="#"><img src="../../../images/view_list16.png">자동4단, 수동5단</a></li>
-                </ul>
-            </div>
+	          <table id="showcars_info_table">
+	           <tr><td><img src="../../../images/view_list5.png"></td><td><div class="value">K5</div></td></tr>
+	           <tr><td><img src="../../../images/view_list6.png"></td><td>880~1,235만원</td></tr>
+	           <tr><td><img src="../../../images/view_list7.png"></td><td>기아</td></tr>
+	           <tr><td><img src="../../../images/view_list8.png"></td><td>국산 경형</td></tr>
+	           <tr><td><img src="../../../images/view_list9.png"></td><td>카파 1.0 3기통</td></tr>
+	           <tr><td><img src="../../../images/view_list10.png"></td><td>998cc</td></tr>
+	           <tr><td><img src="../../../images/view_list11.png"></td><td>가솔린</td></tr>
+	           <tr><td><img src="../../../images/view_list12.png"></td><td>자동 19.0km/l(경형)<p>수동 22.0km/l(경형)</p></td></tr>
+	           <tr><td><img src="../../../images/view_list13.png"></td><td>82hp</td></tr>
+	           <tr><td><img src="../../../images/view_list14.png"></td><td>5인승</td></tr>
+	           <tr><td><img src="../../../images/view_list15.png"></td><td>전륜구동(FF)</td></tr>
+	           <tr><td><img src="../../../images/view_list16.png"></td><td>자동4단, 수동5단</td></tr>
+	          </table>
+          </div>
+        
         </div>
+      
       </div>
-
+      
     </div>
-
+  
   </div>
 
 </body>

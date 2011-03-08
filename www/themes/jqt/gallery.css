@@ -19,11 +19,11 @@ ul.thumbView{
 ul.thumbView li {
 	float:left;
 	position:relative;
-	width:80px;
+	width:79px;
 	/* height:80px; */
 	border:none;
 	margin:0px;
-	padding:0px;
+	padding:2px;
 	background:transparent;	
 	/* line-height:80px; */
 	overflow:visible;
@@ -33,7 +33,7 @@ ul.thumbView li a {
 	/* height:80px; */
 	margin:0;
 	padding:0;
-	width:80px;
+	width:79px;
 	text-align:center;
     vertical-align:middle;
 	display:table-cell;
@@ -58,12 +58,16 @@ ul.thumbView li a img{
 }
 div.singleimage{
 	text-align:center;
-	width:100%;
+	/* width:100%; */
+	margin-top: 20px;
 }
 div.singleimage img{
-	margin-top:10px;
 	-webkit-box-shadow:2px 2px 8px #000;
 	-moz-box-shadow:2px 2px 8px #000;
+	width:280px;
+	height:125px;
+	margin-left: 16px;
+	margin-right: 16px;
 }
 .descriptionWrapper{
 	height:40px;
@@ -80,7 +84,7 @@ p#description{
 div#prev,div#next{
 	cursor:pointer;
 	position:absolute;
-	top:150px;
+	top:116px;
 	width:16px;
 	height:27px;
 	background-color:black;
@@ -107,4 +111,16 @@ div.loader{
 	left:0px;
 	height:24px;
 }
+
+table#showcars_info_table td {
+  vertical-align: top;
+  color: #c2c2c2;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+table#showcars_info_table tr {
+  height: 15px;
+}
+
 /* @end */

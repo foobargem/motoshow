@@ -1,12 +1,15 @@
 div#main {
   background: url("../images/main_bg2.png") no-repeat; }
-  div#main .buttons_container {
-    margin-top: 247px;
-    text-align: center; }
-    div#main .buttons_container img {
-      margin-right: 4px; }
-      div#main .buttons_container img.last {
-        margin-right: 0; }
+  
+div#main .buttons_container {
+  margin-top: 247px;
+  text-align: center; }
+  
+div#main .buttons_container img {
+    margin-right: 4px; }
+    
+div#main .buttons_container img.last {
+    margin-right: 0; }
 
 div#guide .content-container {
   min-height: 720px;
@@ -23,7 +26,57 @@ div#companies .content-wrapper {
     text-align: center;
     margin-bottom: 16px; }
 
+/* showcars */
+
+div#photo_container {
+  background: url("../../images/com_bg2.png") no-repeat;
+}
+
+div#photo_container .buttons_container {
+  margin-left: 20px;
+}
+
+div#photo_container .buttons_container img {
+  padding: 0px; 
+}
+
 div#companies_cars_index ul {
-  margin: 0; }
-  div#companies_cars_index ul li {
-    height: 30px; }
+  margin: 0; 
+}
+  
+div#companies_cars_index ul li {
+    height: 30px; 
+}
+
+/* sketches */
+
+div#sketches_index {
+  background: url("../../images/com_bg1.png") no-repeat;
+}
+
+div#sketches_index .content-wrapper .content-container {
+  margin-top:42px;
+}
+
+div#sketches_index .content-wrapper .buttons-container .button-wrapper  {
+  margin-top:16px;
+  margin-left:11px;
+}
+
+ul#sketches_movie_list {
+  margin:0px;
+  padding:0px;
+}
+
+div#sketches_model_index {
+  background: url("../../../images/com_bg1.png") no-repeat;
+}
+
+div#sketches_model_index .content-wrapper .content-container {
+  margin-top:42px;
+}
+
+div#sketches_model_index .content-wrapper .buttons-container .button-wrapper  {
+  margin-top:16px;
+  margin-left:11px;
+}
