@@ -13,12 +13,12 @@
         <script src="../../../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
         <script src="../../../extensions/jqt.photo.js" type="application/x-javascript" charset="utf-8"></script>
         <script src="../../../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
-	      <script type="text/javascript" charset="utf-8" src="../../phonegap.0.9.4.js"></script>
+    		<script src="../../../phonegap.0.9.4.min.js" type="text/javascript" charset="utf-8"></script>
 
         <script type="text/javascript" charset="utf-8">
             //change dynamic css
             var jQT = new $.jQTouch({
-                slideSelector: '#jqt li a, .slide, area',
+                slideSelector: '#jqt li a, .slide',
 				        icon: '../../../images/jqtouch.png',
                 addGlossToIcon: false,
                 startupScreen: '../../../images/jqt_startup.png',
@@ -32,19 +32,22 @@
                     '../../../themes/jqt/img/loading.gif' ]
             });
 
+			function onConfirm(button) {
+			    // alert('You selected button ' + button);
+			  window.location.href = "../companies/cars_index.html#companies-cars-show";
+			}
 
 			$(document).ready(function(){
 
-				$('area[target="_webapp"]').click(function() {
-					navigator.notification.alert(
-					    "There was an error connecting to the Internet. Would you like to retry?.",
-					    "No Internet connection",
-					    "No",
-					    "Yes",
-					    {
-
-					    }
+				$('area[target="_webapp"]').click(function(e) {
+			    navigator.notification.confirm(
+			        '',  // message
+			        onConfirm,              // callback to invoke with index of button pressed
+			        '폭스바겐',            // title
+			        '업체정보,전시차 보기,닫기'          // buttonLabels
+			    
 					);
+					
 				});
 
 			});
@@ -66,10 +69,66 @@
 	              <div>
 		              <img src="../../../images/booth_map.png" usemap="#map">
 									<map name="map">
-									  <area shape="rect" target="_webapp" coords="2,73,60,199" href="../companies/cars_index.html#companies_cars_show" title="C-01">
-										<area shape="rect" target="_webapp" coords="84,81,133,126" href="../companies/cars_index.html#companies_cars_show" title="C-01">
-										<area shape="rect" target="_webapp" coords="2,73,60,199" href="../companies/cars_index.html#companies_cars_show" title="C-01">
+										
+                    <!-- 작은 P 블럭 -->
+										
+										<area shape="rect" target="_webapp" coords="83,83,133,126" href="../companies/cars_index.html#companies-cars-show" rel="external" title="P-01">
+										<area shape="rect" target="_webapp" coords="83,83,133,126" href="../companies/cars_index.html#companies_cars_show" title="P-02">										
+										<area shape="rect" target="_webapp" coords="142,83,165,100" href="../companies/cars_index.html#companies_cars_show" title="P-03">										
+										<area shape="rect" target="_webapp" coords="142,109,165,128" href="../companies/cars_index.html#companies_cars_show" title="P-04">										
+										<area shape="rect" target="_webapp" coords="172,83,192,102" href="../companies/cars_index.html#companies_cars_show" title="P-05">										
+										<area shape="rect" target="_webapp" coords="172,109,193,127" href="../companies/cars_index.html#companies_cars_show" title="P-06">										
+										<area shape="rect" target="_webapp" coords="201,83,224,101" href="../companies/cars_index.html#companies_cars_show" title="P-07">										
+										<area shape="rect" target="_webapp" coords="199,108,223,127" href="../companies/cars_index.html#companies_cars_show" title="P-08">										
+										<area shape="rect" target="_webapp" coords="230,82,242,101" href="../companies/cars_index.html#companies_cars_show" title="P-09">										
+										<area shape="rect" target="_webapp" coords="230,109,242,125" href="../companies/cars_index.html#companies_cars_show" title="P-10">
+										
+										<area shape="rect" target="_webapp" coords="293,102,323,128" href="../companies/cars_index.html#companies_cars_show" title="P-24">
+				
+										<area shape="rect" target="_webapp" coords="332,104,364,127" href="../companies/cars_index.html#companies_cars_show" title="C-27">
+										
+										<area shape="rect" target="_webapp" coords="371,102,394,126" href="../companies/cars_index.html#companies_cars_show" title="P-26">
+										<area shape="rect" target="_webapp" coords="402,102,429,126" href="../companies/cars_index.html#companies_cars_show" title="P-27">
+										<area shape="rect" target="_webapp" coords="563,83,596,127" href="../companies/cars_index.html#companies_cars_show" title="P-40">
+										<area shape="rect" target="_webapp" coords="616,70,660,101" href="../companies/cars_index.html#companies_cars_show" title="P-41">
 									
+									  <!-- 제일 큰 외곽 C 블럭 -->
+										
+										<area shape="rect" target="_webapp" coords="2,73,60,199" href="../companies/cars_index.html#companies_cars_show" title="C-01">
+									  <area shape="rect" target="_webapp" coords="5,212,60,325" href="../companies/cars_index.html#companies_cars_show" title="C-02">
+									
+										<area shape="rect" target="_webapp" coords="83,140,139,227" href="../companies/cars_index.html#companies_cars_show" title="C-10">
+										
+										<area shape="rect" target="_webapp" coords="84,240,139,326" href="../companies/cars_index.html#companies_cars_show" title="C-11">	
+										
+										<area shape="rect" target="_webapp" coords="152,140,222,228" href="../companies/cars_index.html#companies_cars_show" title="C-12">	
+										
+										<area shape="rect" target="_webapp" coords="152,240,220,327" href="../companies/cars_index.html#companies_cars_show" title="C-13">		
+										
+										<area shape="rect" target="_webapp" coords="152,240,220,327" href="../companies/cars_index.html#companies_cars_show" title="C-14">	
+										
+										<area shape="rect" target="_webapp" coords="235,141,276,227" href="../companies/cars_index.html#companies_cars_show" title="C-15">	
+										
+										<area shape="rect" target="_webapp" coords="235,240,276,328" href="../companies/cars_index.html#companies_cars_show" title="C-16">	
+										
+										<area shape="rect" target="_webapp" coords="287,240,327,324" href="../companies/cars_index.html#companies_cars_show" title="C-17">		
+										
+										<area shape="rect" target="_webapp" coords="287,240,327,324" href="../companies/cars_index.html#companies_cars_show" title="C-18">		
+										
+										<area shape="rect" target="_webapp" coords="341,141,409,228" href="../companies/cars_index.html#companies_cars_show" title="C-19">		
+																				
+									  <area shape="rect" target="_webapp" coords="421,140,484,228" href="../companies/cars_index.html#companies_cars_show" title="C-20">		
+																			
+									  <area shape="rect" target="_webapp" coords="422,240,483,327" href="../companies/cars_index.html#companies_cars_show" title="C-21">		
+									
+										<area shape="rect" target="_webapp" coords="" href="../companies/cars_index.html#companies_cars_show" title="C-22">		
+
+										<area shape="rect" target="_webapp" coords="287,240,327,324" href="../companies/cars_index.html#companies_cars_show" title="C-23">		
+										
+										<area shape="rect" target="_webapp" coords="287,240,327,324" href="../companies/cars_index.html#companies_cars_show" title="C-24">		
+										
+										<area shape="rect" target="_webapp" coords="287,240,327,324" href="../companies/cars_index.html#companies_cars_show" title="C-25">		
+																																															
 									</map>
 	              </div>
 	            </td>

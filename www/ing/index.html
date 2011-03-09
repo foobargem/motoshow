@@ -6,12 +6,10 @@
         <title>2011서울모토쇼</title>
         <style type="text/css" media="screen">@import "../../jqtouch/jqtouch.css";</style>
         <style type="text/css" media="screen">@import "../../themes/jqt/theme.css";</style>
-        <style type="text/css" media="screen">@import "../../extensions/jqt.photo.css";</style>
         <style type="text/css" media="screen">@import "../../stylesheets/ing_application.css";</style>
 
         <script src="../../jqtouch/jquery.1.4.2.js" type="text/javascript" charset="utf-8"></script>
         <script src="../../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
-        <script src="../../extensions/jqt.photo.js" type="application/x-javascript" charset="utf-8"></script>
         <script src="../../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
 
 	      <script type="text/javascript" charset="utf-8" src="../../phonegap.0.9.4.js"></script>
@@ -47,10 +45,14 @@
 				
 				ChildBrowser.install();
 				
+				$('a.toprider').click(function() {
+				  window.plugins.childBrowser.showWebPage("http://m.top-rider.com");
+        });
+				
 				$('a.twitter').click(function() {
 				  window.plugins.childBrowser.showWebPage("http://twitter.com");
         });
-				
+
 			});
 
         </script>
@@ -68,7 +70,7 @@
 					<div>
 						<a href="showcars/index.html" rel="external"><img src="../../images/main_btn6.png" /></a>
 						<a href="sketches/index.html" rel="external"><img src="../../images/main_btn7.png" /></a>
-						<a href="#" rel="external"><img src="../../images/main_btn8.png" /></a>
+						<a href="#" class="toprider"><img src="../../images/main_btn8.png" /></a>
 						<a href="#" class="twitter"><img src="../../images/main_btn9.png" /></a>
 					</div>
 				</div>
