@@ -17,7 +17,7 @@
         <script type="text/javascript" charset="utf-8">
             //change dynamic css
             var jQT = new $.jQTouch({
-                slideSelector: '#jqt li a, .slide',
+                slideSelector: '#jqt li a, .slide, area',
 				        icon: '../../../images/jqtouch.png',
                 addGlossToIcon: false,
                 startupScreen: '../../../images/jqt_startup.png',
@@ -34,7 +34,7 @@
 
 			$(document).ready(function(){
 
-				$('a[target="_blank"]').click(function() {
+				$('area[target="_webapp"]').click(function() {
 					if (confirm('This link opens in a new window.')) {
 						return true;
 					} else {
@@ -56,9 +56,16 @@
 				</div>
 				<div class="horizontal-scroll">
 					<table class="with-scrollbar">
-              <tr>
-                  <td><div><img src="../../../images/booth_map.png" /></div></td>
-					    </tr>
+            <tr>
+              <td>
+	              <div>
+		              <img src="../../../images/booth_map.png" usemap="#map">
+									<map name="map">
+									  <area shape="rect" target="_webapp" coords="2,73,60,199" href="../companies/cars_index.html#companies_cars_show" title="C-01">
+									</map>
+	              </div>
+	            </td>
+					  </tr>
 					</table>
 				</div>
 			</div>

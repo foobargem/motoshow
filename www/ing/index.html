@@ -14,8 +14,8 @@
         <script src="../../extensions/jqt.photo.js" type="application/x-javascript" charset="utf-8"></script>
         <script src="../../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
 
-	      <script type="text/javascript" charset="utf-8" src="../../../phonegap.0.9.4.js"></script>
-	      <script type="text/javascript" charset="utf-8" src="../../../jqtouch/ChildBrowser.js"></script>
+	      <script type="text/javascript" charset="utf-8" src="../../phonegap.0.9.4.js"></script>
+	      <script type="text/javascript" charset="utf-8" src="../../jqtouch/ChildBrowser.js"></script>
 	
         <script type="text/javascript" charset="utf-8">
             //change dynamic css
@@ -45,8 +45,11 @@
 					}
 				});
 				
-
- 
+				ChildBrowser.install();
+				
+				$('a.twitter').click(function() {
+				  window.plugins.childBrowser.showWebPage("http://twitter.com");
+        });
 				
 			});
 
@@ -66,7 +69,7 @@
 						<a href="showcars/index.html" rel="external"><img src="../../images/main_btn6.png" /></a>
 						<a href="sketches/index.html" rel="external"><img src="../../images/main_btn7.png" /></a>
 						<a href="#" rel="external"><img src="../../images/main_btn8.png" /></a>
-						<a href="#" class="twitter" ><img src="../../images/main_btn9.png" class="last" /></a>
+						<a href="#" class="twitter"><img src="../../images/main_btn9.png" /></a>
 					</div>
 				</div>
 			</div>
