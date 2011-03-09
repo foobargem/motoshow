@@ -14,6 +14,12 @@ SMS.API = {
     showURL: function(id) {
       return SMS.baseURL + '/companies/' + id + '.json';
     }
+  },
+
+  Video: {
+    indexURL: function() {
+      return SMS.baseURL + "/videos.json";
+    }
   }
 
 };
