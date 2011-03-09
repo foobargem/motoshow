@@ -81,9 +81,9 @@
 
 + (NSString*)wwwFolderName {
 	// ToDo: before or ing or late
-	//return @"www/before";
+	return @"www/before";
 	
-	return @"www/ing";
+	//return @"www/ing";
 }
 
 
