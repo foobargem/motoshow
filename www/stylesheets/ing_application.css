@@ -1,82 +1,119 @@
 div#main {
-  background: url("../images/main_bg2.png") no-repeat; }
-  
-div#main .buttons_container {
-  margin-top: 247px;
-  text-align: center; }
-  
-div#main .buttons_container img {
-    margin-right: 4px; }
-    
-div#main .buttons_container img.last {
-    margin-right: 0; }
+  background: url(../../images/main_bg2.png) no-repeat; }
+  div#main .buttons_container {
+    margin-top: 247px;
+    text-align: center; }
+    div#main .buttons_container img {
+      margin-right: 4px; }
+      div#main .buttons_container img.last {
+        margin-right: 0; }
 
 div#guide .content-container {
   min-height: 720px;
-  background: url("../images/itd_contents.png") no-repeat;
+  background: url(../../images/itd_contents.png) no-repeat;
   background-size: 100%; }
 
-div#companies .content-wrapper {
+div#companies_main .content-wrapper {
   min-height: 368px;
-  background: url("../../images/com_bg1.png") no-repeat;
+  background: url(../../images/com_bg1.png) no-repeat;
   background-size: 100%; }
-  div#companies .content-wrapper .content-container {
+  div#companies_main .content-wrapper .content-container {
     min-height: 42px; }
-  div#companies .content-wrapper .buttons-container .button-wrapper {
+  div#companies_main .content-wrapper .buttons-container .button-wrapper {
     text-align: center;
     margin-bottom: 16px; }
 
-/* showcars */
+div#companies_index .content-wrapper {
+  background: url(../../images/com_bg2.png) repeat-y;
+  background-size: 100%;
+  min-height: 372px; }
+  div#companies_index .content-wrapper .content-container ul {
+    margin: 0; }
+    div#companies_index .content-wrapper .content-container ul li {
+      height: 30px; }
 
-div#photo_container {
-  background: url("../../images/com_bg2.png") no-repeat;
-}
-
-div#photo_container .buttons_container {
-  margin-left: 20px;
-}
-
-div#photo_container .buttons_container img {
-  padding: 0px; 
-}
-
-div#companies_cars_index ul {
-  margin: 0; 
-}
-  
-div#companies_cars_index ul li {
-    height: 30px; 
-}
-
-/* sketches */
-
-div#sketches_index {
-  background: url("../../images/com_bg1.png") no-repeat;
-}
-
-div#sketches_index .content-wrapper .content-container {
-  margin-top:42px;
-}
-
-div#sketches_index .content-wrapper .buttons-container .button-wrapper  {
-  margin-top:16px;
-  margin-left:11px;
-}
-
-ul#sketches_movie_list {
-  margin:0px;
-  padding:0px;
-}
-
-div#sketches_model_index {
-  background: url("../../../images/com_bg1.png") no-repeat;
-}
-
-div#sketches_model_index .content-wrapper .content-container {
-  margin-top:42px;
-}
-
-div#sketches_model_index .content-wrapper .buttons-container .button-wrapper  {
-  margin-top:16px;
-  margin-left:11px;
-}
+div#companies_show .content-wrapper {
+  background: url(../../images/com_bg2.png) repeat-y;
+  background-size: 100%; }
+  div#companies_show .content-wrapper:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden; }
+  * + html div#companies_show .content-wrapper {
+    display: inline-block; }
+    .IE * + html div#companies_show .content-wrapper {
+      height: 1%; }
+  div#companies_show .content-wrapper .top-blank-box {
+    min-height: 21px; }
+  div#companies_show .content-wrapper .photo-container:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden; }
+  * + html div#companies_show .content-wrapper .photo-container {
+    display: inline-block; }
+    .IE * + html div#companies_show .content-wrapper .photo-container {
+      height: 1%; }
+  div#companies_show .content-wrapper .photo-container .prev-btn-container {
+    display: inline;
+    float: left;
+    width: 16px;
+    margin-right: 2px; }
+    div#companies_show .content-wrapper .photo-container .prev-btn-container img {
+      margin-top: 52px; }
+  div#companies_show .content-wrapper .photo-container .logo-image-container {
+    display: inline;
+    float: left;
+    width: 282px;
+    min-height: 145px;
+    text-align: center;
+    vertical-align: middle;
+    background: url(../../images/view_load1.png) no-repeat;
+    background-size: 100%; }
+    div#companies_show .content-wrapper .photo-container .logo-image-container img {
+      margin-top: 2px;
+      border: 0; }
+  div#companies_show .content-wrapper .photo-container .next-btn-container {
+    display: inline;
+    float: left;
+    width: 16px;
+    margin-left: 2px; }
+    div#companies_show .content-wrapper .photo-container .next-btn-container img {
+      margin-top: 52px; }
+  div#companies_show .content-wrapper .content-container {
+    min-height: 206px; }
+    div#companies_show .content-wrapper .content-container .field-wrapper {
+      margin-bottom: 3px; }
+      div#companies_show .content-wrapper .content-container .field-wrapper:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        overflow: hidden;
+        visibility: hidden; }
+      * + html div#companies_show .content-wrapper .content-container .field-wrapper {
+        display: inline-block; }
+        .IE * + html div#companies_show .content-wrapper .content-container .field-wrapper {
+          height: 1%; }
+      div#companies_show .content-wrapper .content-container .field-wrapper label {
+        display: inline;
+        float: left;
+        width: 54px;
+        padding-left: 20px; }
+      div#companies_show .content-wrapper .content-container .field-wrapper div {
+        display: inline;
+        float: left;
+        width: 226px;
+        padding: 0 8px;
+        font-size: 12px;
+        color: #c2c2c2; }
+    div#companies_show .content-wrapper .content-container .site-link-wrapper {
+      text-align: center;
+      margin: 15px 0; }
+      div#companies_show .content-wrapper .content-container .site-link-wrapper img {
+        border: 0; }

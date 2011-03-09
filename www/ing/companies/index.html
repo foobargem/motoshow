@@ -11,7 +11,6 @@
 
         <script src="../../../jqtouch/jquery.1.4.2.js" type="text/javascript" charset="utf-8"></script>
         <script src="../../../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
-        <script src="../../../extensions/jqt.photo.js" type="application/x-javascript" charset="utf-8"></script>
         <script src="../../../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
 
         <script type="text/javascript" charset="utf-8">
@@ -33,15 +32,6 @@
 
 
 			$(document).ready(function(){
-
-				$('a[target="_blank"]').click(function() {
-					if (confirm('This link opens in a new window.')) {
-						return true;
-					} else {
-						return false;
-					}
-				});
-
 			});
 
         </script>
@@ -49,28 +39,23 @@
     <body>
 		<div id="jqt">
 
-			<div id="companies">
+			<div id="companies_main">
 				<div class="toolbar">
 					<h1>참가업체</h1>
-					<a href="../index.html" class="back btn">이전</a>
+					<a href="../index.html" rel="external" class="back btn">이전</a>
 				</div>
-				<div class="vertical-scroll use-bottom-toolbar"><div>
-					<div class="content-wrapper">
-
-						<div class="content-container"></div>
-
-						<div class="buttons-container">
-							<div class="button-wrapper first-wrapper">
-								<a href="cars_index.html" rel="external"><img src="../../../images/sub_btn1.png" /></a>
-							</div>
-							<div class="button-wrapper">
-								<a href="cars_index.html" rel="external"><img src="../../../images/sub_btn2.png" /></a>
-							</div>
-							<div class="button-wrapper">
-								<a href="cars_index.html" rel="external"><img src="../../../images/sub_btn3.png" /></a>
-							</div>
+				<div class="vertical-scroll use-bottom-toolbar"><div class="content-wrapper" style="background:url('../../../images/com_bg1.png') no-repeat;background-size:100%">
+					<div class="content-container"></div>
+					<div class="buttons-container">
+						<div class="button-wrapper first-wrapper">
+							<a href="companies_index_show.html#car" rel="external"><img src="../../../images/sub_btn1.png" /></a>
 						</div>
-
+						<div class="button-wrapper">
+							<a href="companies_index_show.html#component" rel="external"><img src="../../../images/sub_btn2.png" /></a>
+						</div>
+						<div class="button-wrapper">
+							<a href="companies_index_show.html#goods" rel="external"><img src="../../../images/sub_btn3.png" /></a>
+						</div>
 					</div>
 				</div></div>
 				<div class="toolbar">
