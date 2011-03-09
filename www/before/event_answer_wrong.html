@@ -14,7 +14,6 @@
         <script src="../../extensions/jqt.photo.js" type="application/x-javascript" charset="utf-8"></script>
         <script src="../../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
 		<script src="../../phonegap.0.9.4.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
 
         <script type="text/javascript" charset="utf-8">
             //change dynamic css
@@ -34,33 +33,12 @@
             });
 
 
-			function resetDDayCounter() {
-				var today = new Date();
-				var raw_value = 31 - today.getDate();
-
-				var first_suffix = Math.floor(raw_value / 10);
-				var last_suffix = (raw_value % 10);
-
-				$("#main img#first-count-img")[0].src = "../../images/main_dday_" + first_suffix + ".png";
-				$("#main img#last-count-img")[0].src = "../../images/main_dday_" + last_suffix + ".png";
-			}
-
-			function openTwitter(button) {
-				if (button == 1) {
-					window.plugins.childBrowser.showWebPage("http://twitter.com");
-				} else {
-					return false;
-				}
-			}
-
-
 			$(document).ready(function(){
-				ChildBrowser.install();
-				resetDDayCounter();
 
-				$("#twitter_btn").bind("click", function(e){
-					navigator.notification.confirm("트위터 페이지는\n새창으로 띄울것입니다.\n동의하십니까?", openTwitter);
+				$("#show_hint_btn").click(function(e){
+					navigator.notification.alert("힌틀르 주세요", null, "Quiz Hint");
 				});
+
 			});
 
         </script>
@@ -68,19 +46,23 @@
     <body>
 		<div id="jqt">
 
-			<div id="main">
-				<div class="counter_container">
-					<img src="../../images/main_dday_d.png" class="dday-d" />
-					<img src="../../images/main_dday_0.png" id="first-count-img" />
-					<img src="../../images/main_dday_0.png" id="last-count-img" />
+			<div id="event_wrong_answer">
+				<div class="toolbar">
+					<h1>이벤트</h1>
+					<a href="event.html" rel="external" class="back btn">이전</a>
 				</div>
-
-				<div class="buttons_container">
-					<a href="guide.html" rel="external"><img src="../../images/main_btn1.png" /></a>
-					<a href="event.html" rel="external"><img src="../../images/main_btn2.png" /></a>
-					<img src="../../images/main_btn3.png" class="last" id="twitter_btn" />
+				<div class="vertical-scroll use-bottom-toolbar"><div class="content-wrapper">
+					<div class="content-container">
+					</div>
+					<div class="buttons-container">
+						<img src="../../images/event/btn3.png" width="171" id="show_hint_btn" />
+					</div>
+				</div></div>
+				<div class="toolbar">
+					Banner
 				</div>
 			</div>
+
 
 		</div>
     </body>
