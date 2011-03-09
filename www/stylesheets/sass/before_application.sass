@@ -19,8 +19,16 @@ div#main
         :margin-right 0
 
 
-div#event_main
-  form
+div#guide
+  .content-container
+    :min-height 720px
+    :background url("../images/itd_contents.png") no-repeat
+    :background-size 100%
+
+
+
+form#event_main
+  .content-wrapper
     :min-height 416px
     :background url("../images/event/bg1.png") no-repeat
     :background-size 100%
@@ -45,8 +53,8 @@ div#event_main
         :border 0
         :padding 0
 
-div#event_correct_answer
-  form
+form#event_correct_answer
+  .content-wrapper
     :min-height 416px
     :background url("../images/event/bg2.png") no-repeat
     :background-size 100%
@@ -66,17 +74,13 @@ div#event_correct_answer
     .buttons-container
       :padding-top 30px
       :text-align center
-      input#register_btn
-        :background url("../images/event/btn1.png") no-repeat
-        :background-size 100%
-        :width 61px
-        :height 33px
+      img#register_btn
         :border 0
         :padding 0
         
 
 div#event_wrong_answer
-  form
+  .content-wrapper
     :min-height 416px
     :background url("../images/event/bg3.png") no-repeat
     :background-size 100%
