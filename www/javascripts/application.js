@@ -20,6 +20,15 @@ SMS.API = {
     indexURL: function() {
       return SMS.baseURL + "/videos.json";
     }
+  },
+
+  Photo: {
+    indexURL: function() {
+      return SMS.baseURL + "/photos.json";
+    },
+    showURL: function(id) {
+      return SMS.baseURL + "/photos/" + id + ".json";
+    }
   }
 
 };

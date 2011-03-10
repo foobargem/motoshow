@@ -12,6 +12,9 @@
   <script src="../../../../jqtouch/jquery.1.4.2.js" type="text/javascript" charset="utf-8"></script>
   <script src="../../../../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
   <script src="../../../../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../phonegap.0.9.4.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/suddenlybunt_command.js" type="text/javascript" charset="utf-8"></script>
 
   <script type="text/javascript" charset="utf-8">
     //change dynamic css
@@ -31,7 +34,102 @@
     });
 
 
+
+    function fetch_and_update_photos_list() {
+      var _url = SMS.API.Photo.indexURL();
+
+      jQuery.ajax({
+        url: _url,
+        type: 'GET',
+        data: {
+        },
+        success: function(msg){
+          buildList(msg);
+          updateListRowStyles();
+          addEventListenerToRow();
+        }
+      });
+    }
+
+
+    function makeImageURL(url) {
+      return SMS.baseURL + "/" + url;
+    }
+
+
+    function buildList (msg) {
+      var li_eles = '';
+      var li_class = '';
+      jQuery.each(msg, function(idx, obj){
+        var photo = obj['photo'];
+
+        li_className = '';
+        if (idx > 0 && idx % 3 == 0) {
+          li_className = 'line-break';
+        }
+        //window.plugins.suddenlybuntCmd.debug(li_className);
+
+        li_eles += '<li class="' + li_className + '"><a href="#exhibition_photo_show" class="detail-link" data-id="' + photo.id + '"><img src="' + makeImageURL(photo.thumb_url) + '" /></a></li>';
+      });
+
+      $("#exhibition_gallery div.thumbnail-container ul").html(li_eles);
+    }
+
+
+    function updateListRowStyles () {
+      $("li:even").css("background", 'url("../../../images/sub_list1.png") no-repeat');
+      $("li:even").css("background-size", "100%");
+
+      $("li:odd").css("background", 'url("../../../images/sub_list2.png") no-repeat');
+      $("li:odd").css("background-size", "100%");
+    }
+
+    function addEventListenerToRow () {
+      $("a.detail-link").bind("click", function(event){
+        event.preventDefault();
+        var photo_id = $(event.currentTarget).attr("data-id");
+        //window.plugins.suddenlybuntCmd.debug(photo_id);
+        fetchPhoto(photo_id);
+      });
+    }
+
+
+    function fetchPhoto(photo_id) {
+      var _url = SMS.API.Photo.showURL(photo_id);
+
+      jQuery.ajax({
+        url: _url,
+        type: 'GET',
+        data: {
+        },
+        success: function(msg){
+          updatePhotoInfo(msg);
+        }
+      });
+
+    }
+
+
+//
+    function updatePhotoInfo(data) {
+
+      var photo = data.photo;
+
+      //window.plugins.suddenlybuntCmd.debug(photo.thumb_url);
+
+      $("#exhibition_photo_show div.photo-container img")[0].src = makeImageURL(photo.thumb_url);
+
+    }
+
+
+
+
     $(document).ready(function(){
+
+      SuddenlybuntCmd.install();
+
+      fetch_and_update_photos_list();
+
     });
 
 </script>
@@ -46,15 +144,11 @@
       <h1>전시회 사진</h1>
       <a href="../index.html" rel="external" class="back btn">이전</a>
     </div>
-    <div class="loader" style="display:none"></div>
+    <div class="loader" style="display:block"></div>
     <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../../../images/com_bg2.png) repeat-y;background-size:100%">
 
       <div class="thumbnail-container">
-        <ul>
-          <li><a href="#exhibition_photo_show"><img src="http://farm1.static.flickr.com/2/1713960_26102b014d_s.jpg" /></a></li>
-          <li><a href="#exhibition_photo_show"><img src="http://farm1.static.flickr.com/2/1713960_26102b014d_s.jpg" /></a></li>
-        </ul>
-
+        <ul><!-- photo gallery --></ul>
       </div>
 
     </div></div>
@@ -70,7 +164,7 @@
     <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../../../images/com_bg2.png) repeat;background-size:100%">
 
       <div class="photo-container">
-        <img src="http://farm1.static.flickr.com/2/1713960_26102b014d_o.jpg" width="320" />
+        <img src="about:blank" width="320" />
       </div>
 
     </div></div>
