@@ -151,3 +151,43 @@ div#sketches_model_index
       :margin-left 11px
 
 
+
+div#exhibition_gallery
+  .content-wrapper
+    :min-height 400px
+    :background url(../../../images/com_bg2.png) repeat-y
+    :background-size 100%
+    .thumbnail-container
+      :padding-top 20px
+      ul
+        +clearfix
+        :width 290px
+        :background none
+        :margin 0 0 0 15px
+        :border 0 solid red
+        li
+          +float_left
+          :background none
+          :display inline
+          :height 65px
+          :width 65px
+          :padding 0
+          :margin 0 10px 10px 0
+          :border 0 solid green
+          &.line-break
+            :margin-right 0
+        img
+          :border 0
+          :width 65px
+          :height 65px
+
+
+div#exhibition_photo_show
+  .content-wrapper
+    :min-height 400px
+    :background url(../../../images/com_bg2.png) repeat
+    :background-size 100%
+    .photo-container
+      :width 320px
+
+

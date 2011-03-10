@@ -152,3 +152,49 @@ div#sketches_model_index {
   div#sketches_model_index .buttons-container .button-wrapper {
     margin-top: 16px;
     margin-left: 11px; }
+
+div#exhibition_gallery .content-wrapper {
+  min-height: 400px;
+  background: url(../../../images/com_bg2.png) repeat-y;
+  background-size: 100%; }
+  div#exhibition_gallery .content-wrapper .thumbnail-container {
+    padding-top: 20px; }
+    div#exhibition_gallery .content-wrapper .thumbnail-container ul {
+      width: 290px;
+      background: none;
+      margin: 0 0 0 15px;
+      border: 0 solid red; }
+      div#exhibition_gallery .content-wrapper .thumbnail-container ul:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        overflow: hidden;
+        visibility: hidden; }
+      * + html div#exhibition_gallery .content-wrapper .thumbnail-container ul {
+        display: inline-block; }
+        .IE * + html div#exhibition_gallery .content-wrapper .thumbnail-container ul {
+          height: 1%; }
+      div#exhibition_gallery .content-wrapper .thumbnail-container ul li {
+        display: inline;
+        float: left;
+        background: none;
+        display: inline;
+        height: 65px;
+        width: 65px;
+        padding: 0;
+        margin: 0 10px 10px 0;
+        border: 0 solid green; }
+        div#exhibition_gallery .content-wrapper .thumbnail-container ul li.line-break {
+          margin-right: 0; }
+      div#exhibition_gallery .content-wrapper .thumbnail-container ul img {
+        border: 0;
+        width: 65px;
+        height: 65px; }
+
+div#exhibition_photo_show .content-wrapper {
+  min-height: 400px;
+  background: url(../../../images/com_bg2.png) repeat;
+  background-size: 100%; }
+  div#exhibition_photo_show .content-wrapper .photo-container {
+    width: 320px; }
