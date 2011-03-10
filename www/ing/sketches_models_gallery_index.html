@@ -195,8 +195,9 @@
         $("#model_career_desc").hide();
       }
 
+      //window.plugins.suddenlybuntCmd.debug(model.photo_large_url);
       if (model.photo_large_url && model.photo_large_url.trim() != "") {
-        $("#model_profile_image")[0].src = SMS.baseURL + "/" + model.photo_large_url;
+        $("#model_profile_image")[0].src = model.photo_large_url;
       } else {
         $("#model_profile_image")[0].src = "about:blank";
       }
