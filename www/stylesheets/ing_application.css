@@ -117,3 +117,32 @@ div#companies_show .content-wrapper {
       margin: 15px 0; }
       div#companies_show .content-wrapper .content-container .site-link-wrapper img {
         border: 0; }
+
+/* showcars */
+div#photo_container {
+  background: url("../../images/com_bg2.png") no-repeat; }
+  div#photo_container .buttons_container {
+    margin-left: 20px; }
+  div#photo_container .buttons_container img {
+    padding: 0px; }
+
+/* sketches */
+div#sketches_index {
+  background: url("../../images/com_bg1.png") no-repeat; }
+  div#sketches_index .content-wrapper .content-container {
+    margin-top: 42px; }
+  div#sketches_index .content-wrapper .buttons-container .button-wrapper {
+    margin-top: 16px;
+    margin-left: 11px; }
+
+ul#sketches_movie_list {
+  margin: 0px;
+  padding: 0px; }
+
+div#sketches_model_index {
+  background: url("../../../images/com_bg1.png") no-repeat; }
+  div#sketches_model_index .content-wrapper .content-container {
+    margin-top: 42px; }
+  div#sketches_model_index .buttons-container .button-wrapper {
+    margin-top: 16px;
+    margin-left: 11px; }
