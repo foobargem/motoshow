@@ -137,13 +137,13 @@ div#sketches_index .content-wrapper {
     text-align: center;
     margin-bottom: 16px; }
 
-div#sketches_movie_index .content-wrapper {
+div#sketches_movie_index .content-wrapper, div#sketches_models_booth_index .content-wrapper {
   background: url(../images/com_bg2.png) repeat-y;
   background-size: 100%;
   min-height: 370px; }
-  div#sketches_movie_index .content-wrapper .content-container ul {
+  div#sketches_movie_index .content-wrapper .content-container ul, div#sketches_models_booth_index .content-wrapper .content-container ul {
     margin: 0; }
-    div#sketches_movie_index .content-wrapper .content-container ul li {
+    div#sketches_movie_index .content-wrapper .content-container ul li, div#sketches_models_booth_index .content-wrapper .content-container ul li {
       height: 30px; }
 
 div#sketches_model_index .content-wrapper {
