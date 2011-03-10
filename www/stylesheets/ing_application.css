@@ -1,5 +1,5 @@
 div#main {
-  background: url("../images/main_bg2.png") no-repeat; }
+  background: url(../../images/main_bg2.png) no-repeat; }
   div#main .buttons_container {
     margin-top: 247px;
     text-align: center; }
@@ -10,12 +10,12 @@ div#main {
 
 div#guide .content-container {
   min-height: 720px;
-  background: url("../images/itd_contents.png") no-repeat;
+  background: url(../../images/itd_contents.png) no-repeat;
   background-size: 100%; }
 
 div#companies_main .content-wrapper {
   min-height: 368px;
-  background: url("../../images/com_bg1.png") no-repeat;
+  background: url(../../images/com_bg1.png) no-repeat;
   background-size: 100%; }
   div#companies_main .content-wrapper .content-container {
     min-height: 42px; }
@@ -33,7 +33,7 @@ div#companies_index .content-wrapper {
       height: 30px; }
 
 div#companies_show .content-wrapper {
-  background: url("../../images/com_bg2.png") repeat-y;
+  background: url(../../images/com_bg2.png) repeat-y;
   background-size: 100%; }
   div#companies_show .content-wrapper:after {
     content: ".";

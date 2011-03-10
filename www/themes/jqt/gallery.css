@@ -61,7 +61,7 @@ div.singleimage{
 	/* width:100%; */
 	margin-top: 20px;
 }
-div.singleimage img{
+div.singleimageCar img{
 	-webkit-box-shadow:2px 2px 8px #000;
 	-moz-box-shadow:2px 2px 8px #000;
 	width:280px;
@@ -69,6 +69,15 @@ div.singleimage img{
 	margin-left: 16px;
 	margin-right: 16px;
 }
+div.singleimageModel img{
+	-webkit-box-shadow:2px 2px 8px #000;
+	-moz-box-shadow:2px 2px 8px #000;
+	width:280px;
+	height:261px;
+	margin-left: 16px;
+	margin-right: 16px;
+}
+
 .descriptionWrapper{
 	height:40px;
 	position:relative;
@@ -121,6 +130,24 @@ table#showcars_info_table td {
 
 table#showcars_info_table tr {
   height: 15px;
+}
+
+table#sketches_model_gallery_info_table td {
+  color: #c2c2c2;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+table#sketches_model_gallery_info_table tr {
+  height: 15px;
+}
+
+div#thumbs_container {
+	background-image:url(../../images/com_bg2.png);
+}
+
+div#photo_container, #thumbs_container {
+	background-image:url(../../images/com_bg2.png);
 }
 
 /* @end */
