@@ -28,8 +28,6 @@
                     '../../../../themes/jqt/img/back_button.png',
                     '../../../../themes/jqt/img/back_button_clicked.png',
                     '../../../../themes/jqt/img/button_clicked.png',
-                    '../../../../themes/jqt/img/grayButton.png',
-                    '../../../../themes/jqt/img/whiteButton.png',
                     '../../../../themes/jqt/img/loading.gif' ]
             });
 
@@ -46,6 +44,7 @@
           success: function(msg){
             buildList(msg);
             updateListRowStyles();
+            addEventListenerToRow();
           }
         });
       }
@@ -55,10 +54,10 @@
         var li_eles = '';
         jQuery.each(msg, function(idx, obj){
           var video = obj['video'];
-          li_eles += '<li class="arrow"><a href="#" class="video-link" data-url="' + video.stream_url + '">' + video.title + '</a></li>';
+          li_eles += '<li class="arrow"><a href="#" class="detail-link" data-url="' + video.stream_url + '">' + video.title + '</a></li>';
         });
 
-        $("#sketches_movie_list").html(li_eles);
+        $("#movie_list").html(li_eles);
       }
 
 
@@ -71,8 +70,20 @@
       }
 
 
+      function addEventListenerToRow () {
+				$("a.detail-link").bind("click", function(event){
+          event.preventDefault();
+          var video_url = $(event.currentTarget).attr("data-url");
+          window.plugins.childBrowser.showWebPage(video_url);
+				});
+      }
+
+
+
 
 			$(document).ready(function(){
+
+        ChildBrowser.install();
 
         fetch_and_update_videos_list();
 
@@ -87,15 +98,35 @@
     <div id="sketches_movie_index">
       <div class="toolbar">
         <h1>동영상 보기</h1>
-        <a href="../index.html" class="back btn">이전</a>
+        <a href="../index.html" rel="external" class="back btn">이전</a>
       </div>
-      <div class="vertical-scroll use-bottom-toolbar">
-        <ul id="sketches_movie_list"></ul>
-      </div>
+      <div class="vertical-scroll use-bottom-toolbar"><div class="content-wrapper" style="background:url(../../../../images/com_bg2.png) repeat-y;background-size:100%">
+        <div class="content-container">
+          <ul id="movie_list"><!-- movies list --></ul>
+        </div>
+      </div></div>
       <div class="toolbar">
         Banner
       </div>
     </div>
+
+
+    <!-- ToDo: next time 
+    <div id="sketches_movie_show">
+      <div class="toolbar">
+        <h1>{movie title}</h1>
+        <a href="" rel="external" class="back btn">이전</a>
+      </div>
+      <div class="vertical-scroll use-bottom-toolbar"><div class="content-wrapper" style="background:url(../../../../images/com_bg2.png) repeat-y;background-size:100%">
+        <div class="content-container">
+          <ul id="movie_list">{{ movies list }}</ul>
+        </div>
+      </div></div>
+      <div class="toolbar">
+        Banner
+      </div>
+    </div>
+    -->
 
   </div>
 		

@@ -135,9 +135,14 @@ div#sketches_index {
     margin-top: 16px;
     margin-left: 11px; }
 
-ul#sketches_movie_list {
-  margin: 0px;
-  padding: 0px; }
+div#sketches_movie_index .content-wrapper {
+  background: url(../../../images/com_bg2.png) repeat-y;
+  background-size: 100%;
+  min-height: 370px; }
+  div#sketches_movie_index .content-wrapper .content-container ul {
+    margin: 0; }
+    div#sketches_movie_index .content-wrapper .content-container ul li {
+      height: 30px; }
 
 div#sketches_model_index {
   background: url("../../../images/com_bg1.png") no-repeat; }
