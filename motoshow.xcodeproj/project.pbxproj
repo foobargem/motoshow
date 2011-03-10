@@ -412,7 +412,7 @@
 				PREBINDING = NO;
 				PROVISIONING_PROFILE = "1D128B50-3445-47CD-BD36-45E118650258";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1D128B50-3445-47CD-BD36-45E118650258";
-				SDKROOT = iphoneos4.2;
+				SDKROOT = iphoneos4.3;
 				USER_HEADER_SEARCH_PATHS = "$(PHONEGAPLIB)/Classes/JSON $(PHONEGAPLIB)/Classes";
 			};
 			name = Debug;
@@ -432,7 +432,7 @@
 					"-Obj-C",
 				);
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.2;
+				SDKROOT = iphoneos4.3;
 				USER_HEADER_SEARCH_PATHS = "$(PHONEGAPLIB)/Classes/JSON $(PHONEGAPLIB)/Classes";
 			};
 			name = Release;
