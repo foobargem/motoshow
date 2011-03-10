@@ -127,13 +127,14 @@ div#photo_container {
     padding: 0px; }
 
 /* sketches */
-div#sketches_index {
-  background: url("../../images/com_bg1.png") no-repeat; }
-  div#sketches_index .content-wrapper .content-container {
-    margin-top: 42px; }
+div#sketches_index .content-wrapper {
+  background: url("../../../images/com_bg1.png") no-repeat;
+  min-height: 370px; }
+  div#sketches_index .content-wrapper .top-blank-box {
+    min-height: 42px; }
   div#sketches_index .content-wrapper .buttons-container .button-wrapper {
-    margin-top: 16px;
-    margin-left: 11px; }
+    text-align: center;
+    margin-bottom: 16px; }
 
 div#sketches_movie_index .content-wrapper {
   background: url(../../../images/com_bg2.png) repeat-y;
