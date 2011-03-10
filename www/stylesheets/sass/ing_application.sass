@@ -1,7 +1,7 @@
 @import mixin
 
 div#main
-  :background url(../../images/main_bg2.png) no-repeat
+  :background url(../images/main_bg2.png) no-repeat
   .buttons_container
     :margin-top 247px
     :text-align center
@@ -14,14 +14,14 @@ div#main
 div#guide
   .content-container
     :min-height 720px
-    :background url(../../images/itd_contents.png) no-repeat
+    :background url(../images/itd_contents.png) no-repeat
     :background-size 100%
 
 
 div#companies_main
   .content-wrapper
     :min-height 368px
-    :background url(../../images/com_bg1.png) no-repeat
+    :background url(../images/com_bg1.png) no-repeat
     :background-size 100%
     .content-container
       :min-height 42px
@@ -33,7 +33,7 @@ div#companies_main
 
 div#companies_index
   .content-wrapper
-    :background url(../../images/com_bg2.png) repeat-y
+    :background url(../images/com_bg2.png) repeat-y
     :background-size 100%
     :min-height 372px
     .content-container
@@ -45,7 +45,7 @@ div#companies_index
 div#companies_show
   .content-wrapper
     +clearfix
-    :background url(../../images/com_bg2.png) repeat-y
+    :background url(../images/com_bg2.png) repeat-y
     :background-size 100%
     .top-blank-box
       :min-height 21px
@@ -63,7 +63,7 @@ div#companies_show
         :min-height 145px
         :text-align center
         :vertical-align middle
-        :background url(../../images/view_load1.png) no-repeat
+        :background url(../images/view_load1.png) no-repeat
         :background-size 100%
         img
           :margin-top 2px
@@ -100,7 +100,7 @@ div#companies_show
 /* showcars */
 
 div#photo_container
-  :background url("../../images/com_bg2.png") no-repeat
+  :background url("../images/com_bg2.png") no-repeat
   .buttons_container
     :margin-left 20px
   .buttons_container
@@ -113,7 +113,7 @@ div#photo_container
 
 div#sketches_index
   .content-wrapper
-    :background url("../../../images/com_bg1.png") no-repeat
+    :background url("../images/com_bg1.png") no-repeat
     :min-height 370px
     .top-blank-box
       :min-height 42px
@@ -127,7 +127,7 @@ div#sketches_index
 
 div#sketches_movie_index
   .content-wrapper
-    :background url(../../../images/com_bg2.png) repeat-y
+    :background url(../images/com_bg2.png) repeat-y
     :background-size 100%
     :min-height 370px
     .content-container
@@ -141,7 +141,7 @@ div#sketches_movie_index
 
 
 div#sketches_model_index
-  :background url("../../../images/com_bg1.png") no-repeat
+  :background url("../images/com_bg1.png") no-repeat
   .content-wrapper
     .content-container
       :margin-top 42px
@@ -149,5 +149,45 @@ div#sketches_model_index
     .button-wrapper
       :margin-top 16px
       :margin-left 11px
+
+
+
+div#exhibition_gallery
+  .content-wrapper
+    :min-height 400px
+    :background url(../../../images/com_bg2.png) repeat-y
+    :background-size 100%
+    .thumbnail-container
+      :padding-top 20px
+      ul
+        +clearfix
+        :width 290px
+        :background none
+        :margin 0 0 0 15px
+        :border 0 solid red
+        li
+          +float_left
+          :background none
+          :display inline
+          :height 65px
+          :width 65px
+          :padding 0
+          :margin 0 10px 10px 0
+          :border 0 solid green
+          &.line-break
+            :margin-right 0
+        img
+          :border 0
+          :width 65px
+          :height 65px
+
+
+div#exhibition_photo_show
+  .content-wrapper
+    :min-height 400px
+    :background url(../../../images/com_bg2.png) repeat
+    :background-size 100%
+    .photo-container
+      :width 320px
 
 

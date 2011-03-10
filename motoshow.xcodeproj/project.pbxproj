@@ -16,6 +16,7 @@
 		233FAA201325055700B6E6D6 /* ChildBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 233FAA1D1325055700B6E6D6 /* ChildBrowserViewController.xib */; };
 		23759E3B131E441000FBC15E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 23759E3A131E441000FBC15E /* Default.png */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		2925578913286F0C004C4B8A /* SuddenlybuntCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2925578813286F0C004C4B8A /* SuddenlybuntCommand.m */; };
 		3009C2AC127B894C007F4BC6 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 3009C2AA127B894C007F4BC6 /* icon-72.png */; };
 		3009C2AD127B894C007F4BC6 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3009C2AB127B894C007F4BC6 /* icon@2x.png */; };
 		301BF552109A68D80062928A /* libPhoneGapLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libPhoneGapLib.a */; };
@@ -66,6 +67,8 @@
 		233FAA1D1325055700B6E6D6 /* ChildBrowserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChildBrowserViewController.xib; sourceTree = "<group>"; };
 		23759E3A131E441000FBC15E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2925578713286F0C004C4B8A /* SuddenlybuntCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuddenlybuntCommand.h; sourceTree = "<group>"; };
+		2925578813286F0C004C4B8A /* SuddenlybuntCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuddenlybuntCommand.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3009C2AA127B894C007F4BC6 /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
 		3009C2AB127B894C007F4BC6 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 				233FAA1B1325055700B6E6D6 /* ChildBrowserViewController.h */,
 				233FAA1C1325055700B6E6D6 /* ChildBrowserViewController.m */,
 				233FAA1D1325055700B6E6D6 /* ChildBrowserViewController.xib */,
+				2925578713286F0C004C4B8A /* SuddenlybuntCommand.h */,
+				2925578813286F0C004C4B8A /* SuddenlybuntCommand.m */,
 			);
 			path = Plugins;
 			sourceTree = SOURCE_ROOT;
@@ -348,6 +353,7 @@
 				1D3623260D0F684500981E51 /* motoshowAppDelegate.m in Sources */,
 				233FAA1E1325055700B6E6D6 /* ChildBrowserCommand.m in Sources */,
 				233FAA1F1325055700B6E6D6 /* ChildBrowserViewController.m in Sources */,
+				2925578913286F0C004C4B8A /* SuddenlybuntCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 div#main {
-  background: url(../../images/main_bg2.png) no-repeat; }
+  background: url(../images/main_bg2.png) no-repeat; }
   div#main .buttons_container {
     margin-top: 247px;
     text-align: center; }
@@ -10,12 +10,12 @@ div#main {
 
 div#guide .content-container {
   min-height: 720px;
-  background: url(../../images/itd_contents.png) no-repeat;
+  background: url(../images/itd_contents.png) no-repeat;
   background-size: 100%; }
 
 div#companies_main .content-wrapper {
   min-height: 368px;
-  background: url(../../images/com_bg1.png) no-repeat;
+  background: url(../images/com_bg1.png) no-repeat;
   background-size: 100%; }
   div#companies_main .content-wrapper .content-container {
     min-height: 42px; }
@@ -24,7 +24,7 @@ div#companies_main .content-wrapper {
     margin-bottom: 16px; }
 
 div#companies_index .content-wrapper {
-  background: url(../../images/com_bg2.png) repeat-y;
+  background: url(../images/com_bg2.png) repeat-y;
   background-size: 100%;
   min-height: 372px; }
   div#companies_index .content-wrapper .content-container ul {
@@ -33,7 +33,7 @@ div#companies_index .content-wrapper {
       height: 30px; }
 
 div#companies_show .content-wrapper {
-  background: url(../../images/com_bg2.png) repeat-y;
+  background: url(../images/com_bg2.png) repeat-y;
   background-size: 100%; }
   div#companies_show .content-wrapper:after {
     content: ".";
@@ -73,7 +73,7 @@ div#companies_show .content-wrapper {
     min-height: 145px;
     text-align: center;
     vertical-align: middle;
-    background: url(../../images/view_load1.png) no-repeat;
+    background: url(../images/view_load1.png) no-repeat;
     background-size: 100%; }
     div#companies_show .content-wrapper .photo-container .logo-image-container img {
       margin-top: 2px;
@@ -120,7 +120,7 @@ div#companies_show .content-wrapper {
 
 /* showcars */
 div#photo_container {
-  background: url("../../images/com_bg2.png") no-repeat; }
+  background: url("../images/com_bg2.png") no-repeat; }
   div#photo_container .buttons_container {
     margin-left: 20px; }
   div#photo_container .buttons_container img {
@@ -128,7 +128,7 @@ div#photo_container {
 
 /* sketches */
 div#sketches_index .content-wrapper {
-  background: url("../../../images/com_bg1.png") no-repeat;
+  background: url("../images/com_bg1.png") no-repeat;
   min-height: 370px; }
   div#sketches_index .content-wrapper .top-blank-box {
     min-height: 42px; }
@@ -137,7 +137,7 @@ div#sketches_index .content-wrapper {
     margin-bottom: 16px; }
 
 div#sketches_movie_index .content-wrapper {
-  background: url(../../../images/com_bg2.png) repeat-y;
+  background: url(../images/com_bg2.png) repeat-y;
   background-size: 100%;
   min-height: 370px; }
   div#sketches_movie_index .content-wrapper .content-container ul {
@@ -146,9 +146,55 @@ div#sketches_movie_index .content-wrapper {
       height: 30px; }
 
 div#sketches_model_index {
-  background: url("../../../images/com_bg1.png") no-repeat; }
+  background: url("../images/com_bg1.png") no-repeat; }
   div#sketches_model_index .content-wrapper .content-container {
     margin-top: 42px; }
   div#sketches_model_index .buttons-container .button-wrapper {
     margin-top: 16px;
     margin-left: 11px; }
+
+div#exhibition_gallery .content-wrapper {
+  min-height: 400px;
+  background: url(../../../images/com_bg2.png) repeat-y;
+  background-size: 100%; }
+  div#exhibition_gallery .content-wrapper .thumbnail-container {
+    padding-top: 20px; }
+    div#exhibition_gallery .content-wrapper .thumbnail-container ul {
+      width: 290px;
+      background: none;
+      margin: 0 0 0 15px;
+      border: 0 solid red; }
+      div#exhibition_gallery .content-wrapper .thumbnail-container ul:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        overflow: hidden;
+        visibility: hidden; }
+      * + html div#exhibition_gallery .content-wrapper .thumbnail-container ul {
+        display: inline-block; }
+        .IE * + html div#exhibition_gallery .content-wrapper .thumbnail-container ul {
+          height: 1%; }
+      div#exhibition_gallery .content-wrapper .thumbnail-container ul li {
+        display: inline;
+        float: left;
+        background: none;
+        display: inline;
+        height: 65px;
+        width: 65px;
+        padding: 0;
+        margin: 0 10px 10px 0;
+        border: 0 solid green; }
+        div#exhibition_gallery .content-wrapper .thumbnail-container ul li.line-break {
+          margin-right: 0; }
+      div#exhibition_gallery .content-wrapper .thumbnail-container ul img {
+        border: 0;
+        width: 65px;
+        height: 65px; }
+
+div#exhibition_photo_show .content-wrapper {
+  min-height: 400px;
+  background: url(../../../images/com_bg2.png) repeat;
+  background-size: 100%; }
+  div#exhibition_photo_show .content-wrapper .photo-container {
+    width: 320px; }

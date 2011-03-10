@@ -2,8 +2,8 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 var SMS = {
-  baseURL: "http://localhost:3001"
-  //baseURL: "http://2011sms.top-rider.com"
+  //baseURL: "http://localhost:3001"
+  baseURL: "http://2011sms.top-rider.com"
 };
 
 SMS.API = {
@@ -19,6 +19,28 @@ SMS.API = {
   Video: {
     indexURL: function() {
       return SMS.baseURL + "/videos.json";
+    }
+  },
+
+  Photo: {
+    indexURL: function(category = '') {
+      var path = '/photos.json?category=' + category;
+      return SMS.baseURL + path;
+    },
+    showURL: function(id) {
+      return SMS.baseURL + "/photos/" + id + ".json";
+    }
+  },
+
+  RacingModel: {
+    indexURL: function() {
+      return SMS.baseURL + "/racing_models.json";
+    },
+    galleryURL: function() {
+      return SMS.Photo.indexURL('racing_model');
+    },
+    showURL: function(id) {
+      return SMS.baseURL + "/racing_models/" + id + ".json";
     }
   }
 
