@@ -37,7 +37,7 @@ SMS.API = {
       return SMS.baseURL + "/racing_models.json";
     },
     galleryURL: function() {
-      return SMS.Photo.indexURL('racing_model');
+      return SMS.API.Photo.indexURL('racing_model');
     },
     showURL: function(id) {
       return SMS.baseURL + "/racing_models/" + id + ".json";
