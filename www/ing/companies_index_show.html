@@ -105,32 +105,32 @@
 
         var company = data.company;
 
-        $("#companies_show h1").html(company.name);
+        $("#companies_show h1").text(company.name);
 
         if (company.contact && company.contact.trim() != "") {
           $("#company_contact").show();
-          $("#company_contact div").html(company.contact);
+          $("#company_contact div").text(company.contact);
         } else {
           $("#company_contact").hide();
         }
 
         if (company.address && company.address.trim() != "") {
           $("#company_address").show();
-          $("#company_address div").html(company.address);
+          $("#company_address div").text(company.address);
         } else {
           $("#company_address").hide();
         }
 
         if (company.product && company.product.trim() != "") {
           $("#company_product").show();
-          $("#company_product div").html(company.product);
+          $("#company_product div").text(company.product);
         } else {
           $("#company_product").hide();
         }
 
         if (company.desc && company.desc.trim() != "") {
           $("#company_desc").show();
-          $("#company_desc div").html(company.desc);
+          $("#company_desc div").text(company.desc);
         } else {
           $("#company_desc").hide();
         }
@@ -170,7 +170,7 @@
           title = "용품업체";
         }
 
-        $("#companies_index h1").html(title);
+        $("#companies_index h1").text(title);
       }
 
 
