@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        
+        <title>2011서울모토쇼</title>
+        <style type="text/css" media="screen">@import "../../jqtouch/jqtouch.css";</style>
+        <style type="text/css" media="screen">@import "../../themes/jqt/theme.css";</style>
+        <style type="text/css" media="screen">@import "../../themes/jqt/gallery.css";</style>
+        <style type="text/css" media="screen">@import "../../extensions/scrolling.css";</style>
+
+        <script src="../../jqtouch/jquery.1.4.2.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="../../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
+     		<script src="../../extensions/jquery.gallery.js" type="application/x-javascript" charset="utf-8"></script>
+	      <script type="text/javascript" charset="utf-8" src="../../phonegap.0.9.4.js"></script>
+	      <script type="text/javascript" charset="utf-8" src="../../jqtouch/ChildBrowser.js"></script>
+  
+        <script type="text/javascript" charset="utf-8">
+            //change dynamic css
+            var jQT = new $.jQTouch({
+				        icon: '../../images/jqtouch.png',
+                cacheGetRequests: true,
+                addGlossToIcon: false,
+                startupScreen: '../../images/jqt_startup.png',
+                statusBar: 'black',
+                preloadImages: [
+                    '../../themes/jqt/img/back_button.png',
+                    '../../themes/jqt/img/back_button_clicked.png',
+                    '../../themes/jqt/img/button_clicked.png',
+                    '../../themes/jqt/img/grayButton.png',
+                    '../../themes/jqt/img/whiteButton.png',
+                    '../../themes/jqt/img/loading.gif' ]
+            });
+
+
+			$(document).ready(function(){
+
+				$('a[target="_blank"]').click(function() {
+					if (confirm('This link opens in a new window.')) {
+						return true;
+					} else {
+						return false;
+					}
+				});
+
+			});
+
+        </script>
+
+    </head>
+    <body>
+		
+		<div id="jqt">
+			
+      
+		  <div id="thumbs_container" class="current" style="background-image:url(../../images/com_bg2.png);">
+			
+        <div class="toolbar">
+          <h1>레이싱모델</h1>
+					<a href="sketches_models_index.html" class="back btn">이전</a>
+        </div>
+
+			  <div class="loader" style="display:none;"></div>
+			
+					<ul id="thumbs" class="thumbView" style="display:none;">
+						<li class="pic"><a href="#photo_container"><img src="../../images/model/1_sq.jpg" alt="../../images/model/1.jpg" /></a></li>
+						<li class="pic"><a href="#photo_container"><img src="../../images/model/2_sq.jpg" alt="../../images/model/2.jpg" /></a></li>
+						<li class="pic"><a href="#photo_container"><img src="../../images/model/3_sq.jpg" alt="../../images/model/3.jpg" /></a></li>
+						<li class="pic"><a href="#photo_container"><img src="../../images/model/4_sq.jpg" alt="../../images/model/4.jpg" /></a></li>
+					</ul>
+
+      </div>
+		  		
+      <div id="photo_container" style="background-image:url(../../images/com_bg2.png);">
+        <div class="toolbar">
+          <h1>민서희</h1>
+          <a class="back" href="#thumbs_container">전시차보기</a>
+        </div>
+
+			  <div class="loader" style="display:none;"></div>
+			  <div id="theimage" class="singleimageModel"></div>
+            				
+        <div id="prev" style="display:none;"></div>
+				<div id="next" style="display:none;"></div>
+
+        <div>
+					<img src="../../images/view_btn2.png" />
+					<img src="../../images/view_btn3.png" />
+					<img src="../../images/view_btn4.png" />
+        </div>
+
+       	<div>
+          <table id="sketches_model_gallery_info_table">
+           <tr><td><img src="../../images/view_list17.png"></td><td>민서희</td></tr>
+           <tr><td><img src="../../images/view_list18.png"></td><td>1984년 4월 11일</td></tr>
+           <tr><td><img src="../../images/view_list19.png"></td><td>O형</td></tr>
+           <tr><td><img src="../../images/view_list20.png"></td><td>168cm/49kg</td></tr>
+           <tr><td><img src="../../images/view_list21.png"></td><td>55</td></tr>
+           <tr><td><img src="../../images/view_list22.png"></td><td>36-25-35</td></tr>
+           <tr><td><img src="../../images/view_list23.png"></td><td>55</td></tr>
+           <tr><td><img src="../../images/view_list24.png"></td><td>피아노연주, 플롯연주, 노래</td></tr>
+           <tr><td><img src="../../images/view_list25.png"></td><td>www.cyworld.com/minime486</td></tr>
+           <tr><td><img src="../../images/view_list26.png"></td><td>cafe.daum.net/loveseohee-Holic</td></tr>
+           <tr><td><img src="../../images/view_list27.png"></td></tr>
+           <tr><td></td></tr>
+          </table>
+
+        </div>
+
+      </div>
+
+  </div>
+
+</body>
+    
+</html>
