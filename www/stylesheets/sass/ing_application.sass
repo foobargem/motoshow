@@ -114,6 +114,7 @@ div#photo_container
 div#sketches_index
   .content-wrapper
     :background url("../images/com_bg1.png") no-repeat
+    :background-size 100%
     :min-height 370px
     .top-blank-box
       :min-height 42px
@@ -141,14 +142,17 @@ div#sketches_movie_index
 
 
 div#sketches_model_index
-  :background url("../images/com_bg1.png") no-repeat
   .content-wrapper
+    :min-height 372px
+    :background url(../../../images/com_bg1.png) repeat-y
+    :background-size 100%
+    .blank-box-top
+      :min-height 42px
+    .buttons-container
+      :text-align center
+      .button-wrapper
+        :margin-bottom 16px
     .content-container
-      :margin-top 42px
-  .buttons-container
-    .button-wrapper
-      :margin-top 16px
-      :margin-left 11px
 
 
 
