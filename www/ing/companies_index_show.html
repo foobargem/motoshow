@@ -19,10 +19,12 @@
     <script src="../../jqtouch/jquery.dataAttr.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
     <script src="../../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
-		<script src="../../phonegap.0.9.4.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
-    <script src="../../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../phonegap.0.9.4.min.js" type="text/javascript" charset="utf-8"></script>
 
+    <script src="../../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../javascripts/suddenlybunt_command.js" type="text/javascript" charset="utf-8"></script>
+	
         <script type="text/javascript" charset="utf-8">
             //change dynamic css
             var jQT = new $.jQTouch({
@@ -106,32 +108,32 @@
 
         var company = data.company;
 
-        $("#companies_show h1").html(company.name);
+        $("#companies_show h1").text(company.name);
 
         if (company.contact && company.contact.trim() != "") {
           $("#company_contact").show();
-          $("#company_contact div").html(company.contact);
+          $("#company_contact div").text(company.contact);
         } else {
           $("#company_contact").hide();
         }
 
         if (company.address && company.address.trim() != "") {
           $("#company_address").show();
-          $("#company_address div").html(company.address);
+          $("#company_address div").text(company.address);
         } else {
           $("#company_address").hide();
         }
 
         if (company.product && company.product.trim() != "") {
           $("#company_product").show();
-          $("#company_product div").html(company.product);
+          $("#company_product div").text(company.product);
         } else {
           $("#company_product").hide();
         }
 
         if (company.desc && company.desc.trim() != "") {
           $("#company_desc").show();
-          $("#company_desc div").html(company.desc);
+          $("#company_desc div").text(company.desc);
         } else {
           $("#company_desc").hide();
         }
@@ -139,7 +141,7 @@
         if (company.logo_url && company.logo_url.trim() != "") {
           $("#company_logo")[0].src = SMS.baseURL + "/" + company.logo_url;
         } else {
-          $("#company_logo")[0].src = "http://www.cartech.co.kr/admin/news/img/prius.jpg";
+          $("#company_logo")[0].src = "about:blank";
         }
 
         if (company.site_url && company.site_url.trim() != "") {
@@ -171,13 +173,15 @@
           title = "용품업체";
         }
 
-        $("#companies_index h1").html(title);
+        $("#companies_index h1").text(title);
       }
 
 
 			$(document).ready(function(){
 
         ChildBrowser.install();
+        SuddenlybuntCmd.install();
+
 				fetch_and_update_companies_list();
         updateCompaniesIndexTitle();
 
@@ -191,7 +195,7 @@
 			<div id="companies_index">
 				<div class="toolbar">
 					<h1>완성차</h1>
-					<a href="index.html" rel="external" class="back btn">이전</a>
+					<a href="companies_index.html" rel="external" class="back btn">이전</a>
 				</div>
 				<div class="vertical-scroll use-bottom-toolbar"><div class="content-wrapper" style="background: url(../../images/com_bg2.png) repeat-y;background-size:100%">
 					<div class="content-container">
@@ -216,7 +220,7 @@
 							<img src="../../images/icon_prev1.png" />
 						</div>
 						<div class="logo-image-container">
-							<img id="company_logo" src="http://www.cartech.co.kr/admin/news/img/prius.jpg" width="270" height="116" />
+							<img id="company_logo" src="about:blank" width="270" height="116" />
 						</div>
 						<div class="next-btn-container">
 							<img src="../../images/icon_next1.png" />
