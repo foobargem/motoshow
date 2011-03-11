@@ -60,13 +60,12 @@ div#companies_show
       .logo-image-container
         +float_left
         :width 282px
-        :min-height 145px
+        :height 145px
         :text-align center
-        :vertical-align middle
         :background url(../images/view_load1.png) no-repeat
         :background-size 100%
+        :padding-top 4px
         img
-          :margin-top 2px
           :border 0
       .next-btn-container
         +float_left
@@ -156,7 +155,7 @@ div#sketches_model_index
 
 
 
-div#exhibition_gallery, div#model_gallery
+div#exhibition_gallery, div#model_gallery, div#car_gallery
   .content-wrapper
     :min-height 400px
     :background url(../../../images/com_bg2.png) repeat-y
@@ -215,11 +214,10 @@ div#model_show
         :width 282px
         :min-height 261px
         :text-align center
-        :vertical-align middle
         :background url(../images/view_load2.png) no-repeat
         :background-size 100%
+        :padding-top 4px
         img
-          :margin-top 2px
           :border 0
       .next-btn-container
         +float_left
@@ -248,6 +246,64 @@ div#model_show
         :margin 15px 0
         img
           :border 0
+
+
+div#car_show
+  .content-wrapper
+    +clearfix
+    :background url(../images/com_bg2.png) repeat-y
+    :background-size 100%
+    .top-blank-box
+      :min-height 21px
+    .photo-container
+      +clearfix
+      .prev-btn-container
+        +float_left
+        :width 16px
+        :margin-right 2px
+        img
+          :margin-top 52px
+      .logo-image-container
+        +float_left
+        :width 282px
+        :height 125px
+        :text-align center
+        :vertical-align middle
+        :background url(../images/view_load1.png) no-repeat
+        :background-size 100%
+        :padding-top 4px
+        img
+          :border 0
+      .next-btn-container
+        +float_left
+        :width 16px
+        :margin-left 2px
+        img
+          :margin-top 52px
+    .buttons-container
+      :padding 15px 0 10px 0
+      :text-align center
+    .content-container
+      :min-height 206px
+      .field-wrapper
+        +clearfix
+        :margin-bottom 3px
+        label
+          +float_left
+          :width 80px
+          :padding-left 20px
+        div
+          +float_left
+          :width 200px
+          :padding 0 8px
+          :font-size 12px
+          :color #c2c2c2
+      .site-link-wrapper
+        :text-align center
+        :margin 15px 0
+        img
+          :border 0
+
 
 
 

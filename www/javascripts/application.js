@@ -16,6 +16,18 @@ SMS.API = {
     }
   },
 
+  Car: {
+    indexURL: function() {
+      return SMS.baseURL + "/cars.json";
+    },
+    galleryURL: function() {
+      return SMS.API.Photo.indexURL('car');
+    },
+    showURL: function(id) {
+      return SMS.baseURL + "/cars/" + id + ".json";
+    }
+  },
+
   Video: {
     indexURL: function() {
       return SMS.baseURL + "/videos.json";
