@@ -51,10 +51,6 @@
     }
 
 
-    function makeImageURL(url) {
-      return SMS.baseURL + "/" + url;
-    }
-
 
     function buildList (msg) {
       var li_eles = '';
@@ -68,7 +64,7 @@
         }
         //window.plugins.suddenlybuntCmd.debug(li_className);
 
-        li_eles += '<li class="' + li_className + '"><a href="#model_show" class="detail-link" data-id="' + photo.racing_model_id + '"><img src="' + makeImageURL(photo.thumb_url) + '" /></a></li>';
+        li_eles += '<li class="' + li_className + '"><a href="#model_show" class="detail-link" data-id="' + photo.racing_model_id + '"><img src="' + photo.thumb_url + '" /></a></li>';
       });
 
       $("#model_gallery div.thumbnail-container ul").html(li_eles);
@@ -252,7 +248,7 @@
           <img src="../../images/icon_prev1.png" />
         </div>
         <div class="logo-image-container">
-          <img id="model_profile_image" src="about:blank" width="270" height="251" />
+          <img id="model_profile_image" src="about:blank" width="274" height="254" />
         </div>
         <div class="next-btn-container">
           <img src="../../images/icon_next1.png" />

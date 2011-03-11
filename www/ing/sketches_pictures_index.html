@@ -51,10 +51,6 @@
     }
 
 
-    function makeImageURL(url) {
-      return SMS.baseURL + "/" + url;
-    }
-
 
     function buildList (msg) {
       var li_eles = '';
@@ -68,7 +64,7 @@
         }
         //window.plugins.suddenlybuntCmd.debug(li_className);
 
-        li_eles += '<li class="' + li_className + '"><a href="#exhibition_photo_show" class="detail-link" data-id="' + photo.id + '"><img src="' + makeImageURL(photo.thumb_url) + '" /></a></li>';
+        li_eles += '<li class="' + li_className + '"><a href="#exhibition_photo_show" class="detail-link" data-id="' + photo.id + '"><img src="' + photo.thumb_url + '" /></a></li>';
       });
 
       $("#exhibition_gallery div.thumbnail-container ul").html(li_eles);
@@ -116,7 +112,7 @@
 
       //window.plugins.suddenlybuntCmd.debug(photo.thumb_url);
 
-      $("#exhibition_photo_show div.photo-container img")[0].src = makeImageURL(photo.thumb_url);
+      $("#exhibition_photo_show div.photo-container img")[0].src = photo.thumb_url;
 
     }
 
