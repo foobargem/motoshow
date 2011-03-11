@@ -35,9 +35,9 @@
 
 			$(document).ready(function(){
 
-				$("#show_hint_btn").click(function(e){
-					navigator.notification.alert("힌틀르 주세요", null, "Quiz Hint");
-				});
+				// $("#show_hint_btn").click(function(e){
+				// 	navigator.notification.alert("힌틀르 주세요", null, "Quiz Hint");
+				// });
 
 			});
 
@@ -51,19 +51,35 @@
 					<h1>이벤트</h1>
 					<a href="event.html" rel="external" class="back btn">이전</a>
 				</div>
-				<div class="vertical-scroll use-bottom-toolbar"><div class="content-wrapper">
-					<div class="content-container">
-					</div>
-					<div class="buttons-container">
-						<img src="../../images/event/btn3.png" width="171" id="show_hint_btn" />
-					</div>
-				</div></div>
+				<div class="vertical-scroll use-bottom-toolbar">
+					<div class="content-wrapper">
+					  <div class="content-container">
+					  </div>
+					  <div class="buttons-container">
+						  <a href="#event_hint" class="slideup"><img src="../../images/event/btn3.png" width="171" id="show_hint_btn" /></a>
+					  </div>
+				  </div>
+				</div>
 				<div class="toolbar">
 					Banner
 				</div>
 			</div>
 
+     <div id="event_hint" >
+				<div class="toolbar">
+					<h1>힌트</h1>
+					<a href="event.html" rel="external" class="back btn">이전</a>
+				</div>
+				<div class="vertical-scroll use-bottom-toolbar">
+				  <div class="content-container">
+			    </div>
+        </div>
+				<div class="toolbar">
+					Banner
+				</div>
+	   </div>
+	
+  </div>
 
-		</div>
-    </body>
+</body>
 </html>

@@ -78,3 +78,8 @@ div#event_wrong_answer .content-wrapper {
     min-height: 214px; }
   div#event_wrong_answer .content-wrapper .buttons-container {
     text-align: center; }
+
+div#event_hint .content-container {
+  background: url("../images/main_bg2.png") no-repeat;
+  min-height: 416px;
+  background-size: 100%; }

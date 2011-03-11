@@ -33,8 +33,14 @@
             });
 
 			function onConfirm(button) {
-			    // alert('You selected button ' + button);
-			  window.location.href = "companies_index_show.html#";
+			  if (button == '1') { 
+				  window.location.href = "companies_show.html#P-01";
+			  } else if (button == '2') {
+				  //window.location.href = "showcars_index.html#P-01";
+				  return false;
+			  } else if (button == '3') {
+				  return false;
+			  }
 			}
 
 			$(document).ready(function(){
@@ -42,9 +48,9 @@
 				$('area[target="_webapp"]').click(function(e) {
 			    navigator.notification.confirm(
 			        '',  // message
-			        onConfirm,              // callback to invoke with index of button pressed
+			        onConfirm(),              // callback to invoke with index of button pressed
 			        '폭스바겐',            // title
-			        '업체정보,전시차 보기,닫기'          // buttonLabels
+			        '업체정보,전시차보기,닫기'          // buttonLabels
 			    
 					);
 					
