@@ -6,12 +6,10 @@
         <title>2011서울모토쇼</title>
         <style type="text/css" media="screen">@import "../../jqtouch/jqtouch.css";</style>
         <style type="text/css" media="screen">@import "../../themes/jqt/theme.css";</style>
-        <style type="text/css" media="screen">@import "../../extensions/jqt.photo.css";</style>
         <style type="text/css" media="screen">@import "../../stylesheets/ing_application.css";</style>
 
         <script src="../../jqtouch/jquery.1.4.2.js" type="text/javascript" charset="utf-8"></script>
         <script src="../../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
-        <script src="../../extensions/jqt.photo.js" type="application/x-javascript" charset="utf-8"></script>
         <script src="../../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
     		<script src="../../phonegap.0.9.4.min.js" type="text/javascript" charset="utf-8"></script>
 
@@ -40,12 +38,24 @@
 			$(document).ready(function(){
 
 				$('area[target="_webapp"]').click(function(e) {
+          e.preventDefault();
+          var booth_link = $(e.currentTarget);
+          var booth_code = booth_link.attr("href");
+
 			    navigator.notification.confirm(
-			        '',  // message
-			        onConfirm,              // callback to invoke with index of button pressed
-			        '폭스바겐',            // title
-			        '업체정보,전시차 보기,닫기'          // buttonLabels
-			    
+			        '',
+              function(button) {
+                if (button == 1) { // 업체정보
+                  window.location.href = 'companies_show.html' + booth_code;
+                } else if (button == 2) { // 전시차보기
+                  // ToDo
+                  //window.location.href = '??.html' + booth_code;
+                } else {
+                  return false;
+                }
+              },
+			        booth_link.attr("title"),
+			        '업체정보,전시차 보기,닫기'
 					);
 					
 				});
@@ -94,7 +104,8 @@
 									
 									  <!-- 제일 큰 외곽 C 블럭 -->
 										
-										<area shape="rect" target="_webapp" coords="2,73,60,199" href="companies_index_show.html#" title="C-01">
+										<area shape="rect" target="_webapp" coords="2,73,60,199" href="#C-01" title="르노삼성">
+
 									  <area shape="rect" target="_webapp" coords="5,212,60,325" href="companies_index_show.html#" title="C-02">
 									
 										<area shape="rect" target="_webapp" coords="83,140,139,227" href="companies_index_show.html#" title="C-10">
