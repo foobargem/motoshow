@@ -93,22 +93,26 @@
   // 끝나는날 시간
   NSDate *endDateTime = [dateFormatter dateFromString:@"2011-04-10 19:00:00"];
   
+	/*
   NSLog([dateFormatter stringFromDate:now]);
   NSLog([dateFormatter stringFromDate:startDateTime]);
   NSLog([dateFormatter stringFromDate:endDateTime]);
+	 */
 
-//  switch ([now compare:startDateTime]) {
-//    case NSOrderedAscending:
-//      return @"www/before";
-//      break;
-//
-//    case NSOrderedDescending:
-//      if ([now compare:endDateTime] == NSOrderedDescending) 
-//        return @"www/later";
-//      else 
-//        return @"www/ing";
-//      break;
-//  }
+	/*
+  switch ([now compare:startDateTime]) {
+    case NSOrderedAscending:
+      return @"www/before";
+      break;
+
+    case NSOrderedDescending:
+      if ([now compare:endDateTime] == NSOrderedDescending) 
+        return @"www/later";
+      else 
+        return @"www/ing";
+      break;
+  }*/
+
   return @"www/ing"; // 개발시에만..
 
 }
