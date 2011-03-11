@@ -48,8 +48,7 @@
                 if (button == 1) { // 업체정보
                   window.location.href = 'companies_show.html' + booth_code;
                 } else if (button == 2) { // 전시차보기
-                  // ToDo
-                  //window.location.href = '??.html' + booth_code;
+                  window.location.href = 'showcars_companies_index.html' + booth_code;
                 } else {
                   return false;
                 }
@@ -70,7 +69,7 @@
 			<div id="guide">
 				<div class="toolbar">
 					<h1>부스안내</h1>
-					<a href="index.html" class="back btn">이전</a>
+					<a href="index.html" rel="external" class="back btn">이전</a>
 				</div>
 				<div class="horizontal-scroll">
 					<table class="with-scrollbar">

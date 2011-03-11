@@ -2,7 +2,8 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 var SMS = {
-  baseURL: "http://localhost:3001"
+  //baseURL: "http://localhost:3001"
+  baseURL: "http://10.1.2.139:3001"
   //baseURL: "http://2011sms.top-rider.com"
 };
 
@@ -20,7 +21,7 @@ SMS.API = {
     indexURL: function() {
       return SMS.baseURL + "/cars.json";
     },
-    galleryURL: function() {
+    galleryURL: function(company_id) {
       return SMS.API.Photo.indexURL('car');
     },
     showURL: function(id) {
@@ -43,6 +44,9 @@ SMS.API = {
       var path = '/photos/models_by_company.json?company_id=' + company_id;
       return SMS.baseURL + path;
     },
+    indexURLByBooth: function(booth_code) {
+      return SMS.baseURL + '/photos/by_company_booth_code.json?booth_code=' + booth_code;
+    },
     showURL: function(id) {
       return SMS.baseURL + "/photos/" + id + ".json";
     }
@@ -52,12 +56,8 @@ SMS.API = {
     indexURL: function() {
       return SMS.baseURL + "/racing_models.json";
     },
-    galleryURL: function(company_id) {
-      if (company_id && company_id.trim() != "") {
-        return SMS.API.Photo.indexURLWithCompanyId(company_id);
-      } else {
-        return SMS.API.Photo.indexURL('racing_model');
-      }
+    galleryURL: function() {
+      return SMS.API.Photo.indexURL('racing_model');
     },
     showURL: function(id) {
       return SMS.baseURL + "/racing_models/" + id + ".json";
