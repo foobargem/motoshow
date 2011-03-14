@@ -13,7 +13,8 @@
 
 .banner-container {
   border: 0;
-  padding: 0; }
+  padding: 0;
+  background: url(../images/toprider_default_banner.gif); }
 
 div#main {
   background: url(../images/main_bg2.png) no-repeat;
@@ -92,8 +93,10 @@ div#companies_show .content-wrapper {
     text-align: center;
     background: url(../images/view_load1.png) no-repeat;
     background-size: 100%;
-    padding-top: 4px; }
-    div#companies_show .content-wrapper .photo-container .logo-image-container img {
+    padding-top: 4px;
+    margin-left: 18px;
+    margin-right: 18px; }
+    div#companies_show .content-wrapper .photo-container .logo-image-container img#company_logo {
       border: 0; }
   div#companies_show .content-wrapper .photo-container .next-btn-container {
     display: inline;
@@ -281,7 +284,9 @@ div#model_show .content-wrapper {
     text-align: center;
     background: url(../images/view_load2.png) no-repeat;
     background-size: 100%;
-    padding-top: 4px; }
+    padding-top: 4px;
+    margin-left: 18px;
+    margin-right: 18px; }
     div#model_show .content-wrapper .photo-container .logo-image-container img {
       border: 0; }
   div#model_show .content-wrapper .photo-container .next-btn-container {
@@ -368,7 +373,9 @@ div#car_show .content-wrapper {
     vertical-align: middle;
     background: url(../images/view_load1.png) no-repeat;
     background-size: 100%;
-    padding-top: 4px; }
+    padding-top: 4px;
+    margin-left: 18px;
+    margin-right: 18px; }
     div#car_show .content-wrapper .photo-container .logo-image-container img {
       border: 0; }
   div#car_show .content-wrapper .photo-container .next-btn-container {

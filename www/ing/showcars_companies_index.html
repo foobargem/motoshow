@@ -42,6 +42,8 @@
 
     function fetch_and_update_photos_list() {
       var _url = SMS.API.Photo.indexURLByBooth(booth_code);
+      
+      showIndicatorByView();
 
       jQuery.ajax({
         url: _url,
@@ -78,6 +80,9 @@
       });
 
       $("#car_gallery div.thumbnail-container ul").html(li_eles);
+      
+      hideIndicatorByView();
+
     }
 
 
@@ -101,6 +106,8 @@
 
     function fetchCar(car_id) {
       var _url = SMS.API.Car.showURL(car_id);
+      
+      showIndicatorByView2();
 
       jQuery.ajax({
         url: _url,
@@ -216,7 +223,7 @@
       }
 
       updateButtonsByCar(car);
-
+      hideIndicatorByView2();
     }
 
 
@@ -254,13 +261,31 @@
 
     }
 
+    function showIndicatorByView() {
+      $("#car_gallery div.loading-container").show();
+    }
+
+    function hideIndicatorByView() {
+      setTimeout(function(){
+        $("#car_gallery div.loading-container").hide();
+      }, 600);
+    }
+
+    function showIndicatorByView2() {
+      $("#car_show div.loading-container").show();
+    }
+
+    function hideIndicatorByView2() {
+      setTimeout(function(){
+        $("#car_show div.loading-container").hide();
+      }, 600);
+    }
 
     $(document).ready(function(){
 
       $(document).bind("deviceready", function(){
         ChildBrowser.install();
         SuddenlybuntCmd.install();
-
         fetch_and_update_photos_list();
       }, false);
 
@@ -277,16 +302,16 @@
 
   <div id="car_gallery">
     <div class="toolbar">
-      <h1>{company_name}</h1>
+      <h1>{company_name}</h1>      
       <a href="booths_index.html" rel="external" class="back btn">이전</a>
+			<a href="index.html" rel="external" class="homeButton"></a>
     </div>
-    <div class="loader" style="display:block"></div>
+    <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>
     <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat-y;background-size:100%">
-
-      <div class="thumbnail-container">
-        <ul><!-- photo gallery --></ul>
-      </div>
-
+        <div class="thumbnail-container">
+          <ul><!-- photo gallery --></ul>
+        </div>
+      
     </div></div>
   </div>
   <!-- // car_gallery -->
@@ -296,21 +321,16 @@
     <div class="toolbar">
       <h1>{car_name}</h1>
       <a href="#car_gallery" class="back btn">이전</a>
+			<a href="index.html" rel="external" class="homeButton"></a>
     </div>
-    <div class="loader" style="display:none"></div>
     <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat;background-size:100%">
 
       <div class="top-blank-box"></div>
       <div class="photo-container">
-        <!-- <div class="prev-btn-container">
-          <img src="../../images/icon_prev1.png" />
-        </div> -->
         <div class="logo-image-container">
+	        <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>
           <img id="car_profile_image" src="about:blank" width="270" height="116" />
         </div>
-        <!-- <div class="next-btn-container">
-          <img src="../../images/icon_next1.png" />
-        </div> -->
       </div>
 
       <div class="buttons-container">

@@ -66,6 +66,29 @@ div#jqt.landscape .toolbar > h1 {
     background: none;
     -webkit-border-image: url(img/button.png) 0 5 0 5;
 }
+
+#jqt .homeButton {
+  position: absolute;
+  overflow: hidden;
+  top: 8px;
+  right: 10px;
+  margin: 0;
+  border-width: 0 0px;
+  padding: 0 0px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 0;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  white-space: nowrap;
+  background-image: url(img/com_title_home_btn.png);
+}
+
 #jqt .button.active, #jqt .cancel.active, #jqt .add.active {
     -webkit-border-image: url(img/button_clicked.png) 0 5 0 5;
     color: #aaa;
@@ -203,7 +226,7 @@ div#jqt.landscape .toolbar > h1 {
     background-repeat: no-repeat;
 }
 #jqt ul li.arrow a.active {
-    background-image: url(img/chevron.png);
+/*    background-image: url(img/chevron.png);*/
     background-position: right center;
     background-repeat: no-repeat;
 }

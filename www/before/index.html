@@ -46,21 +46,12 @@
 				$("#main img#last-count-img")[0].src = "../../images/main_dday_" + last_suffix + ".png";
 			}
 
-			function openTwitter(button) {
-				if (button == 1) {
-					window.plugins.childBrowser.showWebPage("http://twitter.com");
-				} else {
-					return false;
-				}
-			}
-
-
 			$(document).ready(function(){
 				ChildBrowser.install();
 				resetDDayCounter();
 
 				$("#twitter_btn").bind("click", function(e){
-					navigator.notification.confirm("트위터 페이지는\n새창으로 띄울것입니다.\n동의하십니까?", openTwitter);
+				  window.plugins.childBrowser.showWebPage("http://twitter.com/SeoulMotorShow");
 				});
 			});
 
