@@ -99,7 +99,7 @@
   NSLog([dateFormatter stringFromDate:endDateTime]);
 	 */
 
-	
+	/*
   switch ([now compare:startDateTime]) {
     case NSOrderedAscending:
       return @"www/before";
@@ -112,8 +112,8 @@
         return @"www/ing";
       break;
   }
-
-  //return @"www/ing"; // 개발시에만..
+  */
+  return @"www/ing"; // 개발시에만..
 
 }
 
