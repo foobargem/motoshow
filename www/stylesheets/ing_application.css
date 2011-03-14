@@ -13,7 +13,8 @@
 
 .banner-container {
   border: 0;
-  padding: 0; }
+  padding: 0;
+  background: url(../images/toprider_default_banner.gif); }
 
 div#main {
   background: url(../images/main_bg2.png) no-repeat;
