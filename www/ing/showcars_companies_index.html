@@ -201,6 +201,12 @@
         $("#car_transmission").hide();
       }
 
+      if (car.desc && car.desc.trim() != "") {
+        $("#car_desc").show();
+        $("#car_desc div").text(car.desc);
+      } else {
+        $("#car_desc").hide();
+      }
 
       //window.plugins.suddenlybuntCmd.debug(car.photo_large_url);
       if (car.photo_large_url && car.photo_large_url.trim() != "") {
@@ -216,12 +222,6 @@
 
     function updateButtonsByCar(car) {
 
-      if (car.voice_stream_url && car.voice_stream_url.trim() != "") {
-        $("#car_voice_stream_btn").show();
-      } else {
-        $("#car_voice_stream_btn").hide();
-      }
-
       if (car.video_stream_url && car.video_stream_url.trim() != "") {
         $("#car_video_stream_btn").show();
       } else {
@@ -230,7 +230,11 @@
 
       // ToDo: car_photo_btn, car_others_btn
       $("#car_photo_btn").hide();
-      $("#car_others_btn").hide();
+
+      $("#car_others_btn").bind("click", function(event){
+        window.history.back();
+      });
+      $("#car_others_btn").show();
 
 
       // add eventlistener
@@ -310,7 +314,6 @@
       </div>
 
       <div class="buttons-container">
-        <img id="car_voice_stream_btn" src="../../images/view_btn2.png" />
         <img id="car_photo_btn" src="../../images/view_btn3.png" />
         <img id="car_video_stream_btn" src="../../images/view_btn4.png" />
         <img id="car_others_btn" src="../../images/view_btn5.png" />
@@ -400,6 +403,13 @@
             <img src="../../images/view_list16.png" />
           </label>
           <div><!-- transmission --></div>
+        </div>
+
+        <div id="car_desc" class="field-wrapper">
+          <label>
+            <img src="../../images/view_list4.png" />
+          </label>
+          <div><!-- desc --></div>
         </div>
 
       </div>
