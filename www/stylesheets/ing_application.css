@@ -11,6 +11,10 @@
   .loading-container img {
     border: 0; }
 
+.banner-container {
+  border: 0;
+  padding: 0; }
+
 div#main {
   background: url(../images/main_bg2.png) no-repeat;
   background-size: 100%; }

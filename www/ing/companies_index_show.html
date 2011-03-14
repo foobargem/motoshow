@@ -18,11 +18,10 @@
     <script src="../../jqtouch/jquery.dataAttr.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
     <script src="../../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
-	<script src="../../phonegap.0.9.4.min.js" type="text/javascript" charset="utf-8"></script>
-
+    <script src="../../phonegap.0.9.4.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
-	<script src="../../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
-	<script src="../../javascripts/suddenlybunt_command.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../javascripts/suddenlybunt_command.js" type="text/javascript" charset="utf-8"></script>
 	
         <script type="text/javascript" charset="utf-8">
             //change dynamic css
@@ -36,8 +35,6 @@
                     '../../themes/jqt/img/back_button.png',
                     '../../themes/jqt/img/back_button_clicked.png',
                     '../../themes/jqt/img/button_clicked.png',
-                    '../../themes/jqt/img/grayButton.png',
-                    '../../themes/jqt/img/whiteButton.png',
                     '../../themes/jqt/img/loading.gif',
                     '../../images/loading/loading_indicator.gif' ]
             });
@@ -149,7 +146,7 @@
         }
 
         if (company.logo_url && company.logo_url.trim() != "") {
-          $("#company_logo")[0].src = SMS.baseURL + "/" + company.logo_url;
+          $("#company_logo")[0].src = company.logo_url;
         } else {
           $("#company_logo")[0].src = "about:blank";
         }
@@ -157,15 +154,8 @@
         if (company.site_url && company.site_url.trim() != "") {
           $("#company_site_link_btn").show();
           $("#company_site_link_btn").bind("click", function(event){
-            /*
-            navigator.notification.confirm(company.name + " 홈페이지는 새창으로 열립니다.\n동의하십니까?",
-              function(button) {
-                if (button == 1) {
-                  window.plugins.childBrowser.showWebPage(company.site_url);
-                } else {
-                  return false;
-                }
-              }); */
+            event.preventDefault();
+            window.plugins.childBrowser.showWebPage(company.site_url);
           });
         } else {
           $("#company_site_link_btn").hide();
@@ -212,6 +202,8 @@
           updateCompaniesIndexTitle();
         }, false);
 
+        new Banner("div.banner-container");
+
 			});
 
         </script>
@@ -229,7 +221,7 @@
 						<ul><!-- company list --></ul>
 					</div>
 				</div></div>
-				<div class="toolbar">
+				<div class="toolbar banner-container">
 					Banner
 				</div>
 			</div>
@@ -290,7 +282,7 @@
 
 					</div>
 				</div></div>
-				<div class="toolbar">
+				<div class="toolbar banner-container">
 					Banner
 				</div>
 			</div>

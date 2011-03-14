@@ -11,8 +11,10 @@
 
         <script src="../../jqtouch/jquery.1.4.2.js" type="text/javascript" charset="utf-8"></script>
         <script src="../../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
-        <script src="../../extensions/jqt.photo.js" type="application/x-javascript" charset="utf-8"></script>
         <script src="../../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="../../phonegap.0.9.4.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
 
         <script type="text/javascript" charset="utf-8">
             //change dynamic css
@@ -26,14 +28,12 @@
                     '../../themes/jqt/img/back_button.png',
                     '../../themes/jqt/img/back_button_clicked.png',
                     '../../themes/jqt/img/button_clicked.png',
-                    '../../themes/jqt/img/grayButton.png',
-                    '../../themes/jqt/img/whiteButton.png',
                     '../../themes/jqt/img/loading.gif' ]
             });
 
 
 			$(document).ready(function(){
-
+        new Banner("div.banner-container");
 			});
 
         </script>
@@ -65,7 +65,7 @@
         </div>
 
       </div></div>
-      <div class="toolbar">
+      <div class="toolbar banner-container">
         Banner
       </div>
     
