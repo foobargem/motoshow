@@ -37,6 +37,7 @@
 				var applicant_name = $("#applicant_name").val().trim();
 				var applicant_phone_number = $("#applicant_phone_number").val().trim();
 				var applicant_address = $("#applicant_address").val().trim();
+        var applicant_event_id = $("#applicant_event_id").val().trim();
 
 				if (applicant_name == "") {
 					pg_alert("이름을 입력해주세요.");
@@ -60,7 +61,8 @@
 					data: {
 						'applicant[name]': applicant_name,
 						'applicant[phone_number]': applicant_phone_number,
-						'applicant[address]': applicant_address
+						'applicant[address]': applicant_address,
+            'applicant[event_id]': applicant_event_id
 					},
 					success: function(msg) {
 						var title = msg.status;
@@ -97,6 +99,7 @@
 					<div class="content-container">
 					</div>
 					<div class="inputs-container">
+            <input type="hidden" id="applicant_event_id" value="1" />
 						<div class="input">
 							<input type="text" id="applicant_name" />
 						</div>
