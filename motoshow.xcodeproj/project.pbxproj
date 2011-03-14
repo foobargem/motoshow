@@ -434,7 +434,7 @@
 				);
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6B1EC853-1A52-46A2-9168-CFD46CFFD135";
-				SDKROOT = iphoneos4.2;
+				SDKROOT = iphoneos4.3;
 				USER_HEADER_SEARCH_PATHS = "$(PHONEGAPLIB)/Classes/JSON $(PHONEGAPLIB)/Classes";
 			};
 			name = Release;
