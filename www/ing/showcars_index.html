@@ -34,13 +34,21 @@
       });
 
 
+    var _page = 1;
+    var last_page = false;
+
     function fetch_and_update_photos_list() {
       var _url = SMS.API.Car.galleryURL();
+
+      if (last_page) {
+        return false;
+      }
 
       jQuery.ajax({
         url: _url,
         type: 'GET',
         data: {
+          page: _page
         },
         success: function(msg){
           buildGallery(msg);
@@ -55,19 +63,26 @@
     function buildGallery (msg) {
       var li_eles = '';
       var li_class = '';
-      jQuery.each(msg, function(idx, obj){
+      var has_next = msg.has_next;
+
+      jQuery.each(msg.photos, function(idx, obj){
         var photo = obj['photo'];
 
         li_className = '';
-        if (idx > 0 && idx % 3 == 0) {
+        if ((idx + 1) % 4 == 0) {
           li_className = 'line-break';
         }
-        //window.plugins.suddenlybuntCmd.debug(idx);
 
         li_eles += '<li class="' + li_className + '"><a href="#car_show" class="detail-link" data-id="' + photo.car_id + '"><img src="' + photo.thumb_url + '" /></a></li>';
       });
 
-      $("#car_gallery div.thumbnail-container ul").html(li_eles);
+      if (has_next == "n") {
+        last_page = true;
+      } else {
+        li_eles += '<li id="more" class="more"><a href="#">More</a></li>';
+      }
+
+      $("#car_gallery div.thumbnail-container li#more").replaceWith(li_eles);
     }
 
 
@@ -85,6 +100,11 @@
         var car_id = $(event.currentTarget).attr("data-id");
         //window.plugins.suddenlybuntCmd.debug(photo_id);
         fetchCar(car_id);
+      });
+
+      $("li#more").bind("click", function(event){
+        _page += 1;
+        fetch_and_update_photos_list();
       });
     }
 
@@ -231,13 +251,13 @@
       // add eventlistener
       (function() {
 
+        /*
         $("#car_voice_stream_btn").bind("click", function(event){
-          //navigator.notification.alert("voice");
           window.plugins.childBrowser.showWebPage(car.voice_stream_url);
         });
+        */
 
         $("#car_video_stream_btn").bind("click", function(event){
-          //navigator.notification.alert("video");
           window.plugins.childBrowser.showWebPage(car.video_stream_url);
         });
 
@@ -247,12 +267,10 @@
 
 
     $(document).ready(function(){
-
       ChildBrowser.install();
       SuddenlybuntCmd.install();
 
       fetch_and_update_photos_list();
-
     });
 
 
@@ -273,7 +291,7 @@
     <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat-y;background-size:100%">
 
       <div class="thumbnail-container">
-        <ul><!-- photo gallery --></ul>
+        <ul><li id="more" class="more"><a href="">More</a></li></ul>
       </div>
 
     </div></div>
