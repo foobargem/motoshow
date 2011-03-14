@@ -6,14 +6,14 @@
         <title>2011서울모토쇼</title>
         <style type="text/css" media="screen">@import "../../jqtouch/jqtouch.css";</style>
         <style type="text/css" media="screen">@import "../../themes/jqt/theme.css";</style>
-        <style type="text/css" media="screen">@import "../../extensions/jqt.photo.css";</style>
         <style type="text/css" media="screen">@import "../../stylesheets/before_application.css";</style>
 
         <script src="../../jqtouch/jquery.1.4.2.js" type="text/javascript" charset="utf-8"></script>
         <script src="../../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
-        <script src="../../extensions/jqt.photo.js" type="application/x-javascript" charset="utf-8"></script>
         <script src="../../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
 		<script src="../../phonegap.0.9.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
 
         <script type="text/javascript" charset="utf-8">
             //change dynamic css
@@ -27,8 +27,6 @@
                     '../../themes/jqt/img/back_button.png',
                     '../../themes/jqt/img/back_button_clicked.png',
                     '../../themes/jqt/img/button_clicked.png',
-                    '../../themes/jqt/img/grayButton.png',
-                    '../../themes/jqt/img/whiteButton.png',
                     '../../themes/jqt/img/loading.gif' ]
             });
 
@@ -57,7 +55,7 @@
 				}
 
 				jQuery.ajax({
-					url: "http://localhost:3001/events/1/applicants",
+					url: SMS.API.EventApplicant.newURL(),
 					type: "POST",
 					data: {
 						'applicant[name]': applicant_name,
@@ -80,6 +78,8 @@
 			$(document).ready(function(){
 
 				$("#register_btn").bind("click", applyEvent);
+
+        new Banner("div.banner-container");
 
 			});
 
@@ -111,7 +111,7 @@
 						<img id="register_btn" src="../../images/event/btn1.png" width="61" />
 					</div>
 				</div></div>
-				<div class="toolbar">
+				<div class="toolbar banner-container">
 					Banner
 				</div>
 			</form>
