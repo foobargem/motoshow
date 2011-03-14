@@ -6,15 +6,14 @@
     <title>2011서울모토쇼</title>
     <style type="text/css" media="screen">@import "../../jqtouch/jqtouch.css";</style>
     <style type="text/css" media="screen">@import "../../themes/jqt/theme.css";</style>
-    <style type="text/css" media="screen">@import "../../extensions/jqt.photo.css";</style>
     <style type="text/css" media="screen">@import "../../stylesheets/ing_application.css";</style>
 
     <script src="../../jqtouch/jquery.1.4.2.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
     <script src="../../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
-    <script src="../../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../phonegap.0.9.4.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
 
     <script type="text/javascript" charset="utf-8">
             //change dynamic css
@@ -82,11 +81,9 @@
 
 
 			$(document).ready(function(){
-
         ChildBrowser.install();
-
         fetch_and_update_videos_list();
-
+        new Banner("div.banner-container");
 			});
 
     </script>
@@ -105,45 +102,13 @@
           <ul id="movie_list"><!-- movies list --></ul>
         </div>
       </div></div>
-      <div class="toolbar">
+      <div class="toolbar banner-container">
         Banner
       </div>
     </div>
 
-
-    <!-- ToDo: next time 
-    <div id="sketches_movie_show">
-      <div class="toolbar">
-        <h1>{movie title}</h1>
-        <a href="" rel="external" class="back btn">이전</a>
-      </div>
-      <div class="vertical-scroll use-bottom-toolbar"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat-y;background-size:100%">
-        <div class="content-container">
-          <ul id="movie_list">{{ movies list }}</ul>
-        </div>
-      </div></div>
-      <div class="toolbar">
-        Banner
-      </div>
-    </div>
-    -->
 
   </div>
 		
 </body>
 </html>
-
-
-<!--
-			<div id="sketches_movie_show">
-        <div class="toolbar">
-					<h1>개막식</h1>
-					<a href="#sketches_movie_index" class="back btn">이전</a>
-				</div>
-				<div>
-          <iframe title="YouTube video player" width="240" height="320" src="http://www.youtube.com/embed/fnqzxSO0Tq8" frameborder="0" allowfullscreen></iframe>
-				</div>
-				
-		  </div>
-		
--->
