@@ -97,12 +97,17 @@ function Banner(element) {
   jQuery.ajax({
     url: SMS.API.Banner.baseAdURL(),
     type: 'GET',
+    error: function() {
+      return false;
+    },
     success: function(msg){
-      that.title = msg.title;
-      that.content = msg.content;
-      that.landing_url = msg.landing_url;
-      that.embed_code = msg.embed_code;
-      that.display();
+      if (msg) {
+        that.title = msg.title;
+        that.content = msg.content;
+        that.landing_url = msg.landing_url;
+        that.embed_code = msg.embed_code;
+        that.display();
+      }
     }
   });
 }
