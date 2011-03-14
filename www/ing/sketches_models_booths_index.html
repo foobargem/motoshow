@@ -39,6 +39,8 @@
 
     function fetch_and_update_companies_list() {
       var _url = SMS.API.Company.indexURL("has_models");
+      
+      showIndicatorByView();
 
       jQuery.ajax({
         url: _url,
@@ -61,6 +63,8 @@
       });
 
       $("#sketches_models_booth_index div.content-container ul").html(li_eles);
+      
+      hideIndicatorByView();
     }
 
 
@@ -86,6 +90,8 @@
 
     function fetch_and_update_model_gallery(company_id) {
       var _url = SMS.API.Photo.indexURLWithModelsByCompany(company_id);
+      
+      showIndicatorByView2();
 
       jQuery.ajax({
         url: _url,
@@ -116,6 +122,9 @@
       });
 
       $("#model_gallery div.thumbnail-container ul").html(li_eles);
+
+      hideIndicatorByView2();
+
     }
 
 
@@ -131,6 +140,8 @@
 
     function fetchRacingModel(model_id) {
       var _url = SMS.API.RacingModel.showURL(model_id);
+      
+      showIndicatorByView3();
 
       jQuery.ajax({
         url: _url,
@@ -237,10 +248,40 @@
       } else {
         $("#model_profile_image")[0].src = "about:blank";
       }
+      
+      hideIndicatorByView3();
 
     }
 
+    function showIndicatorByView() {
+      $("#sketches_models_booth_index div.loading-container").show();
+    }
 
+    function hideIndicatorByView() {
+      setTimeout(function(){
+        $("#sketches_models_booth_index div.loading-container").hide();
+      }, 600);
+    }
+
+    function showIndicatorByView2() {
+      $("#model_gallery div.loading-container").show();
+    }
+
+    function hideIndicatorByView2() {
+      setTimeout(function(){
+        $("#model_gallery div.loading-container").hide();
+      }, 600);
+    }
+
+    function showIndicatorByView3() {
+      $("#model_show div.loading-container").show();
+    }
+
+    function hideIndicatorByView3() {
+      setTimeout(function(){
+        $("#model_show div.loading-container").hide();
+      }, 600);
+    }
 
     $(document).ready(function(){
       SuddenlybuntCmd.install();
@@ -261,6 +302,7 @@
         <h1>부스별 모델</h1>
         <a href="sketches_models_index.html" rel="external" class="back btn">이전</a>
       </div>
+	    <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>
       <div class="vertical-scroll use-bottom-toolbar"><div class="content-wrapper">
         <div class="content-container">
           <ul><!-- company list --></ul>
@@ -277,7 +319,7 @@
         <h1>레이싱 모델</h1>
         <a href="#sketches_models_booth_index" rel="external" class="back btn">이전</a>
       </div>
-      <div class="loader" style="display:block"></div>
+	    <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>
       <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat-y;background-size:100%">
 
         <div class="thumbnail-container">
@@ -293,7 +335,7 @@
         <h1>{model_name}</h1>
         <a href="#model_gallery" rel="external" class="back btn">이전</a>
       </div>
-      <div class="loader" style="display:none"></div>
+	    <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>
       <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat;background-size:100%">
 
         <div class="top-blank-box"></div>

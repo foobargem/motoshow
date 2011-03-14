@@ -37,6 +37,8 @@
     function fetch_and_update_photos_list() {
       var _url = SMS.API.Photo.indexURL();
 
+      showIndicatorByView();
+
       jQuery.ajax({
         url: _url,
         type: 'GET',
@@ -68,6 +70,8 @@
       });
 
       $("#exhibition_gallery div.thumbnail-container ul").html(li_eles);
+      
+      hideIndicatorByView();
     }
 
 
@@ -91,7 +95,9 @@
 
     function fetchPhoto(photo_id) {
       var _url = SMS.API.Photo.showURL(photo_id);
-
+      
+      showIndicatorByView2();
+      
       jQuery.ajax({
         url: _url,
         type: 'GET',
@@ -113,10 +119,31 @@
       //window.plugins.suddenlybuntCmd.debug(photo.thumb_url);
 
       $("#exhibition_photo_show div.photo-container img")[0].src = photo.thumb_url;
-
+      
+      hideIndicatorByView2();
+      
     }
 
 
+    function showIndicatorByView() {
+      $("#exhibition_gallery div.loading-container").show();
+    }
+
+    function hideIndicatorByView() {
+      setTimeout(function(){
+        $("#exhibition_gallery div.loading-container").hide();
+      }, 600);
+    }
+
+    function showIndicatorByView2() {
+      $("#exhibition_photo_show div.loading-container").show();
+    }
+
+    function hideIndicatorByView2() {
+      setTimeout(function(){
+        $("#exhibition_photo_show div.loading-container").hide();
+      }, 600);
+    }
 
 
     $(document).ready(function(){
@@ -139,7 +166,7 @@
       <h1>전시회 사진</h1>
       <a href="sketches_index.html" rel="external" class="back btn">이전</a>
     </div>
-    <div class="loader" style="display:block"></div>
+    <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>
     <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat-y;background-size:100%">
 
       <div class="thumbnail-container">
@@ -155,7 +182,7 @@
       <h1>전시회 사진</h1>
       <a href="#exhibition_gallery" class="back btn">이전</a>
     </div>
-    <div class="loader" style="display:none"></div>
+    <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>
     <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat;background-size:100%">
 
       <div class="photo-container">

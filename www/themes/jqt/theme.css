@@ -203,7 +203,7 @@ div#jqt.landscape .toolbar > h1 {
     background-repeat: no-repeat;
 }
 #jqt ul li.arrow a.active {
-    background-image: url(img/chevron.png);
+/*    background-image: url(img/chevron.png);*/
     background-position: right center;
     background-repeat: no-repeat;
 }

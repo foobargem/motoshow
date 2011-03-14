@@ -89,8 +89,10 @@
 				$("a.detail-link").bind("click", function(event){
           event.preventDefault();
           var company_id = $(event.currentTarget).attr("data-id");
-          fetchCompanyShow(company_id);
+					$("#companies_show h1").text($(event.currentTarget).text());
+					$("#company_logo")[0].src = "../../images/loading_image.jpg";
           showIndicatorByView();
+          fetchCompanyShow(company_id);
 				});
       }
 
@@ -115,7 +117,7 @@
 
         var company = data.company;
 
-        $("#companies_show h1").text(company.name);
+        //$("#companies_show h1").text(company.name);
 
         if (company.contact && company.contact.trim() != "") {
           $("#company_contact").show();
