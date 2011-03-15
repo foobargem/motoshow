@@ -87,16 +87,16 @@
   [dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
   
   // 현재
-  //NSDate *now = [NSDate date]; // 지금 시간갖고옴
-  NSDate *now = [dateFormatter dateFromString:@"2011-04-01 12:00:00"]; // ing 개발시 주석해제
+  NSDate *now = [NSDate date]; // 지금 시간갖고옴
+  //NSDate *now = [dateFormatter dateFromString:@"2011-04-01 12:00:00"]; // ing 개발시 주석해제
   // 개막식
   NSDate *startDateTime = [dateFormatter dateFromString:@"2011-04-01 11:00:00"];
   // 끝나는날 시간
   NSDate *endDateTime = [dateFormatter dateFromString:@"2011-04-10 19:00:00"];
   
-  NSLog([dateFormatter stringFromDate:now]);
-  NSLog([dateFormatter stringFromDate:startDateTime]);
-  NSLog([dateFormatter stringFromDate:endDateTime]);
+//  NSLog([dateFormatter stringFromDate:now]);
+//  NSLog([dateFormatter stringFromDate:startDateTime]);
+//  NSLog([dateFormatter stringFromDate:endDateTime]);
 	
   switch ([now compare:startDateTime]) {
     case NSOrderedAscending:
@@ -104,10 +104,10 @@
       break;
 
     case NSOrderedDescending:
-      if ([now compare:endDateTime] == NSOrderedDescending) 
-        return @"www/later";
-      else 
-        return @"www/ing";
+//      if ([now compare:endDateTime] == NSOrderedDescending) 
+//        return @"www/later";
+//      else 
+      return @"www/ing";
       break;
   }
 
