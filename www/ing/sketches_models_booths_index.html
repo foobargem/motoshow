@@ -113,10 +113,9 @@
         var photo = obj['photo'];
 
         li_className = '';
-        if (idx > 0 && idx % 3 == 0) {
+        if ((idx + 1) % 4 == 0) {
           li_className = 'line-break';
         }
-        //window.plugins.suddenlybuntCmd.debug(li_className);
 
         li_eles += '<li class="' + li_className + '"><a href="#model_show" class="detail-link" data-id="' + photo.racing_model_id + '"><img src="' + photo.thumb_url + '" /></a></li>';
       });
