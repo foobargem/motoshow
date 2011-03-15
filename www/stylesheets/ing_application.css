@@ -177,29 +177,43 @@ div#sketches_model_index .content-wrapper {
     div#sketches_model_index .content-wrapper .buttons-container .button-wrapper {
       margin-bottom: 16px; }
 
-div#exhibition_gallery .content-wrapper, div#model_gallery .content-wrapper, div#car_gallery .content-wrapper {
+div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper,
+div#jqt div#model_gallery .vertical-scroll .content-wrapper,
+div#jqt div#car_gallery .vertical-scroll .content-wrapper {
   min-height: 400px;
   background: url(../../../images/com_bg2.png) repeat-y;
   background-size: 100%; }
-  div#exhibition_gallery .content-wrapper .thumbnail-container, div#model_gallery .content-wrapper .thumbnail-container, div#car_gallery .content-wrapper .thumbnail-container {
+  div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container,
+  div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container,
+  div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container {
     padding-top: 20px; }
-    div#exhibition_gallery .content-wrapper .thumbnail-container ul, div#model_gallery .content-wrapper .thumbnail-container ul, div#car_gallery .content-wrapper .thumbnail-container ul {
+    div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul,
+    div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul,
+    div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul {
       width: 290px;
       background: none;
       margin: 0 0 0 15px;
       border: 0 solid red; }
-      div#exhibition_gallery .content-wrapper .thumbnail-container ul:after, div#model_gallery .content-wrapper .thumbnail-container ul:after, div#car_gallery .content-wrapper .thumbnail-container ul:after {
+      div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul:after,
+      div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul:after,
+      div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul:after {
         content: ".";
         display: block;
         height: 0;
         clear: both;
         overflow: hidden;
         visibility: hidden; }
-      * + html div#exhibition_gallery .content-wrapper .thumbnail-container ul, * + html div#model_gallery .content-wrapper .thumbnail-container ul, * + html div#car_gallery .content-wrapper .thumbnail-container ul {
+      * + html div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul, * + html
+      div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul, * + html
+      div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul {
         display: inline-block; }
-        .IE * + html div#exhibition_gallery .content-wrapper .thumbnail-container ul, .IE * + html div#model_gallery .content-wrapper .thumbnail-container ul, .IE * + html div#car_gallery .content-wrapper .thumbnail-container ul {
+        .IE * + html div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul, .IE * + html
+        div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul, .IE * + html
+        div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul {
           height: 1%; }
-      div#exhibition_gallery .content-wrapper .thumbnail-container ul li, div#model_gallery .content-wrapper .thumbnail-container ul li, div#car_gallery .content-wrapper .thumbnail-container ul li {
+      div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li,
+      div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li,
+      div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li {
         display: inline;
         float: left;
         background: none;
@@ -209,28 +223,48 @@ div#exhibition_gallery .content-wrapper, div#model_gallery .content-wrapper, div
         padding: 0;
         margin: 0 10px 10px 0;
         border: 0 solid green; }
-        div#exhibition_gallery .content-wrapper .thumbnail-container ul li.line-break, div#model_gallery .content-wrapper .thumbnail-container ul li.line-break, div#car_gallery .content-wrapper .thumbnail-container ul li.line-break {
+        div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.line-break,
+        div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.line-break,
+        div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.line-break {
           margin-right: 0; }
-      div#exhibition_gallery .content-wrapper .thumbnail-container ul li#more, div#model_gallery .content-wrapper .thumbnail-container ul li#more, div#car_gallery .content-wrapper .thumbnail-container ul li#more {
+      div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more,
+      div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more,
+      div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more {
         display: block;
-        width: 100%;
-        height: 30px;
-        text-align: center; }
-        div#exhibition_gallery .content-wrapper .thumbnail-container ul li#more:after, div#model_gallery .content-wrapper .thumbnail-container ul li#more:after, div#car_gallery .content-wrapper .thumbnail-container ul li#more:after {
+        height: 40px;
+        width: 290px;
+        text-align: center;
+        padding: 0;
+        line-height: 40px;
+        margin: 0;
+        margin-right: 0;
+        background: black; }
+        div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more:after,
+        div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more:after,
+        div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more:after {
           content: ".";
           display: block;
           height: 0;
           clear: both;
           overflow: hidden;
           visibility: hidden; }
-        * + html div#exhibition_gallery .content-wrapper .thumbnail-container ul li#more, * + html div#model_gallery .content-wrapper .thumbnail-container ul li#more, * + html div#car_gallery .content-wrapper .thumbnail-container ul li#more {
+        * + html div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more, * + html
+        div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more, * + html
+        div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more {
           display: inline-block; }
-          .IE * + html div#exhibition_gallery .content-wrapper .thumbnail-container ul li#more, .IE * + html div#model_gallery .content-wrapper .thumbnail-container ul li#more, .IE * + html div#car_gallery .content-wrapper .thumbnail-container ul li#more {
+          .IE * + html div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more, .IE * + html
+          div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more, .IE * + html
+          div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more {
             height: 1%; }
-        div#exhibition_gallery .content-wrapper .thumbnail-container ul li#more a, div#model_gallery .content-wrapper .thumbnail-container ul li#more a, div#car_gallery .content-wrapper .thumbnail-container ul li#more a {
-          display: block;
-          border: 1px solid white; }
-      div#exhibition_gallery .content-wrapper .thumbnail-container ul img, div#model_gallery .content-wrapper .thumbnail-container ul img, div#car_gallery .content-wrapper .thumbnail-container ul img {
+        div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more img,
+        div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more img,
+        div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul li.more img {
+          border: 0;
+          width: 16px;
+          height: 16px; }
+      div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container ul img,
+      div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container ul img,
+      div#jqt div#car_gallery .vertical-scroll .content-wrapper .thumbnail-container ul img {
         border: 0;
         width: 65px;
         height: 65px; }

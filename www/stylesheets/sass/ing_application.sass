@@ -178,43 +178,52 @@ div#sketches_model_index
 
 
 
-div#exhibition_gallery, div#model_gallery, div#car_gallery
-  .content-wrapper
-    :min-height 400px
-    :background url(../../../images/com_bg2.png) repeat-y
-    :background-size 100%
-    .thumbnail-container
-      :padding-top 20px
-      ul
-        +clearfix
-        :width 290px
-        :background none
-        :margin 0 0 0 15px
-        :border 0 solid red
-        li
-          +float_left
-          :background none
-          :display inline
-          :height 65px
-          :width 65px
-          :padding 0
-          :margin 0 10px 10px 0
-          :border 0 solid green
-          &.line-break
-            :margin-right 0
-        li#more
+div#jqt div#exhibition_gallery,
+div#jqt div#model_gallery,
+div#jqt div#car_gallery
+  .vertical-scroll
+    .content-wrapper
+      :min-height 400px
+      :background url(../../../images/com_bg2.png) repeat-y
+      :background-size 100%
+      .thumbnail-container
+        :padding-top 20px
+        ul
           +clearfix
-          :display block
-          :width 100%
-          :height 30px
-          :text-align center
-          a
+          :width 290px
+          :background none
+          :margin 0 0 0 15px
+          :border 0 solid red
+          li
+            +float_left
+            :background none
+            :display inline
+            :height 65px
+            :width 65px
+            :padding 0
+            :margin 0 10px 10px 0
+            :border 0 solid green
+            &.line-break
+              :margin-right 0
+          li.more
+            +clearfix
             :display block
-            :border 1px solid white
-        img
-          :border 0
-          :width 65px
-          :height 65px
+            :height 40px
+            :width 290px
+            :text-align center
+            :padding 0
+            :line-height 40px
+            :margin 0
+            :margin-right 0
+            :background black
+            img
+              :border 0
+              :width 16px
+              :height 16px
+          img
+            :border 0
+            :width 65px
+            :height 65px
 
 
 div#exhibition_photo_show

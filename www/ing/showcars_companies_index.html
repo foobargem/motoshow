@@ -40,20 +40,26 @@
       });
 
 
+    var _page = 1;
+    var last_page = false;
+
     function fetch_and_update_photos_list() {
       var _url = SMS.API.Photo.indexURLByBooth(booth_code);
+
+      if (last_page) return false;
       
-      showIndicatorByView();
+      //showIndicatorByView();
 
       jQuery.ajax({
         url: _url,
         type: 'GET',
         data: {
+          page: _page
         },
         //error: onFetchError,
         success: function(msg){
           updateGalleryTitle(msg.company);
-          buildGallery(msg.photos);
+          buildGallery(msg);
           updateListRowStyles();
           addEventListenerToRow();
         }
@@ -65,23 +71,30 @@
       $("#car_gallery h1").text(company.name);
     }
 
-    function buildGallery (photos) {
+    function buildGallery (msg) {
       var li_eles = '';
-      var li_class = '';
-      jQuery.each(photos, function(idx, obj){
+      var li_className = '';
+      var has_next = msg.has_next;
+      jQuery.each(msg.photos, function(idx, obj){
         var photo = obj['photo'];
         li_className = '';
-        if (idx > 0 && idx % 3 == 0) {
+        if ((idx + 1) % 4 == 0) {
           li_className = 'line-break';
         }
-        //window.plugins.suddenlybuntCmd.debug(idx);
 
         li_eles += '<li class="' + li_className + '"><a href="#car_show" class="detail-link" data-id="' + photo.car_id + '"><img src="' + photo.thumb_url + '" /></a></li>';
       });
 
-      $("#car_gallery div.thumbnail-container ul").html(li_eles);
+      if (has_next == "n") {
+        last_page = true;
+      } else {
+        li_eles += '<li id="more" class="more"><a href="#">More</a></li>';
+      }
+
+      //$("#car_gallery div.thumbnail-container ul").html(li_eles);
+      $("#car_gallery div.thumbnail-container li#more").replaceWith(li_eles);
       
-      hideIndicatorByView();
+      //hideIndicatorByView();
 
     }
 
@@ -92,6 +105,8 @@
 
       $("li:odd").css("background", 'url("../../images/sub_list2.png") no-repeat');
       $("li:odd").css("background-size", "100%");
+
+      $("li#more").css("background", "#000");
     }
 
     function addEventListenerToRow () {
@@ -100,6 +115,11 @@
         var car_id = $(event.currentTarget).attr("data-id");
         //window.plugins.suddenlybuntCmd.debug(photo_id);
         fetchCar(car_id);
+      });
+
+      $("li#more").bind("click", function(event){
+        _page += 1;
+        fetch_and_update_photos_list();
       });
     }
 
@@ -283,11 +303,11 @@
 
     $(document).ready(function(){
 
-      $(document).bind("deviceready", function(){
+      //$(document).bind("deviceready", function(){
         ChildBrowser.install();
         SuddenlybuntCmd.install();
         fetch_and_update_photos_list();
-      }, false);
+      //}, false);
 
     });
 
@@ -306,10 +326,13 @@
       <a href="booths_index.html" rel="external" class="back btn">이전</a>
 			<a href="index.html" rel="external" class="homeButton"></a>
     </div>
-    <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>
+    <!-- <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div> -->
     <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat-y;background-size:100%">
         <div class="thumbnail-container">
-          <ul><!-- photo gallery --></ul>
+          <ul>
+            <!-- photo gallery -->
+            <li id="more" class="more"><a href="#">More</a></li>
+          </ul>
         </div>
       
     </div></div>

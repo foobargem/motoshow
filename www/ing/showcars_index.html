@@ -43,7 +43,7 @@
       if (last_page) {
         return false;
       }
-      showIndicatorByView();
+      //showIndicatorByView();
 
       jQuery.ajax({
         url: _url,
@@ -63,7 +63,7 @@
 
     function buildGallery (msg) {
       var li_eles = '';
-      var li_class = '';
+      var li_className = '';
       var has_next = msg.has_next;
 
       jQuery.each(msg.photos, function(idx, obj){
@@ -84,7 +84,7 @@
       }
 
       $("#car_gallery div.thumbnail-container li#more").replaceWith(li_eles);
-      hideIndicatorByView();
+      //hideIndicatorByView();
       
     }
 
@@ -95,6 +95,8 @@
 
       $("li:odd").css("background", 'url("../../images/sub_list2.png") no-repeat');
       $("li:odd").css("background-size", "100%");
+
+      $("li#more").css("background", "#000");
     }
 
     function addEventListenerToRow () {
@@ -107,6 +109,7 @@
 
       $("li#more").bind("click", function(event){
         _page += 1;
+        //$("li#more").html('<img src="../../images/loader_arrow.gif" />');
         fetch_and_update_photos_list();
       });
     }
@@ -313,11 +316,13 @@
       <a href="index.html" rel="external" class="back btn">이전</a>
 			<a href="index.html" rel="external" class="homeButton"></a>
     </div>
-    <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>
+    <!-- <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div> -->
     <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat-y;background-size:100%">
 
       <div class="thumbnail-container">
-        <ul><li id="more" class="more"><a href="">More</a></li></ul>
+        <ul>
+          <li id="more" class="more"><a href="#" class="grayButton" />More</a></li>
+        </ul>
       </div>
 
     </div></div>
