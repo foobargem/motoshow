@@ -71,7 +71,7 @@
       jQuery.each(photos, function(idx, obj){
         var photo = obj['photo'];
         li_className = '';
-        if (idx > 0 && idx % 3 == 0) {
+        if ((idx + 1) % 4 == 0) {
           li_className = 'line-break';
         }
         //window.plugins.suddenlybuntCmd.debug(idx);
@@ -107,6 +107,8 @@
     function fetchCar(car_id) {
       var _url = SMS.API.Car.showURL(car_id);
       
+      $("#car_profile_image")[0].src = "../../images/loading_image.jpg";
+
       showIndicatorByView2();
 
       jQuery.ajax({
@@ -236,12 +238,12 @@
       }
 
       // ToDo: car_photo_btn, car_others_btn
-      $("#car_photo_btn").hide();
-
-      $("#car_others_btn").bind("click", function(event){
-        window.history.back();
-      });
-      $("#car_others_btn").show();
+      // $("#car_photo_btn").hide();
+      // 
+      // $("#car_others_btn").bind("click", function(event){
+      //   window.history.back();
+      // });
+      // $("#car_others_btn").show();
 
 
       // add eventlistener
@@ -336,7 +338,7 @@
       <div class="buttons-container">
         <img id="car_photo_btn" src="../../images/view_btn3.png" />
         <img id="car_video_stream_btn" src="../../images/view_btn4.png" />
-        <img id="car_others_btn" src="../../images/view_btn5.png" />
+        <a href="#car_gallery" class="flip"><img id="car_others_btn" src="../../images/view_btn5.png" /></a>
       </div>
 
       <div class="content-container">

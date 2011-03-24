@@ -2,8 +2,8 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 var SMS = {
-  baseURL: "http://10.1.1.91:3000"
-  // baseURL: "http://2011sms.top-rider.com"
+  // baseURL: "http://10.1.1.91:3000"
+  baseURL: "http://2011sms.top-rider.com"
 };
 
 SMS.API = {

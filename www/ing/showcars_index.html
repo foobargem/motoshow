@@ -51,7 +51,7 @@
 					type: 'GET',
 					data: {
 					},
-          error: onFetchListError,
+          // error: onFetchListError,
 					success: function(msg){
 						buildList(msg);
 						updateListRowStyles();
@@ -131,7 +131,7 @@
 			        data: {
 			          page: _page
 			        },
-			        error: onFetchError,
+			        // error: onFetchError,
 			        success: function(msg){
 			          updateGalleryTitle(msg);
 			          buildGallery(msg);
@@ -148,6 +148,10 @@
 			      $("#car_gallery h1").text(msg.name);
 			    }
 
+          function shorten_img_url(url) {
+	          return url.replace("_z", "_s");
+          }
+			    
 			    function buildGallery (msg) {
 				    window.plugins.suddenlybuntCmd.debug("buildGallery");
 		    
@@ -163,7 +167,7 @@
 			          li_className = 'line-break';
 			        }
 
-			        li_eles += '<li class="' + li_className + '"><a href="#car_show" class="detail-link" data-id="' + photo.car_id + '" data-large-url="' + photo.large_url + '"><img src="' + photo.thumb_url + '" /></a></li>';
+			        li_eles += '<li class="' + li_className + '"><a href="#car_show" class="detail-link" data-id="' + photo.car_id + '" data-large-url="' + photo.large_url + '"><img src="' + shorten_img_url(photo.large_url) + '" /></a></li>';
 			      });
 
 			      if (has_next == "n") {
@@ -173,7 +177,7 @@
 			      }
 
 			      if (li_eles.trim() == "") {
-			        $("#car_gallery div.thumbnail-container ul").text("데이터가 없습니다");
+			        $("#car_gallery div.thumbnail-container ul").html('<li id="more" class="more"><a href="#">데이터가 없습니다.</a></li>');
 			      } else {
 			        $("#car_gallery div.thumbnail-container ul").html(li_eles);
 					    window.plugins.suddenlybuntCmd.debug(li_eles);
@@ -337,12 +341,14 @@
 			        $("#car_profile_image")[0].src = "../../images/loading_image.jpg";
 			     }
 
-			      updateButtonsByCar(car);
+			      updateButtonsByCar(data);
 			      hideIndicatorByView2();
 			    }
 
 
-			    function updateButtonsByCar(car) {
+			    function updateButtonsByCar(data) {
+
+            var car = data.car;
 
 			      if (car.video_stream_url && car.video_stream_url.trim() != "") {
 			        $("#car_video_stream_btn").show();
@@ -351,12 +357,14 @@
 			      }
 
 			      // ToDo: car_photo_btn, car_others_btn
-			      $("#car_photo_btn").hide();
-
-			      $("#car_others_btn").bind("click", function(event){
-			        window.history.back();
-			      });
-			      $("#car_others_btn").show();
+			      // $("#car_photo_btn").hide();
+			      // 
+			      // $("#car_others_btn").bind("click", function(event){
+			      // 				      window.plugins.suddenlybuntCmd.debug(data.company.booth_code);
+			      // 			  
+			      //               window.location.href = 'showcars_companies_index.html#' + data.company.booth_code;
+			      // });
+			      // $("#car_others_btn").show();
 
 
 			      // add eventlistener
@@ -438,8 +446,7 @@
 	    <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat-y;background-size:100%">
 	        <div class="thumbnail-container">
 	          <ul>
-	            <!-- photo gallery -->
-	            <!-- <li id="more" class="more"><a href="#">More</a></li> -->
+		          <li id="more" class="more"><a href="#">More</a></li>
 	          </ul>
 	        </div>
 
@@ -466,9 +473,9 @@
 	      </div>
 
 	      <div class="buttons-container">
-	        <img id="car_photo_btn" src="../../images/view_btn3.png" />
+	        <!-- <img id="car_photo_btn" src="../../images/view_btn3.png" /> -->
 	        <img id="car_video_stream_btn" src="../../images/view_btn4.png" />
-	        <img id="car_others_btn" src="../../images/view_btn5.png" />
+	        <a href="#car_gallery" class="flip"><img id="car_others_btn" src="../../images/view_btn5.png" /></a>
 	      </div>
 
 	      <div class="content-container">
