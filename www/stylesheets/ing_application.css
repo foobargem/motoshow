@@ -143,6 +143,16 @@ div#companies_show .content-wrapper {
         border: 0; }
 
 /* showcars */
+
+div#cars_index .content-wrapper {
+  background: url(../images/com_bg2.png) repeat-y;
+  background-size: 100%;
+  min-height: 372px; }
+  div#cars_index .content-wrapper .content-container ul {
+    margin: 0; }
+    div#cars_index .content-wrapper .content-container ul li {
+      height: 30px; }
+      
 div#photo_container {
   background: url("../images/com_bg2.png") no-repeat; }
   div#photo_container .buttons_container {
@@ -172,7 +182,7 @@ div#sketches_movie_index .content-wrapper, div#sketches_models_booth_index .cont
 
 div#sketches_model_index .content-wrapper {
   min-height: 372px;
-  background: url(../../../images/com_bg1.png) repeat-y;
+  background: url(../images/com_bg1.png) repeat-y;
   background-size: 100%; }
   div#sketches_model_index .content-wrapper .blank-box-top {
     min-height: 42px; }
@@ -185,7 +195,7 @@ div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper,
 div#jqt div#model_gallery .vertical-scroll .content-wrapper,
 div#jqt div#car_gallery .vertical-scroll .content-wrapper {
   min-height: 400px;
-  background: url(../../../images/com_bg2.png) repeat-y;
+  background: url(../images/com_bg2.png) repeat-y;
   background-size: 100%; }
   div#jqt div#exhibition_gallery .vertical-scroll .content-wrapper .thumbnail-container,
   div#jqt div#model_gallery .vertical-scroll .content-wrapper .thumbnail-container,
@@ -275,7 +285,7 @@ div#jqt div#car_gallery .vertical-scroll .content-wrapper {
 
 div#exhibition_photo_show .content-wrapper {
   min-height: 400px;
-  background: url(../../../images/com_bg2.png) repeat;
+  background: url(../images/com_bg2.png) repeat;
   background-size: 100%; }
   div#exhibition_photo_show .content-wrapper .photo-container {
     width: 320px; }

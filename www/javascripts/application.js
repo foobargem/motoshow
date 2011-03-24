@@ -37,6 +37,9 @@ SMS.API = {
     },
     showURL: function(id) {
       return SMS.baseURL + "/cars/" + id + ".json";
+    },
+    photosURL: function(id) {
+      return SMS.baseURL + "/cars/photos.json?id=" + id;
     }
   },
 
@@ -90,9 +93,11 @@ function Banner(element) {
 
   var that = this;
 
+  /*
   if (!window.plugins || !window.plugins.childBrowser) {
     ChildBrowser.install();
   }
+  */
 
   jQuery.ajax({
     url: SMS.API.Banner.baseAdURL(),

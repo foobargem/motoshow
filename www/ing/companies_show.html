@@ -124,10 +124,11 @@
       }
 
 			$(document).ready(function(){
-        $(document).bind("deviceready", function(){
-          ChildBrowser.install();
-          fetchCompany();
-        }, false);
+				//$(document).bind("deviceready", function(){
+				ChildBrowser.install();	
+        fetchCompany();
+        //}, false);
+	      
         new Banner("div.banner-container");
 			});
 
