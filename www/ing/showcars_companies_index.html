@@ -9,7 +9,6 @@
   <style type="text/css" media="screen">@import "../../extensions/scrolling.css";</style>
   <style type="text/css" media="screen">@import "../../stylesheets/ing_application.css";</style>
 
-
   <script type="text/javascript">
     var booth_code = document.location.hash;
     if (booth_code != undefined) {
@@ -20,6 +19,7 @@
   <script src="../../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
   <script src="../../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
   <script src="../../phonegap.0.9.4.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
   <script src="../../javascripts/suddenlybunt_command.js" type="text/javascript" charset="utf-8"></script>
   <script src="../../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
   
@@ -40,26 +40,20 @@
       });
 
 
-    var _page = 1;
-    var last_page = false;
-
     function fetch_and_update_photos_list() {
       var _url = SMS.API.Photo.indexURLByBooth(booth_code);
-
-      if (last_page) return false;
       
-      //showIndicatorByView();
+      showIndicatorByView();
 
       jQuery.ajax({
         url: _url,
         type: 'GET',
         data: {
-          page: _page
         },
         //error: onFetchError,
         success: function(msg){
           updateGalleryTitle(msg.company);
-          buildGallery(msg);
+          buildGallery(msg.photos);
           updateListRowStyles();
           addEventListenerToRow();
         }
@@ -71,33 +65,23 @@
       $("#car_gallery h1").text(company.name);
     }
 
-    function buildGallery (msg) {
+    function buildGallery (photos) {
       var li_eles = '';
-      var li_className = '';
-      var has_next = msg.has_next;
-      jQuery.each(msg.photos, function(idx, obj){
+      var li_class = '';
+      jQuery.each(photos, function(idx, obj){
         var photo = obj['photo'];
         li_className = '';
-        if ((idx + 1) % 4 == 0) {
+        if (idx > 0 && idx % 3 == 0) {
           li_className = 'line-break';
         }
+        //window.plugins.suddenlybuntCmd.debug(idx);
 
         li_eles += '<li class="' + li_className + '"><a href="#car_show" class="detail-link" data-id="' + photo.car_id + '"><img src="' + photo.thumb_url + '" /></a></li>';
       });
 
-      if (has_next == "n") {
-        last_page = true;
-      } else {
-        li_eles += '<li id="more" class="more"><a href="#">More</a></li>';
-      }
-
-      if (li_eles.trim() == "") {
-        $("#car_gallery div.thumbnail-container li#more").text("데이터가 없습니다");
-      } else {
-        $("#car_gallery div.thumbnail-container li#more").replaceWith(li_eles);
-      }
+      $("#car_gallery div.thumbnail-container ul").html(li_eles);
       
-      //hideIndicatorByView();
+      hideIndicatorByView();
 
     }
 
@@ -108,8 +92,6 @@
 
       $("li:odd").css("background", 'url("../../images/sub_list2.png") no-repeat');
       $("li:odd").css("background-size", "100%");
-
-      $("li#more").css("background", "#000");
     }
 
     function addEventListenerToRow () {
@@ -118,12 +100,6 @@
         var car_id = $(event.currentTarget).attr("data-id");
         //window.plugins.suddenlybuntCmd.debug(photo_id);
         fetchCar(car_id);
-      });
-
-      $("li#more").bind("click", function(event){
-        event.preventDefault();
-        _page += 1;
-        fetch_and_update_photos_list();
       });
     }
 
@@ -242,10 +218,9 @@
       //window.plugins.suddenlybuntCmd.debug(car.photo_large_url);
       if (car.photo_large_url && car.photo_large_url.trim() != "") {
         $("#car_profile_image")[0].src = car.photo_large_url;
-        $("#car_large_image")[0].src = car.photo_large_url;
       } else {
         $("#car_profile_image")[0].src = "../../images/loading_image.jpg";
-     }
+      }
 
       updateButtonsByCar(car);
       hideIndicatorByView2();
@@ -308,12 +283,11 @@
 
     $(document).ready(function(){
 
-      // $(document).bind("deviceready", function(){
+      $(document).bind("deviceready", function(){
         ChildBrowser.install();
         SuddenlybuntCmd.install();
-        alert(1);
         fetch_and_update_photos_list();
-      // }, false);
+      }, false);
 
     });
 
@@ -322,9 +296,9 @@
 
 </head>
 <body>
-		
+
 <div id="jqt">
-			
+
 
   <div id="car_gallery">
     <div class="toolbar">
@@ -332,14 +306,10 @@
       <a href="booths_index.html" rel="external" class="back btn">이전</a>
 			<a href="index.html" rel="external" class="homeButton"></a>
     </div>
-    <!-- <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div> -->
-
-    <div class="vertical-scroll"><div class="content-wrapper">
+    <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>
+    <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat-y;background-size:100%">
         <div class="thumbnail-container">
-          <ul>
-            <!-- photo gallery -->
-            <li id="more" class="more"><a href="#">More</a></li>
-          </ul>
+          <ul><!-- photo gallery --></ul>
         </div>
       
     </div></div>
@@ -353,14 +323,13 @@
       <a href="#car_gallery" class="back btn">이전</a>
 			<a href="index.html" rel="external" class="homeButton"></a>
     </div>
-
-    <div class="vertical-scroll"><div class="content-wrapper">
+    <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat;background-size:100%">
 
       <div class="top-blank-box"></div>
       <div class="photo-container">
         <div class="logo-image-container">
 	        <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>
-          <a href="#car_large_show" class='flip' ><img id="car_profile_image" src="../../images/loading_image.jpg" width="270" height="116" /></a>
+          <img id="car_profile_image" src="../../images/loading_image.jpg" width="270" height="116" />
         </div>
       </div>
 
@@ -466,28 +435,6 @@
       </div>
 
     </div></div>
-  </div>
-
-  <div id="car_large_show">
-    <div class="toolbar">
-      <h1>전체 보기</h1>      
-      <a href="#car_show" class="back btn">이전</a>
-			<a href="index.html" rel="external" class="homeButton"></a>
-    </div>
-    <!-- <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div> -->
-
-    <div class="horizontal-scroll">
-			<table class="with-scrollbar">
-        <tr>
-          <td>
-            <div>
-		          <img id="car_large_image" src="../../images/loading_image.jpg"/>
-            </div>
-          </td>
-        </tr>
-      </table>
-    </div>
-
   </div>
 
 

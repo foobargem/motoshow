@@ -42,14 +42,24 @@ div#companies_main .content-wrapper {
     text-align: center;
     margin-bottom: 16px; }
 
-div#companies_index .content-wrapper {
+div#companies_cars_index .content-wrapper {
   background: url(../images/com_bg2.png) repeat-y;
   background-size: 100%;
   min-height: 372px; }
-  div#companies_index .content-wrapper .content-container ul {
+  div#companies_cars_index .content-wrapper .content-container ul {
     margin: 0; }
-    div#companies_index .content-wrapper .content-container ul li {
+    div#companies_cars_index .content-wrapper .content-container ul li {
       height: 30px; }
+
+div#companies_index .content-wrapper {
+  background: url(../images/com_bg1.png) repeat-y;
+  background-size: 100%;
+  min-height: 370px; }
+  div#companies_index .content-wrapper .top-blank-box {
+    min-height: 42px; }
+  div#companies_index .content-wrapper .buttons-container .button-wrapper {
+    text-align: center;
+    margin-bottom: 16px; }
 
 div#companies_show .content-wrapper {
   background: url(../images/com_bg2.png) repeat-y;
@@ -132,6 +142,10 @@ div#companies_show .content-wrapper {
         padding: 0 8px;
         font-size: 12px;
         color: #c2c2c2; }
+    div#companies_show .content-wrapper .content-container .field-wrapper.content-only div {
+      margin-left: 20px;
+      width: 254px;
+      padding: 10px; }
     div#companies_show .content-wrapper .content-container .site-link-wrapper {
       text-align: center;
       margin: 15px 0; }
@@ -139,7 +153,6 @@ div#companies_show .content-wrapper {
         border: 0; }
 
 /* showcars */
-
 div#cars_index .content-wrapper {
   background: url(../images/com_bg2.png) repeat-y;
   background-size: 100%;
@@ -148,7 +161,7 @@ div#cars_index .content-wrapper {
     margin: 0; }
     div#cars_index .content-wrapper .content-container ul li {
       height: 30px; }
-      
+
 div#photo_container {
   background: url("../images/com_bg2.png") no-repeat; }
   div#photo_container .buttons_container {
@@ -368,6 +381,10 @@ div#model_show .content-wrapper {
         padding: 0 8px;
         font-size: 12px;
         color: #c2c2c2; }
+    div#model_show .content-wrapper .content-container .field-wrapper.content-only div {
+      margin-left: 20px;
+      width: 254px;
+      padding: 10px; }
     div#model_show .content-wrapper .content-container .site-link-wrapper {
       text-align: center;
       margin: 15px 0; }
@@ -459,6 +476,10 @@ div#car_show .content-wrapper {
         padding: 0 8px;
         font-size: 12px;
         color: #c2c2c2; }
+    div#car_show .content-wrapper .content-container .field-wrapper.content-only div {
+      margin-left: 20px;
+      width: 254px;
+      padding: 10px; }
     div#car_show .content-wrapper .content-container .site-link-wrapper {
       text-align: center;
       margin: 15px 0; }

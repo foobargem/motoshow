@@ -120,6 +120,8 @@
     function fetchRacingModel(model_id) {
       var _url = SMS.API.RacingModel.showURL(model_id);
 
+      $("#model_profile_image")[0].src = "../../images/loading_image.jpg";
+
       showIndicatorByView2();
 
       jQuery.ajax({
@@ -194,7 +196,7 @@
 
       if (model.career_desc && model.career_desc.trim() != "") {
         $("#model_career_desc").show();
-        $("#model_career_desc div").text(model.career_desc);
+        $("#model_career_desc div").html(model.career_desc);
       } else {
         $("#model_career_desc").hide();
       }
@@ -253,7 +255,7 @@
     </div>
     <!-- <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div> -->
 
-    <div class="vertical-scroll"><div class="content-wrapper">
+    <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat-y;background-size:100%">
 
       <div class="thumbnail-container">
         <ul>
@@ -274,7 +276,7 @@
     </div>
     <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>
 
-    <div class="vertical-scroll"><div class="content-wrapper">
+    <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat-y;background-size:100%">
 
       <div class="top-blank-box"></div>
       <div class="photo-container">
@@ -340,10 +342,7 @@
           <div><!-- fan_site_url --></div>
         </div>
 
-        <div id="model_career_desc" class="field-wrapper">
-          <label>
-            <img src="../../images/view_list27.png" />
-          </label>
+        <div id="model_career_desc" class="field-wrapper content-only">
           <div><!-- career_desc --></div>
         </div>
 

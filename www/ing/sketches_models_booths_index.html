@@ -140,6 +140,8 @@
     function fetchRacingModel(model_id) {
       var _url = SMS.API.RacingModel.showURL(model_id);
       
+      $("#model_profile_image")[0].src = "../../images/loading_image.jpg";
+      
       showIndicatorByView3();
 
       jQuery.ajax({
@@ -185,25 +187,11 @@
         height_weight += model.weight;
       }
 
-      if (height_weight.trim() != "") {
-        $("#model_height_weight").show();
-        $("#model_height_weight div").text(height_weight);
-      } else {
-        $("#model_height_weight").hide();
-      }
-
       if (model.dress_size && model.dress_size.trim() != "") {
         $("#model_dress_size").show();
         $("#model_dress_size div").text(model.dress_size);
       } else {
         $("#model_dress_size").hide();
-      }
-
-      if (model.bwh && model.bwh.trim() != "") {
-        $("#model_bwh").show();
-        $("#model_bwh div").text(model.bwh);
-      } else {
-        $("#model_bwh").hide();
       }
 
       if (model.shoe_size && model.shoe_size.trim() != "") {
@@ -236,7 +224,7 @@
 
       if (model.career_desc && model.career_desc.trim() != "") {
         $("#model_career_desc").show();
-        $("#model_career_desc div").text(model.career_desc);
+        $("#model_career_desc div").html(model.career_desc);
       } else {
         $("#model_career_desc").hide();
       }
@@ -322,7 +310,7 @@
       </div>
 	    <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>
 
-      <div class="vertical-scroll"><div class="content-wrapper">
+      <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat-y;background-size:100%">
 
         <div class="thumbnail-container">
           <ul><!-- photo gallery --></ul>
@@ -340,7 +328,7 @@
       </div>
 	    <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>
 
-      <div class="vertical-scroll"><div class="content-wrapper">
+      <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat-y;background-size:100%">
 
         <div class="top-blank-box"></div>
         <div class="photo-container">
@@ -377,25 +365,11 @@
             <div><!-- blood_type --></div>
           </div>
 
-          <div id="model_height_weight" class="field-wrapper">
-            <label>
-              <img src="../../images/view_list20.png" />
-            </label>
-            <div><!-- height and weight --></div>
-          </div>
-
           <div id="model_dress_size" class="field-wrapper">
             <label>
               <img src="../../images/view_list21.png" />
             </label>
             <div><!-- dress_size --></div>
-          </div>
-
-          <div id="model_bwh" class="field-wrapper">
-            <label>
-              <img src="../../images/view_list22.png" />
-            </label>
-            <div><!-- bwh --></div>
           </div>
 
           <div id="model_shoe_size" class="field-wrapper">
@@ -426,10 +400,7 @@
             <div><!-- fan_site_url --></div>
           </div>
 
-          <div id="model_career_desc" class="field-wrapper">
-            <label>
-              <img src="../../images/view_list27.png" />
-            </label>
+          <div id="model_career_desc" class="field-wrapper content-only">
             <div><!-- career_desc --></div>
           </div>
 
