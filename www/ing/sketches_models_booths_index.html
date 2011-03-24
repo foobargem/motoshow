@@ -16,6 +16,7 @@
   <script src="../../phonegap.0.9.4.js" type="text/javascript" charset="utf-8"></script>
   <script src="../../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
   <script src="../../javascripts/suddenlybunt_command.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
 
   <script type="text/javascript" charset="utf-8">
 
@@ -271,6 +272,7 @@
     }
 
     $(document).ready(function(){
+			ChildBrowser.install();
       SuddenlybuntCmd.install();
       fetch_and_update_companies_list();
       new Banner("div.banner-container");
