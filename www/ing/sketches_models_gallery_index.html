@@ -13,9 +13,9 @@
   <script src="../../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
   <script src="../../extensions/jqt.scroll.js" type="application/x-javascript" charset="utf-8"></script>
   <script src="../../phonegap.0.9.4.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
   <script src="../../javascripts/suddenlybunt_command.js" type="text/javascript" charset="utf-8"></script>
   <script src="../../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
+
     
   <script type="text/javascript" charset="utf-8">
       //change dynamic css
@@ -157,33 +157,11 @@
         $("#model_blood_type").hide();
       }
 
-      var height_weight = "";
-      if (model.height && model.height.trim() != "") {
-        height_weight += model.height;
-      }
-      if (model.weight && model.weight.trim() != "") {
-        height_weight += model.weight;
-      }
-
-      if (height_weight.trim() != "") {
-        $("#model_height_weight").show();
-        $("#model_height_weight div").text(height_weight);
-      } else {
-        $("#model_height_weight").hide();
-      }
-
       if (model.dress_size && model.dress_size.trim() != "") {
         $("#model_dress_size").show();
         $("#model_dress_size div").text(model.dress_size);
       } else {
         $("#model_dress_size").hide();
-      }
-
-      if (model.bwh && model.bwh.trim() != "") {
-        $("#model_bwh").show();
-        $("#model_bwh div").text(model.bwh);
-      } else {
-        $("#model_bwh").hide();
       }
 
       if (model.shoe_size && model.shoe_size.trim() != "") {
@@ -225,7 +203,7 @@
       if (model.photo_large_url && model.photo_large_url.trim() != "") {
         $("#model_profile_image")[0].src = model.photo_large_url;
       } else {
-        $("#model_profile_image")[0].src = "about:blank";
+        $("#model_profile_image")[0].src = "../../images/loading_image.jpg";
       }
       
       hideIndicatorByView2();
@@ -255,7 +233,6 @@
     $(document).ready(function(){
 
       SuddenlybuntCmd.install();
-
       fetch_and_update_photos_list();
 
     });
@@ -275,7 +252,8 @@
 			<a href="index.html" rel="external" class="homeButton"></a>
     </div>
     <!-- <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div> -->
-    <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat-y;background-size:100%">
+
+    <div class="vertical-scroll"><div class="content-wrapper">
 
       <div class="thumbnail-container">
         <ul>
@@ -290,17 +268,18 @@
 		  
   <div id="model_show">
     <div class="toolbar">
-      <h1>{model_name}</h1>
+      <h1>Loading..</h1>
       <a href="#model_gallery" class="back btn">이전</a>
 			<a href="index.html" rel="external" class="homeButton"></a>
     </div>
     <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>
-    <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat;background-size:100%">
+
+    <div class="vertical-scroll"><div class="content-wrapper">
 
       <div class="top-blank-box"></div>
       <div class="photo-container">
         <div class="logo-image-container">
-          <img id="model_profile_image" src="about:blank" width="274" height="254" />
+          <img id="model_profile_image" src="../../images/loading_image.jpg" width="274" height="254" />
         </div>
       </div>
       <div class="content-container">
@@ -326,25 +305,11 @@
           <div><!-- blood_type --></div>
         </div>
 
-        <div id="model_height_weight" class="field-wrapper">
-          <label>
-            <img src="../../images/view_list20.png" />
-          </label>
-          <div><!-- height and weight --></div>
-        </div>
-
         <div id="model_dress_size" class="field-wrapper">
           <label>
             <img src="../../images/view_list21.png" />
           </label>
           <div><!-- dress_size --></div>
-        </div>
-
-        <div id="model_bwh" class="field-wrapper">
-          <label>
-            <img src="../../images/view_list22.png" />
-          </label>
-          <div><!-- bwh --></div>
         </div>
 
         <div id="model_shoe_size" class="field-wrapper">

@@ -2,8 +2,8 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 var SMS = {
-  //baseURL: "http://localhost:3001"
-  baseURL: "http://2011sms.top-rider.com"
+  baseURL: "http://10.1.1.91:3000"
+  // baseURL: "http://2011sms.top-rider.com"
 };
 
 SMS.API = {
@@ -37,6 +37,9 @@ SMS.API = {
     },
     showURL: function(id) {
       return SMS.baseURL + "/cars/" + id + ".json";
+    },
+    photosURL: function(id) {
+      return SMS.baseURL + "/cars/photos.json?id=" + id;
     }
   },
 
@@ -90,9 +93,11 @@ function Banner(element) {
 
   var that = this;
 
+  /*
   if (!window.plugins || !window.plugins.childBrowser) {
     ChildBrowser.install();
   }
+  */
 
   jQuery.ajax({
     url: SMS.API.Banner.baseAdURL(),
