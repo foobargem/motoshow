@@ -81,6 +81,8 @@
       $("a.gallery-link").bind("click", function(event){
         event.preventDefault();
         var company_id = $(event.currentTarget).attr("data-id");
+        $("#model_gallery h1").text($(event.currentTarget).text());
+
         fetch_and_update_model_gallery(company_id);
       });
     }
@@ -306,7 +308,7 @@
 
     <div id="model_gallery">
       <div class="toolbar">
-        <h1>레이싱 모델</h1>
+        <h1></h1>
         <a href="#sketches_models_booth_index" rel="external" class="back btn">이전</a>
 				<a href="index.html" rel="external" class="homeButton"></a>
       </div>
