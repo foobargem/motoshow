@@ -41,7 +41,7 @@
             });
 
 
-      var _company_id = null;
+      var _booth_code = null;
 
 			function fetch_and_update_companies_list() {
 				var _url = SMS.API.Company.indexURL(category);
@@ -95,8 +95,6 @@
 					$("#companies_show h1").text($(event.currentTarget).text());
 					$("#company_logo")[0].src = "../../images/loading_image.jpg";
 
-          _company_id = company_id;
-
           showIndicatorByView();
           fetchCompanyShow(company_id);
 				});
@@ -124,6 +122,8 @@
         var company = data.company;
 
         //$("#companies_show h1").text(company.name);
+
+				_booth_code = company.booth_code;
 
         if (company.contact && company.contact.trim() != "") {
           $("#company_contact").show();
@@ -212,7 +212,7 @@
 
         // ToDo:
         $("#company_cars_btn").bind("click", function(){
-          window.location.href = "guide.html";
+          window.location.href = "showcars_index.html#" + _booth_code;
         });
 
 			});
@@ -243,7 +243,7 @@
 			<div id="companies_show">
 				<div class="toolbar">
 					<h1></h1>
-					<a href="#companies_cars_index" rel="external" class="back btn">이전</a>
+					<a href="#companies_cars_index" class="back btn">이전</a>
 					<a href="index.html" rel="external" class="homeButton"></a>
 				</div>
         <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>

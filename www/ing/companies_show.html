@@ -39,7 +39,7 @@
 
 
 
-      var _company_id = null;
+      var _booth_code = null;
 
       function fetchCompany() {
         var _url = SMS.API.Company.showURL(booth_code);
@@ -69,7 +69,7 @@
 
         var company = data.company;
 
-        _company_id = company.id;
+        _booth_code = company.booth_code;
 
         $("#companies_show h1").text(company.name);
 
@@ -135,7 +135,7 @@
 
         // ToDo:
         $("#company_cars_btn").bind("click", function(){
-          window.location.href = "guide.html";
+          window.location.href = "showcars_index.html#" + _booth_code;
         });
 			});
 
