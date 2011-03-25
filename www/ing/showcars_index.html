@@ -341,7 +341,7 @@
 
             $('#car_photo_btn').attr("data-id", car.id);
 
-			      updateButtonsByCar(car);
+			      updateButtonsByCar(msg);
 			     
 			      hideIndicatorByView_show();
 				    
@@ -350,14 +350,20 @@
 
 			    function updateButtonsByCar(data) {
 
-            var car = data;
+            var car = data.car;
 
 			      if (car.video_stream_url && car.video_stream_url.trim() != "") {
 			        $("#car_video_stream_btn").show();
 			      } else {
 			        $("#car_video_stream_btn").hide();
 			      }
-
+			
+			      if (data.company.category =='car') {
+			        $("#car_others_btn").show();
+			      } else {
+			        $("#car_others_btn").hide();
+			      }
+			
 			      $("#car_photo_btn").bind("click", function(event){
 				      event.preventDefault();
 			        var car_id = $(event.currentTarget).attr("data-id");
@@ -414,6 +420,7 @@
             fetch_and_update_cars_list_all();
 			      back_url = "index.html";
 			      $('a#firstBack').attr('href', back_url);
+			      $("#cars_index h1").text("전시차 리스트");
           }
 
           new Banner("div.banner-container");
@@ -427,7 +434,7 @@
 			
 			<div id="cars_index">
 				<div class="toolbar">
-					<h1>자동차 목록</h1>
+					<h1></h1>
 					<a href="index.html" rel="external" id="firstBack" class="back btn">이전</a>
 					<a href="index.html" rel="external" class="homeButton"></a>
 				</div>
@@ -435,7 +442,10 @@
 				<div class="vertical-scroll use-bottom-toolbar">
 					<div class="content-wrapper">
 					  <div class="content-container">
-						  <ul><!-- car list --></ul>
+						  <ul>
+						    <!-- car list -->
+							  <li id="more" class="more"><a href="#">데이터가 없습니다.</a></li>
+							</ul>
 					  </div>
 				  </div>
 				</div>
