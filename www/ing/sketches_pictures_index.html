@@ -16,6 +16,7 @@
   <script src="../../phonegap.0.9.4.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="../../javascripts/suddenlybunt_command.js" type="text/javascript" charset="utf-8"></script>
   <script src="../../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
 
 
   <script type="text/javascript" charset="utf-8">
@@ -173,6 +174,7 @@
 
 
     $(document).ready(function(){
+			ChildBrowser.install();
 
       SuddenlybuntCmd.install();
 
@@ -195,7 +197,7 @@
     </div>
     <!-- <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div> -->
 
-    <div class="vertical-scroll"><div class="content-wrapper">
+    <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat-y;background-size:100%">
 
       <div class="thumbnail-container">
         <ul>
@@ -216,7 +218,7 @@
     </div>
     <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>
 
-    <div class="vertical-scroll"><div class="content-wrapper">
+    <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat-y;background-size:100%">
 
       <div class="photo-container">
         <img src="../../images/loading_image.jpg" width="320" />

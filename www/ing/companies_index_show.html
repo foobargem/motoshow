@@ -74,7 +74,7 @@
 					li_eles += '<li class="arrow"><a href="#companies_show" class="detail-link" data-id="' + company.id + '">'+ company.name + '</a></li>';
 				});
 
-				$("#companies_index div.content-container ul").html(li_eles);
+				$("#companies_cars_index div.content-container ul").html(li_eles);
 			}
 
 
@@ -192,7 +192,7 @@
           title = "용품업체";
         }
 
-        $("#companies_index h1").text(title);
+        $("#companies_cars_index h1").text(title);
       }
 
 
@@ -215,18 +215,20 @@
     <body>
 		<div id="jqt">
 
-			<div id="companies_index">
+			<div id="companies_cars_index">
 				<div class="toolbar">
 					<h1>완성차</h1>
 					<a href="companies_index.html" rel="external" class="back btn">이전</a>
 					<a href="index.html" rel="external" class="homeButton"></a>
 				</div>
 
-				<div class="vertical-scroll use-bottom-toolbar"><div class="content-wrapper">
-					<div class="content-container">
-						<ul><!-- company list --></ul>
-					</div>
-				</div></div>
+				<div class="vertical-scroll use-bottom-toolbar">
+					<div class="content-wrapper">
+					  <div class="content-container">
+						  <ul><!-- company list --></ul>
+					  </div>
+				  </div>
+				</div>
 				<div class="toolbar banner-container">
 					Banner
 				</div>
@@ -236,7 +238,7 @@
 			<div id="companies_show">
 				<div class="toolbar">
 					<h1></h1>
-					<a href="#companies_index" rel="external" class="back btn">이전</a>
+					<a href="#companies_cars_index" rel="external" class="back btn">이전</a>
 					<a href="index.html" rel="external" class="homeButton"></a>
 				</div>
         <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>
