@@ -39,6 +39,8 @@
 
 
 
+      var _company_id = null;
+
       function fetchCompany() {
         var _url = SMS.API.Company.showURL(booth_code);
 
@@ -66,6 +68,8 @@
       function updateCompanyInfo(data) {
 
         var company = data.company;
+
+        _company_id = company.id;
 
         $("#companies_show h1").text(company.name);
 
@@ -124,12 +128,15 @@
       }
 
 			$(document).ready(function(){
-				//$(document).bind("deviceready", function(){
 				ChildBrowser.install();	
         fetchCompany();
-        //}, false);
 	      
         new Banner("div.banner-container");
+
+        // ToDo:
+        $("#company_cars_btn").bind("click", function(){
+          window.location.href = "guide.html";
+        });
 			});
 
     </script>
@@ -153,6 +160,9 @@
 							<img id="company_logo" src="../../images/loading_image.jpg" width="270" height="116" />
 						</div>
 					</div>
+          <div class="buttons-container">
+            <img id="company_cars_btn" src="../../images/view_btn3.png" />
+          </div>
 					<div class="content-container">
 
 						<div id="company_contact" class="field-wrapper">
