@@ -29,8 +29,11 @@ SMS.API = {
   },
 
   Car: {
-    indexURL: function() {
-      return SMS.baseURL + "/cars.json";
+    indexURL: function(company_id) {
+      return SMS.baseURL + "/cars.json?company_id=" + company_id;
+    },
+    indexURLbyBoothcode: function(booth_code) {
+      return SMS.baseURL + "/cars/booth.json?booth_code_id=" + booth_code;
     },
     galleryURL: function(company_id) {
       return SMS.API.Photo.indexURL('car');
