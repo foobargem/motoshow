@@ -18,12 +18,13 @@
   <script src="../../javascripts/suddenlybunt_command.js" type="text/javascript" charset="utf-8"></script>
   <script src="../../jqtouch/ChildBrowser.js" type="text/javascript" charset="utf-8"></script>
 
+  <script type="text/javascript" charset="utf-8" src="../../jqtouch/racing_models_sub_gallery.js"></script>
   <script type="text/javascript" charset="utf-8">
 
     //change dynamic css
     var jQT = new $.jQTouch({
         slideSelector: '#jqt li a, .slide',
-        flipSelector: '#jqt li a.detail-link, .flip',
+        flipSelector: '#jqt li a.detail-link, #jqt li a.photo-link, .flip',
         icon: '../../images/jqtouch.png',
         addGlossToIcon: false,
         startupScreen: '../../images/jqt_startup.png',
@@ -35,6 +36,8 @@
             '../../themes/jqt/img/loading.gif' ]
     });
 
+
+    var _model_id = null;
 
     // TableView
 
@@ -81,6 +84,8 @@
       $("a.gallery-link").bind("click", function(event){
         event.preventDefault();
         var company_id = $(event.currentTarget).attr("data-id");
+        $("#model_gallery h1").text($(event.currentTarget).text());
+
         fetch_and_update_model_gallery(company_id);
       });
     }
@@ -133,6 +138,7 @@
         event.preventDefault();
         var model_id = $(event.currentTarget).attr("data-id");
         //window.plugins.suddenlybuntCmd.debug(photo_id);
+        _model_id = model_id;
         fetchRacingModel(model_id);
       });
     }
@@ -164,6 +170,9 @@
       var model = data.racing_model;
 
       $("#model_show h1").text(model.name);
+      $("#model_sub_gallery h1").text(model.name);
+      $("#model_photo h1").text(model.name);
+
       $("#model_name div").text(model.name);
 
       if (model.birth && model.birth.trim() != "") {
@@ -237,6 +246,7 @@
         $("#model_profile_image")[0].src = "../../images/loading_image.jpg";
       }
       
+      RacingModelSubGallery.updateSubGalleryButton(model);
       hideIndicatorByView3();
 
     }
@@ -276,6 +286,11 @@
       SuddenlybuntCmd.install();
       fetch_and_update_companies_list();
       new Banner("div.banner-container");
+
+      $("#sub_gallery_btn").bind("click", function(event){
+        RacingModelSubGallery.fetch_model_photos_and_update_sub_gallery();
+      });
+
     });
 
 
@@ -306,7 +321,7 @@
 
     <div id="model_gallery">
       <div class="toolbar">
-        <h1>레이싱 모델</h1>
+        <h1></h1>
         <a href="#sketches_models_booth_index" rel="external" class="back btn">이전</a>
 				<a href="index.html" rel="external" class="homeButton"></a>
       </div>
@@ -320,7 +335,8 @@
 
       </div></div>
     </div>
-    <!-- // thumbs_container -->
+    <!-- // model_gallery -->
+
         
     <div id="model_show">
       <div class="toolbar">
@@ -329,7 +345,6 @@
 				<a href="index.html" rel="external" class="homeButton"></a>
       </div>
 	    <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>
-
       <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat-y;background-size:100%">
 
         <div class="top-blank-box"></div>
@@ -343,6 +358,9 @@
           <!-- <div class="next-btn-container">
             <img src="../../images/icon_next1.png" />
           </div> -->
+        </div>
+        <div class="buttons-container">
+          <a href="#model_sub_gallery" id="sub_gallery_btn" class="pop"><img src="../../images/view_btn3.png" /></a>
         </div>
         <div class="content-container">
 
@@ -410,6 +428,49 @@
 
       </div></div>
     </div>
+    <!-- // model_show -->
+
+
+    <div id="model_sub_gallery">
+      <div class="toolbar">
+        <h1></h1>
+        <a href="#model_show" class="back btn">이전</a>
+        <a href="index.html" rel="external" class="homeButton"></a>
+      </div>
+      <!-- <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div> -->
+      <div class="vertical-scroll"><div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat-y;background-size:100%">
+
+        <div class="thumbnail-container">
+          <ul>
+            <li id="more" class="more"><a href="#">More</a></li>
+            <!-- photo gallery -->
+          </ul>
+        </div>
+
+      </div></div>
+    </div>
+    <!-- // model_photo_gallery -->
+
+
+    <div id="model_photo">
+      <div class="toolbar">
+        <h1></h1>
+        <a href="#model_sub_gallery" class="back btn">이전</a>
+        <a href="index.html" rel="external" class="homeButton"></a>
+      </div>
+      <div class="content-wrapper" style="background:url(../../images/com_bg2.png) repeat-y;background-size:100%">
+        <div class="horizontal-scroll">
+          <table class="with-scrollbar">
+            <tr>
+              <td>
+                <div><img id="model_large_image" src="" /></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
 
 
 
