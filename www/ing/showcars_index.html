@@ -7,9 +7,14 @@
     <style type="text/css" media="screen">@import "../../themes/jqt/theme.css";</style>
     <style type="text/css" media="screen">@import "../../stylesheets/ing_application.css";</style>
 
-		<script type="text/javascript">
-
-		</script>
+	  <script type="text/javascript">
+	    var booth_code = document.location.hash;
+	    if (booth_code != undefined) {
+	      booth_code = booth_code.replace('#', '');
+	    }
+	    alert(booth_code);
+	  </script>
+	
     <script src="../../jqtouch/jquery.1.4.2.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../jqtouch/jquery.dataAttr.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
@@ -19,7 +24,6 @@
     <script src="../../javascripts/application.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../javascripts/suddenlybunt_command.js" type="text/javascript" charset="utf-8"></script>
 
-	
     <script type="text/javascript" charset="utf-8">
         //change dynamic css
         var jQT = new $.jQTouch({
@@ -43,7 +47,33 @@
         });
       }
 			
-			function fetch_and_update_cars_list() {
+			// 해당 부스의 회사 차만 보기
+			function fetch_and_update_cars_list(booth_code) {
+	      var _url = SMS.API.Car.indexURLbyBoothcode(booth_code);
+
+	      jQuery.ajax({
+	        url: _url,
+	        type: 'GET',
+	        data: {
+	        },
+	        //error: onFetchError,
+	        success: function(msg){
+	          updateListTitle(msg.companyname);
+	          buildList(msg.cars);
+	          updateListRowStyles();
+	          addEventListenerToRow();
+	        }
+	      });
+	    }
+	
+	    function updateListTitle(title) {    
+	      $("#cars_index h1").text(title);
+	    }
+	
+			// 전체 차종 보기 
+			function fetch_and_update_cars_list_all() {
+				window.plugins.suddenlybuntCmd.debug("fetch_and_update_cars_list_all");
+        
 				var _url = SMS.API.Car.indexURL();
 
 				jQuery.ajax({
@@ -51,47 +81,27 @@
 					type: 'GET',
 					data: {
 					},
-          // error: onFetchListError,
+          // error: onFetchError,
 					success: function(msg){
 						buildList(msg);
 						updateListRowStyles();
-						addEventListenerToRow2();
+						addEventListenerToRow();
 					}
 				});
 			}
-
-	    function addEventListenerToRow2 () {
-
-				$("a.gallery-link").bind("click", function(event){
-	        event.preventDefault();
-	        var car_id = $(event.currentTarget).attr("data-id");
-	        window.plugins.suddenlybuntCmd.debug(car_id);
-					$("#car_gallery h1").text($(event.currentTarget).text());
-
-          // showIndicatorByView();
-	        fetch_and_update_photos_list(car_id);
-	      });
-      }
-
-      function onFetchListError() {
-        navigator.notification.alert("데이터가 없습니다", function(){
-          window.history.back();
-          return false;
-        });
-      }
 
 
 			function buildList (msg) {
 				var li_eles = '';
 				jQuery.each(msg, function(idx, obj){
 					var car = obj['car'];
-					li_eles += '<li class="arrow">' + '<a href="#car_gallery" class="gallery-link" data-id="' + car.id + '" >' + car.name + '</a></li>';
-					// li_eles += '<li class="arrow"><a href="#companies_show" class="detail-link" data-id="' + company.id + '">'+ company.name + '</a></li>';
+					window.plugins.suddenlybuntCmd.debug(car.name);
+	        
+					li_eles += '<li class="arrow">' + '<a href="#car_show" class="detail-link" data-id="' + car.id + '" >' + car.name + '</a></li>';
 				});
 
 				$("#cars_index div.content-container ul").html(li_eles);
 			}
-
 
 			function updateListRowStyles () {
 				$("li:even").css("background", 'url("../../images/sub_list1.png") no-repeat');
@@ -102,6 +112,21 @@
 			}
 
 
+	    function addEventListenerToRow () {
+
+				$("a.detail-link").bind("click", function(event){
+	        event.preventDefault();
+	        var car_id = $(event.currentTarget).attr("data-id");
+
+	        window.plugins.suddenlybuntCmd.debug(car_id);
+
+					$("#car_show h1").text($(event.currentTarget).text());
+
+          showIndicatorByView_show();
+	        fetchCar(car_id);
+	      });
+      }
+
 ///////// gallery 
 
 			    var _page = 1;
@@ -110,7 +135,7 @@
 			    function fetch_and_update_photos_list(car_id) {
 			      var _url = SMS.API.Car.photosURL(car_id);
 			
-			      $("#car_gallery div.thumbnail-container ul").html("");
+			      // $("#car_gallery div.thumbnail-container ul").html("");
 		  
 			      window.plugins.suddenlybuntCmd.debug(_page);
 		  
@@ -122,7 +147,7 @@
 
 		        window.plugins.suddenlybuntCmd.debug(_url);
 
-			      //showIndicatorByView();
+			      showIndicatorByView_gallery();
 		        window.plugins.suddenlybuntCmd.debug("fetch_and_update_photos_list");
 
 			      jQuery.ajax({
@@ -136,7 +161,7 @@
 			          updateGalleryTitle(msg);
 			          buildGallery(msg);
 			          updateListRowStyles();
-			          addEventListenerToRow();
+			          addEventListenerToRow2();
 			        }
 			      });
 			    }
@@ -167,13 +192,13 @@
 			          li_className = 'line-break';
 			        }
 
-			        li_eles += '<li class="' + li_className + '"><a href="#car_show" class="detail-link" data-id="' + photo.car_id + '" data-large-url="' + photo.large_url + '"><img src="' + shorten_img_url(photo.large_url) + '" /></a></li>';
+			        li_eles += '<li class="' + li_className + '"><a href="#car_large_show" class="large-link" data-id="' + photo.car_id + '" data-large-url="' + photo.large_url + '"><img src="' + shorten_img_url(photo.large_url) + '" /></a></li>';
 			      });
 
 			      if (has_next == "n") {
 			        last_page = true;
 			      } else {
-			        li_eles += '<li id="more" class="more"><a href="#">More</a></li>';
+			        li_eles += '<li id="more" class="more" data-id="' + photo.car_id + '><a href="#">More</a></li>';
 			      }
 
 			      if (li_eles.trim() == "") {
@@ -184,7 +209,7 @@
 			
 			      }
 
-			      //hideIndicatorByView();
+			      hideIndicatorByView_gallery();
 
 			    }
 
@@ -199,32 +224,34 @@
 			      $("li#more").css("background", "#000");
 			    }
 
-			    function addEventListenerToRow () {
-			      $("a.detail-link").bind("click", function(event){
+			    function addEventListenerToRow2 () {
+
+			      $("a.large-link").bind("click", function(event){
 			        event.preventDefault();
 			        var car_id = $(event.currentTarget).attr("data-id");
 
 			        window.plugins.suddenlybuntCmd.debug(car_id);
 
 			        var car_large_url = $(event.currentTarget).attr("data-large-url");
-
-			        fetchCar(car_id, car_large_url);
+              $("#car_large_image")[0].src = car_large_url;
 			      });
-
+			
 			      $("li#more").bind("click", function(event){
 			        event.preventDefault();
 			        _page += 1;
-			        fetch_and_update_photos_list();
+			        fetch_and_update_photos_list(car_id);
 			      });
 			    }
 
 
-			    function fetchCar(car_id, car_large_url) {
+			    function fetchCar(car_id) {
+				    window.plugins.suddenlybuntCmd.debug("fetchCar");
+			  
 			      var _url = SMS.API.Car.showURL(car_id);
-			      
+		        
 			      $("#car_profile_image")[0].src = "../../images/loading_image.jpg";
 			
-			      showIndicatorByView2();
+			      showIndicatorByView_show();
 
 			      jQuery.ajax({
 			        url: _url,
@@ -232,7 +259,7 @@
 			        data: {
 			        },
 			        success: function(msg){
-			          updateCarInfo(msg, car_large_url);
+			          updateCarInfo(msg);
 			        }
 			      });
 
@@ -240,14 +267,14 @@
 
 
 			//
-			    function updateCarInfo(data, car_large_url) {
+			    function updateCarInfo(msg) {
+				    window.plugins.suddenlybuntCmd.debug("updateCarInfo");
+				    window.plugins.suddenlybuntCmd.debug(msg.car);
+				
+						var car = msg.car;
 
-			      var car = data.car;
-
-			      // ToDo
 			      $("#car_show h1").text(car.name);
-			      $("#car_gallery h1").text(car.name);
-			      $("#car_company_name div").text(car.name);
+			      $("#car_company_name div").text(car.company.name);
 
 			      if (car.name && car.name.trim() != "") {
 			        $("#car_name").show();
@@ -261,13 +288,6 @@
 			        $("#car_price div").text(car.price);
 			      } else {
 			        $("#car_price").hide();
-			      }
-
-			      if (car.vehicle_type && car.vehicle_type.trim() != "") {
-			        $("#car_vehicle_type").show();
-			        $("#car_vehicle_type div").text(car.vehicle_type);
-			      } else {
-			        $("#car_vehicle_type").hide();
 			      }
 
 			      if (car.engine_type && car.engine_type.trim() != "") {
@@ -328,27 +348,31 @@
 
 			      if (car.desc && car.desc.trim() != "") {
 			        $("#car_desc").show();
-			        $("#car_desc div").text(car.desc);
+			        $("#car_desc div").html(car.desc);
 			      } else {
 			        $("#car_desc").hide();
 			      }
-
+            
 			      //window.plugins.suddenlybuntCmd.debug(car.photo_large_url);
 			      if (car.photo_large_url && car.photo_large_url.trim() != "") {
-			        $("#car_profile_image")[0].src = car_large_url;
-			        $("#car_large_image")[0].src = car_large_url;
+			        $("#car_profile_image")[0].src = car.photo_large_url;
 			      } else {
 			        $("#car_profile_image")[0].src = "../../images/loading_image.jpg";
 			     }
 
-			      updateButtonsByCar(data);
-			      hideIndicatorByView2();
+            $('#car_photo_btn').attr("data-id", car.id);
+
+			      updateButtonsByCar(car);
+			     
+			      hideIndicatorByView_show();
+						window.plugins.suddenlybuntCmd.debug("END!!!!!!!!!!!");
+				    
 			    }
 
 
 			    function updateButtonsByCar(data) {
 
-            var car = data.car;
+            var car = data;
 
 			      if (car.video_stream_url && car.video_stream_url.trim() != "") {
 			        $("#car_video_stream_btn").show();
@@ -356,16 +380,11 @@
 			        $("#car_video_stream_btn").hide();
 			      }
 
-			      // ToDo: car_photo_btn, car_others_btn
-			      // $("#car_photo_btn").hide();
-			      // 
-			      // $("#car_others_btn").bind("click", function(event){
-			      // 				      window.plugins.suddenlybuntCmd.debug(data.company.booth_code);
-			      // 			  
-			      //               window.location.href = 'showcars_companies_index.html#' + data.company.booth_code;
-			      // });
-			      // $("#car_others_btn").show();
-
+			      $("#car_photo_btn").bind("click", function(event){
+				      event.preventDefault();
+			        var car_id = $(event.currentTarget).attr("data-id");
+			        fetch_and_update_photos_list(car_id);
+			      });
 
 			      // add eventlistener
 			      (function() {
@@ -384,31 +403,38 @@
 
 			    }
 
-			    function showIndicatorByView() {
+			    function showIndicatorByView_gallery() {
 			      $("#car_gallery div.loading-container").show();
 			    }
 
-			    function hideIndicatorByView() {
+			    function hideIndicatorByView_gallery() {
 			      setTimeout(function(){
 			        $("#car_gallery div.loading-container").hide();
 			      }, 600);
 			    }
 
-			    function showIndicatorByView2() {
+			    function showIndicatorByView_show() {
 			      $("#car_show div.loading-container").show();
 			    }
 
-			    function hideIndicatorByView2() {
+			    function hideIndicatorByView_show() {
 			      setTimeout(function(){
 			        $("#car_show div.loading-container").hide();
 			      }, 600);
 			    }
 			
+			
 			$(document).ready(function(){
 	  			ChildBrowser.install();
-	
           SuddenlybuntCmd.install();
-          fetch_and_update_cars_list();
+			    window.plugins.suddenlybuntCmd.debug(booth_code);		    
+
+				  if (booth_code.trim() != '' ) {
+	          fetch_and_update_cars_list(booth_code);
+	        } else {
+            fetch_and_update_cars_list_all();
+          }
+
           new Banner("div.banner-container");
 			});
 
@@ -417,7 +443,7 @@
     </head>
     <body>
 		<div id="jqt">
-
+			
 			<div id="cars_index">
 				<div class="toolbar">
 					<h1>자동차 목록</h1>
@@ -425,11 +451,13 @@
 					<a href="index.html" rel="external" class="homeButton"></a>
 				</div>
 
-				<div class="vertical-scroll use-bottom-toolbar"><div class="content-wrapper">
-					<div class="content-container">
-						<ul><!-- car list --></ul>
-					</div>
-				</div></div>
+				<div class="vertical-scroll use-bottom-toolbar">
+					<div class="content-wrapper">
+					  <div class="content-container">
+						  <ul><!-- car list --></ul>
+					  </div>
+				  </div>
+				</div>
 				<div class="toolbar banner-container">
 					Banner
 				</div>
@@ -438,7 +466,7 @@
     <div id="car_gallery">
 	    <div class="toolbar">
 	      <h1>Loading..</h1>      
-	      <a href="#cars_index" rel="external" class="back btn">이전</a>
+	      <a href="#cars_show" rel="external" class="back btn">이전</a>
 				<a href="index.html" rel="external" class="homeButton"></a>
 	    </div>
 	    <!-- <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div> -->
@@ -458,7 +486,7 @@
 	  <div id="car_show">
 	    <div class="toolbar">
 	      <h1>Loading..</h1>
-	      <a href="#car_gallery" class="back btn">이전</a>
+	      <a href="#car_index" class="back btn">이전</a>
 				<a href="index.html" rel="external" class="homeButton"></a>
 	    </div>
 
@@ -468,17 +496,24 @@
 	      <div class="photo-container">
 	        <div class="logo-image-container">
 		        <div class="loading-container"><img src="../../images/loading/loading_indicator.gif" /></div>
-	          <a href="#car_large_show" class='flip' ><img id="car_profile_image" src="../../images/loading_image.jpg" width="270" height="116" /></a>
+	          <img id="car_profile_image" src="../../images/loading_image.jpg" width="270" height="116" />
 	        </div>
 	      </div>
 
 	      <div class="buttons-container">
-	        <!-- <img id="car_photo_btn" src="../../images/view_btn3.png" /> -->
+	        <a href ="#car_gallery" class="flip"><img id="car_photo_btn" src="../../images/view_btn3.png" data-id="" /></a>
 	        <img id="car_video_stream_btn" src="../../images/view_btn4.png" />
-	        <a href="#car_gallery" class="flip"><img id="car_others_btn" src="../../images/view_btn5.png" /></a>
+	        <a href="#cars_index" class="flip"><img id="car_others_btn" src="../../images/view_btn5.png" /></a>
 	      </div>
 
 	      <div class="content-container">
+	
+	        <div id="car_company_name" class="field-wrapper">
+	          <label>
+	            <img src="../../images/view_list7.png" />
+	          </label>
+	          <div><!-- company_name --></div>
+	        </div>
 
 	        <div id="car_name" class="field-wrapper">
 	          <label>
@@ -492,20 +527,6 @@
 	            <img src="../../images/view_list6.png" />
 	          </label>
 	          <div><!-- price --></div>
-	        </div>
-
-	        <div id="car_company_name" class="field-wrapper">
-	          <label>
-	            <img src="../../images/view_list7.png" />
-	          </label>
-	          <div><!-- company_name --></div>
-	        </div>
-
-	        <div id="car_vehicle_type" class="field-wrapper">
-	          <label>
-	            <img src="../../images/view_list8.png" />
-	          </label>
-	          <div><!-- vehicle_type --></div>
 	        </div>
 
 	        <div id="car_engine_type" class="field-wrapper">
@@ -575,7 +596,7 @@
 
 	  <div id="car_large_show">
 	    <div class="toolbar">
-	      <h1>전체 보기</h1>      
+	      <h1>크게 보기</h1>      
 	      <a href="#car_show" class="back btn">이전</a>
 				<a href="index.html" rel="external" class="homeButton"></a>
 	    </div>
